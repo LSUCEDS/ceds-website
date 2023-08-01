@@ -1,1 +1,3 @@
 # ceds-website
+
+Documentation for CEDS website, among other things...
