@@ -36,14 +36,14 @@ Other pages, such as the people page will need to be updated less frequently whe
 Omni is a CMS, or content management system. Rather than doing all of the programming for a site by yourself line-by-line, a CMS allows you to publicly host your files online using preset page items, called snippets. Most of the time spent editing the website will be done through interacting with or making changes to snippets. In order to navigate to a page, you will need to click "Back to Pages" or navigate using the "Home" icon in the tope left-hand corner of the screen. The folders for each page are located at _fierce_draft/_ceds, where the following should be visible:
 
 <!-- photo -->
-![Omni File Structure](/omni-structure.png)
+![Omni File Structure](/photos/omni-structure.png)
 
 ## Navigating the Directory
 
 Each *index.pcf* file, one of which is visible in the picture above, is an editable file. The index file in each folder corresponds with the website page for that folder, so the index.pcf file in the research folder is the editable file for the Research page. The index file in picture is in the root directory and corresponds to the landing page for the site. Simply click on the index file you want to edit to be taken to that page.
 
 <!-- photo -->
-![Main Omni Page](/omni-main.png)
+![Main Omni Page](/photos/omni-main.png)
 
 ## Navigating the Index File
 
@@ -60,14 +60,14 @@ The index files give you several options for that page. The tabs and buttons at 
 In order to check in a page, navigate to "My Dashboard" at the top of the screen and turn off the lightbulbs for each page you want to check in.
 
 <!-- photo -->
-![Omni Check in-out Procedure](/omni-check-out.png)
+![Omni Check in-out Procedure](/photos/omni-check-out.png)
 
 # Editing Pages
 
 
 
 <!-- photo -->
-![Editing Functions](/omni-edit.png)
+![Editing Functions](/photos/omni-edit.png)
 
 # About Page
 
