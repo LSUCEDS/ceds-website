@@ -4,7 +4,7 @@ subtitle: "Website Maintenance Manual"
 author: "Austin Franklin"
 description: "This is the manual describing maintenance procedures for the CEDS website located at https://lsu.edu/ceds"
 institute: "Louisiana State University"
-date: "Last Updated 08/01/2023"
+date: "Last Updated 08/07/2023"
 ---
 
 # Maintenance Manual
