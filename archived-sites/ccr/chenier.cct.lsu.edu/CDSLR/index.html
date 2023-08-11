@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from chenier.cct.lsu.edu/CDSLR/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 14:56:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Coastal Dynamics of Sea Level Rise</title>
+<link href='../../fonts.googleapis.com/css5452.css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link href="css/master.css" rel="stylesheet" type="text/css" />
+<link href="http://www.drivegroupllc.com/favicon.ico" rel="shortcut icon">
+<!-- jQuery Plugin -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<!-- slider Plugin -->
+<script src="../../code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" href="js/jquery-ui.css">    
+    
+<script>
+  var timeoutID;
+  var play_anim = true;
+  $(function() {
+    $('#play').click(function(){
+      if($('.currentslide').attr('id') === "14"){
+        $('.currentslide').css({'z-index':'3'}).hide()
+        $( ".scroll-bar" ).slider( "value", 1 );
+      }
+      play_anim = true;
+      timeoutID = setTimeout(animateSlider, 1000);
+    });
+    setTimeout(function(){animate_bouy($('#left_bouy'))}, randomTime());
+    setTimeout(function(){animate_bouy($('#right_bouy'))}, randomTime());
+    $('.new_content_item').hide();
+    $('.item-1').show();
+    //build slider
+    var scrollbar = $( ".scroll-bar" ).slider({
+      value:1,
+      min: 1,
+      max: 14,
+      step: 1,
+      slide: function( event, ui ) {
+        if(timeoutID){
+          clearTimeout(timeoutID);
+        }
+        play_anim = false;
+        if(ui.value != 0){
+          var div_item_not = ".new_content div:not(.item-" + ui.value + ")";
+          var div_item = ".item-" + ui.value;
+          $(div_item_not).removeClass('currentslide').hide();
+          $(div_item).addClass('currentslide').show();
+        }
+        else{
+          $('.item-1').show();
+        }
+          
+      },
+      change: function( event, ui ) {
+        if(ui.value != 0){
+          var div_item_not = ".new_content div:not(.item-" + ui.value + ")";
+          var div_item = ".item-" + ui.value;
+          $(div_item).prev('.new_content_item').removeClass('currentslide').css({'z-index':'3'}).show();
+          $(div_item).addClass('currentslide').css({'z-index':'4'}).fadeIn(500,function(){
+            $(div_item).prev('.new_content_item').css({'z-index':'3'}).hide();
+          });
+        }
+        else{
+          $('.item-1').show();
+        }
+          
+      }
+    });
+    //append icon to handle
+    var handleHelper = scrollbar.find( ".ui-slider-handle" )
+    .mousedown(function() {
+      scrollbar.width( handleHelper.width() );
+    })
+    .mouseup(function() {
+      scrollbar.width( "100%" );
+    })
+    .append( "<span class='ui-icon ui-icon-grip-dotted-vertical'></span>" )
+    .wrap( "<div class='ui-handle-helper-parent'></div>" ).parent();
+  });
+  function animate_bouy(bouy){
+    //console.log("bouy moved");
+    //move up 2.1
+    bouy.animate({'top': (bouy.position().top - 2) +"px"}, 500, "swing",
+      //move down + 4
+      function(){
+        bouy.promise().done(function(){
+          bouy.animate({'top': (bouy.position().top + 4) +"px"}, 500, "swing",
+            function(){
+              bouy.promise().done(function(){
+                bouy.animate({'top': (bouy.position().top - 2) +"px"}, 500, "swing",
+                  function(){
+                    bouy.promise().done(function(){setTimeout(function(){animate_bouy($(bouy))}, randomTime());});
+                  }//end complete function
+                );//end bouy animate
+              });//end bouy promise
+            }//end function move up 2.2
+          );//end bouy animate
+        });//end bouy promise
+      }//end function move down 4
+    );//end move up 2.1
+  }
+  function randomTime(){
+    var thisTime = Math.round(Math.random() * 10 + 5)*1000;
+    //console.log(thisTime);
+    return thisTime;
+  }
+  function animateSlider() {
+    clearTimeout(timeoutID);
+    var nextSlide = $('.currentslide').next('.new_content_item');
+    $( ".scroll-bar" ).slider( "value", $(nextSlide).attr("id") );
+    if($(nextSlide).attr("id") !== "14"){
+      if(play_anim){
+      timeoutID = setTimeout(animateSlider, 1000);
+      }
+    }
+  }
+  </script>  
+
+<!--Google Analytics-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+ 
+  ga('create', 'UA-45872241-1', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+<!--/Google Analytics-->
+
+</head>
+
+<body>
+<div id="wrapper">
+<div id="index-header">
+<div id="left_bouy_cover"></div>
+<div id="left_bouy" class="bouy"></div>
+<div id="right_bouy_cover"></div>
+<div id="right_bouy" class="bouy"></div>
+</div>
+<div id="container">
+<h1>Coastal Dynamics of Sea Level Rise</h1>
+<p>Coastal systems are dynamic. By definition, this means that they are characterized by perpetual change. Since the system itself is dynamic, it follows that most of its processes are dynamic as well. This is especially true for coastal waters with their ever-changing tides, waves, and currents. Furthermore, long term processes such as sea level rise change the coastal landscape by reshaping beaches, inundating marshes and eroding infrastructure, all of which fundamentally change the physics of the system. We invite you to try out the interactive graphic below that illustrates a simple example of the dynamic nature of sea level rise.</p>
+<!-- wrapper div starts here -->
+
+<div id="frame_bg">
+<div class="new_content">
+<div id="1" class="new_content_item item-1 currentslide"><img src="images/stack_0013_01.jpg" /></div>
+<div id="2" class="new_content_item item-2"><img src="images/stack_0012_02.jpg" /></div>
+<div id="3" class="new_content_item item-3"><img src="images/stack_0011_03.jpg" /></div>
+<div id="4" class="new_content_item item-4"><img src="images/stack_0010_04.jpg" /></div>
+<div id="5" class="new_content_item item-5"><img src="images/stack_0009_05.jpg" /></div>
+<div id="6" class="new_content_item item-6"><img src="images/stack_0008_06.jpg" /></div>
+<div id="7" class="new_content_item item-7"><img src="images/stack_0007_07.jpg" /></div>
+<div id="8" class="new_content_item item-8"><img src="images/stack_0006_08.jpg" /></div>
+<div id="9" class="new_content_item item-9"><img src="images/stack_0005_09.jpg" /></div>
+<div id="10" class="new_content_item item-10"><img src="images/stack_0004_10.jpg" /></div>
+<div id="11" class="new_content_item item-11"><img src="images/stack_0003_11.jpg" /></div>
+<div id="12" class="new_content_item item-12"><img src="images/stack_0002_12.jpg" /></div>
+<div id="13" class="new_content_item item-13"><img src="images/stack_0001_13.jpg" /></div>
+<div id="14" class="new_content_item item-14"><img src="images/stack_0000_14.jpg" /></div>
+</div>
+<div class="scroll-bar-wrap ui-widget-content ui-corner-bottom">
+    <div class="scroll-bar"></div>
+</div>
+<div id="play"></div>
+</div>
+
+<h1>A New Paradigm in Coastal Modeling</h1>
+
+<p>With support from the <a href="http://coastalscience.noaa.gov/projects/detail?key=162" target="_blank">NOAA Centers for Coastal Ocean Science</a>, the faculty and students of the CHAMPS Lab along with their research partners at the <a href ="http://www.lsu.edu/" target="_blank">Louisiana State University</a>, <a href="http://ww2.biol.sc.edu/~morris/" target="_blank">University of South Carolina</a>, <a href="http://www.eng.fsu.edu/~whuang/" target="_blank">Florida State University</a>, and the <a href="http://biology.ucf.edu/" target="_blank">UCF Biology Department</a> built sophisticated computer models that incorporate state-of-the-art descriptions of the sea floor, coastal floodplains, land use and historic weather conditions. After verifying results from these models against historically measured water levels, the real fun begins. As demonstrated in a paper published in <a href="http://onlinelibrary.wiley.com/doi/10.1002/2015EF000298/full" target="_blank"> Earth's Future</a> by Davina Passeri <i>et al.</i>, we can use our models to simulate changes to the environment such as shoreline position, vegetation density, population growth, and sea level rise.</p>
+
+<a href="http://chenier.cct.lsu.edu/MIRA/CDSLR" target="_blank"><img id="launch_mira" src="images/launch_mira.png" align="right"/></a>
+<p>In a paper published in the American Geophysical Union's <a href="http://onlinelibrary.wiley.com/doi/10.1002/2013GL058759/abstract" target="_blank">Geophysical Research Letters</a>, CHAMPS Lab PhD student Matthew Bilskie <i>et al.</i> explored the effects of Sea Level Rise on the Mississippi coast. Using Hurricane Katrina (2005) as a backdrop, they simulated what could have happened if it had struck in the year 2050 when sea level was 6, 12, or 18 inches higher than it was in 2005.  In addition, they also went back in time to 1960 when the sea level was about 5 inches lower. Their findings indicate that coastal systems are sensitive to all of these factors and that these changes should be considered for all sea level rise assessments. For an interactive map depicting these results, please explore our Mapping Interface for Research Applications site by clicking on the orange button.</p>
+
+<p>This research is funded by U.S. National Oceanic and Atmospheric Administration (NOAA) Grant NA10NOS4780146.</p>
+
+</div>
+<div id="footer">
+<div id="footer_logos"><a href="http://www.lsu.edu/ccr" target="_blank"><img src="images/logo_lsu_ccr.png" /></a><a href="http://www.ucf.edu/" target="_blank"><img src="images/logo_ucf.png" /></a><a href="http://www.noaa.gov/" target="_blank"><img src="images/logo_noaa.png" /></div>
+<p>&copy; All Content Copyright 2014-2015</p>
+
+<!-- ?php echo date('Y'); ?> -->
+</div>
+<!-- wrapper div ends here -->
+</div>
+</body>
+
+<!-- Mirrored from chenier.cct.lsu.edu/CDSLR/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 14:57:14 GMT -->
+</html>

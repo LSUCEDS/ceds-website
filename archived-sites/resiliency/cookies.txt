@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+wisteria-clownfish-y7xn.squarespace.com	TRUE	/	FALSE	1999999999	crumb	BQSFXRymTaI2MjZlYWFhMzY3NDgxM2RlMDhjZDk5OTczNTI0ZjM0
+

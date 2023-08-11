@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<!-- Coastal Emergency Risks Assessment (CERA)
+   Copyright (c) 2006-2022 Carola Kaiser,Louisiana State University
+   Distributed under the Boost Software License,Version 1.0.
+   See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+   This is free software,but WITHOUT ANY WARRANTY. Do not remove the copyright lines. -->
+
+
+<!-- Mirrored from cera.coastalrisk.live/cera_risk/_docs/CERA_tutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 15:06:27 GMT -->
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../_css/tutorial.css" type="text/css" />
+	<link rel="shortcut icon" href="../_images/cera_pro.html" />
+</head>
+<body>
+<div class="sidenav">
+	<a href="#about">About</a>
+	<a href="#contact">Contact</a>
+    <a href="#disclaimer">Disclaimer</a>
+	<a href="#overview">Overview</a>
+	<a href="#features">Websites Features</a>
+	<a href="#display">1. CERA Map Display</a>
+	<a href="#login_settings">2. Login Settings</a>
+	<span class="sidenav_sub">
+	<a href="#cookies">2.1 Use of Website Cookies</a>
+	<a href="#login">2.2 Sign Up and Login</a>
+	<a href="#password">2.3 Reset/Change Password</a>
+	<a href="#profile">2.4 Change Profile</a>
+	</span>
+	<a href="#model">3. Select a model</a>
+	<a href="#daystorm">4. Select by Day/Storm</a>
+	<span class="sidenav_sub">
+	<a href="#daymenu">4.1 Select by Day</a>
+	<a href="#stormmenu">4.2 Select by Storm</a>
+	<a href="#bestfor">4.3 &quot;Best For&quot; Selection</a>
+    </span>
+	<a href="#maptools">5. Map Tools</a>
+	<span class="sidenav_sub">
+	<a href="#search">5.1 Search Location</a>
+	<a href="#zoomregion">5.2 Zoom to a Map Region</a>
+	<a href="#query">5.3 Time Series</a>
+	<a href="#fullscreen">5.4 View Map in Full Screen</a>
+	<a href="#zoom">5.5 Zoom In/Out</a>
+    </span>
+	<a href="#legend">6. Map Layers</a>
+	<span class="sidenav_sub">
+	<a href="#boundary">6.1 Model Boundary</a>
+	<a href="#background">6.2 Background Maps</a>
+	<a href="#cyclone">6.3 Tropical Cyclone Activity</a>
+	<a href="#elev">6.4 Water Height</a>
+	<a href="#inun">6.5 Inundation above Ground</a>
+	<a href="#hsign">6.6 Significant Wave Height</a>
+	<a href="#tps">6.7 Peak Wave Period</a>
+	<a href="#wvel">6.8 Wind Speed</a>
+	<a href="#gage">6.9 Observational Stations</a>
+	<a href="#prec">6.10 Precipitation Data</a>
+	<a href="#topo">6.11 Topographical Features</a>
+    </span>
+	<a href="#maptitle">7. Map Title</a>
+	<span class="sidenav_sub">
+    <a href="#daytitle">7.1 Non-Storm Map Title</a>
+	<a href="#stormtitle">7.2 Storm Map Title</a>
+	</span>
+	<a href="#mapbuttons">8. Map Buttons</a>
+	<span class="sidenav_sub">
+	<a href="#help">8.1 Help &amp; Info</a>
+	<a href="#map_settings">8.2 Map Settings</a>
+	<a href="#download">8.3 Download Data</a>
+	<a href="#share">8.4 Share this Map</a>
+	</span>
+	<a href="#banner">9. Header &amp; Footer Info</a>
+	<span class="sidenav_sub">
+	<a href="#banner">9.1 CERA Homepage</a>
+	<a href="#contact">9.2 Contact Us</a>
+	<a href="#tutorial">9.3 Tutorial</a>
+	<a href="#disclaimer">9.4 Disclaimer</a>
+	<a href="#datainfo">9.5 Data Info</a>
+	</span>
+    <a href="#ack">Acknowledgement</a>
+    <br/>
+</div>
+
+<li class="main">
+<p style="font-size:22px"><b>Coastal Emergency Risks Assessment - CERA</b></p>
+<div class="subtitle" >Storm Surge and Flood Web Mapping Visualization Tool</div>
+
+<!--<div class="floatleft"><img src="_images/pdf.png" width="27" height="32" ></div><div class="pdf">Download as PDF file</div><br>-->
+
+<p class="header top40" id="about">About</p>
+<p>The Coastal Emergency Risks Assessment (<b>CERA</b>) web mapping tool displays storm surge, wave, and flood prediction maps for impending or active tropical cyclones or severe weather situations that threaten the coastal areas of the United States. CERA provides an easy-to-use interactive web interface that allows emergency managers, weather forecasters, and GIS specialists to retrieve real-time forecasting results to evaluate the impacts of such events or to see the tide, wind-wave, and extra-tropical surge conditions on a daily basis.<br>
+CERA has been developed at the Louisiana State University in collaboration with Louisiana Sea Grant. The information shown on the CERA website is produced by several global, US wide, and regional models that generate real-time surge and flood guidance. One of the main models used by CERA is the unstructured coastal ocean circulation model <a href="http://adcirc.org/" target="_blank">ADCIRC</a>.</p>
+
+<p class="header" id="contact">Contact</p>
+<p>Please visit the <a href="https://coastalrisk.live/" target="blank">CERA Homepage</a> for more information. You can contact us by using the <a href="../../cerarisk/accounts/contact/index.html" target="_blank">contact form</a> or sending an email to <a href="mailto:info@coastalrisk.live">info@coastalrisk.live</a> for any questions.</p>
+
+<p class="header" id="disclaimer">Disclaimer</p>
+<p>
+The information on the CERA website represents storm surge, flood, wind, and wave information from coastal ocean and inland flooding models. The storm surge model data and the CERA graphical displays are research efforts and should never be conveyed as official storm surge guidance for the general public. Please obtain official storm surge guidance from the National Weather Service.</p>
+
+<p class="header" id="overview">Overview</p>
+<p class="red">https://cera.coastalrisk.live</p>
+<p>CERA provides 2 websites:<br>
+<div class="indent">1. <b>CERA</b> for the general public (no login required)</div>
+</p>
+<p><div class="indent">2. <b>CERA-PRO</b> for decision makers, emergency managers and first-time responders, federal and state personnel, and research groups (login required, see <a href="#login">2.1 Sign Up and Login</a>)</div>
+<div class="left16">The CERA-PRO website includes advanced features (e.g., data export capability), additional data layers (e.g., water level and wind stations, rainfall data) and model runs that are not available on the public version.</div></p>
+
+<div class="subsubheader">Display Size</div>
+<p>The CERA websites are optimized for screen display resolutions of 1024x768 px or higher. While the sites stretch to their full extent on higher resolution devices, CERA is currently not optimized for mobile devices or devices with a low screen resolution.</p>
+
+<p class="header" id="features">Websites Features</p>
+<p><i>The graphic shows the CERA PRO website. Not all features are available on the public CERA website.</i></p>
+<p><img src="_images/overview.png" width="1024" height="600"></p>
+<div>1. CERA Map Display</div>
+<div>2. Login Settings <span class="purple">(PRO)</span></div>
+<div>3. Select a model <span class="purple">(PRO)</span></div>
+<div>4. Select a model run by Day or Storm</div>
+<div class="left16">4.1 Select choices for Day/Storm, 4.2 Best For: (geographic region) <span class="purple">(PRO)</span></div>
+<div>5. Map Tools</div>
+<div class="left16">5.1 Search location or address, 5.2 Zoom to a map region, 5.3 Show time series, 5.4 View map in full screen, 5.5 Zoom in/out</div>
+<div>6. Map Layers</div>
+<div class="left16">6.1 Model Boundary <span class="purple">(PRO)</span> 6.2 Background Map, 6.3 Tropical Cyclone Activity</div>
+<div class="left16"><i>6.4 - 6.8 Model layers</i>: 6.4 Water Height, 6.5 Inundation Depth above Ground, 6.6 Significant Wave Height, 6.7 Peak Wave Period, 6.8 Wind Speed</div>
+<div class="left16">6.9 Observational Stations <span class="purple">(PRO)</span>, 6.10 Precipitation Data <span class="purple">(PRO)</span>, 6.11 Topographical Features <span class="purple">(PRO)</span>, 6.11 Storm Surge Model Information</div>
+<div>7. Map Title</div>
+<div>8. Map Buttons</div>
+<div class="left16">8.1 Help &amp; Info, 8.2 Map Settings, 8.3 Download Data <span class="purple">(PRO)</span>, 8.4 Share this Map</div>
+<div>9. Header &amp; Footer info</div>
+<div class="left16">9.1 CERA homepage, 9.2 Footer links</div>
+
+<p class="header" id="display">1. CERA Map Display</p>
+<p>CERA uses Google Maps to show a topographical map and overlays it with the map layers you choose from the menus along the top and right side of the page (see <a href="#daystorm">4. Select a model run by Day or Storm</a> and <a href="#legend">6. Map Layers</a>). Using the zooming feature along the left side of the page you can zoom in to see more detailed information of the maps (see <a href="#zoom">5.5 Zoom In/Out</a>). You can change the Google background map by opening the &quot;Background Maps&quot; panel at the right side of the CERA website (see <a href="#background">6.2 Background Maps</a>). To pan across the page, click and drag the map. The title bar above the map indicates which map layer you are viewing (see <a href="#maptitle">7. Map Title</a>). </p>
+
+<p class="header" id="login_settings">2. Login Settings <span class="purple">(PRO)</span></p>
+<div class="subheader" id="cookies">2.1 Use of Website Cookies</div>
+<p>The CERA-PRO website uses cookies for website settings and security reasons to ensure that your browser is not being hijacked by third parties. If you have configured your browser to disable cookies, please re-enable them or set an exception for the website address <span class="red">cera.coastalrisk.live</span>.</p>
+<div class="subheader" id="login">2.2 Sign Up and Login</div>
+<p>The public CERA version does not require a login. However, the site allows you to login to the PRO website and with that to access the advanced functionality.</p>
+<div class="subsubheader">Sign up for the CERA PRO website</div>
+<p>Credentials for the CERA PRO website can be obtained by sending a request to the CERA team. Please use the <span class="purple">Sign Up</span> link at the top left of the public website to fill out the request form. You can also write us a direct message by using the <a href="../../cerarisk/accounts/contact/index.html" target="_blank">Contact Us</a> link in the footer section (see <a href="#help">9.2 Contact Us</a>) or by clicking the <span class="purple">Help & Info</span> button at the top right of the website (see <a href="#help">8.1 Help &amp; Info</a>) or writing us an email to <a href="mailto:info@coastalrisk.live">info@coastalrisk.live</a>.<br>
+If you work for a federal or state agency or institution, emergency management or response, or a research institution, you will get granted a free login.</p>
+<div class="subsubheader">Login to CERA PRO website</div>
+<p>Once you have obtained user credentials, you can login to the CERA PRO website.<br>
+Go to the public website at <span class="red">https://cera.coastalrisk.live</span> and use the <span class="purple">Login</span> button at the top left of the website. After a successful login you get redirected to the CERA PRO website.</p>
+<p><img src="_images/signup.png" width="116" height="43" alt="signup"></p>
+<p>Once logged in, you have access to the <span class="purple">Logout</span> and <span class="purple">Settings</span> links.</p>
+<p><img src="_images/login.png" width="145" height="45"></p>
+<div class="subsubheader">Logout</div>
+<p>CERA works with cookies to give you a convenient user experience. Your login credentials and map settings (see <a href="#map_settings">8.2 Map Settings</a>) get stored and reactivated with every new CERA session. If you explicitly log out, you will need to login again to enter the CERA PRO website.</p>
+
+<div class="subheader" id="password">2.3 Reset and Change Password</div>
+<div class="subsubheader">Reset Password</div>
+<p>If you have forgotten your password, access the login form by hitting the <span class="purple">Login</span> button at the top left of the website and use the  <span class="purple">Forgot your password?</span> link. If you are currently logged in, use the <span class="purple">Logout</span> link first and then log in again to enter the form.</p>
+<div class="subsubheader">Change Password</div>
+<p>Go to the login <span class="purple">Settings</span> link at the top left of the website and use the link <span class="purple">Change your password</span> at the top of the form to modify your current password.</p>
+
+<div class="subheader" id="profile">2.4 Change Profile</div>
+<div class="subsubheader">Change User Name</div>
+<p>When you apply for CERA credentials, a user name and a temporary password will be created for you. The user name is your email address. If you would like to request a change to the user name, please contact us via the <a href="../../cerarisk/accounts/contact/index.html" target="_blank">contact form</a> or send an email to <a href="mailto:info@coastalrisk.live">info@coastalrisk.live</a>.</p>
+<div class="subsubheader">Change User Profile</div>
+<p>The login <span class="purple">Settings</span> link will open the user profile form with an overview of your user information. If you would like to make changes or additions, use the <span class="purple">Edit Profile</span> button. This will open the <span class="purple">Profile</span> form that allows you to modify your personal information.</p>
+
+<p class="header" id="model">3. Select a model</p>
+<p>CERA provides three different storm surge or flood models:</p>
+<ul>
+<li>The <b>ADCIRC Surge Guidance System (ASGS)</b><br>This model uses the coastal ocean circulation model <a href="http://adcirc.org/" target="_blank">ADCIRC</a> and produces water level, wind, and tide forecasts on a daily basis for several regions of the US in high resolution. During active storms, the ASGS provides data four times a day (00Z, 06Z, 12Z, 18Z UTC). </li> 
+<li>The <b>Extratropical Surge and Tide Operational Forecast System (ESTOFS)</b><br>The ESTOFS system is developed by NOAA and uses the <a href="http://adcirc.org/" target="_blank">ADCIRC</a> model to produce global water level and wind guidance on a daily basis. </li> 
+<li>The <b>Compound Flood Inundation Guidance System (CFIGS)</b><br>CFIGS combines precipitation and coastal surge to provide flood information during severe weather events. This sytem is currently available for selected watersheds in Louisiana. </li> 
+</ul>
+<p>Once you are logged in, you can select a model from the select box at the top right of the website. The 'help button' next to the select box provides more information about the models.</p>
+<p><img src="_images/models.png" width="442" height="102"></p>
+<p>If you prefer a specific model to be displayed by default upon opening CERA, you can make this choice using the map settings (see <a href="#map_settings">8.2 Map Settings</a>).
+
+<p class="header" id="daystorm">4. Select a model run by Day or Storm</p>
+<p>CERA provides an archive of models runs that you can browse through. To select a run, you can either search by 'Day' or by 'Storm'. By clicking on a button, the select menu will change. The active button is the blue one.<br>When you open the CERA website, the most current model run is always displayed as default map. Depending on the status of the default model run (active storm or not), the default setting of the <span class="purple">Select by Storm</span> or <span class="purple">Select by Day</span> menu is either set to "Day" or to "Storm". Non-storm model runs can only be accessed via the &quot;Select by Day&quot; menu while storm runs can be selected from both the &quot;Select by Day&quot; and the &quot;Select by Storm&quot; menus. You can always switch between the &quot;Day/Storm&quot; select settings. </p>
+<div class="subheader" id="daymenu">4.1 Select by Day</div>
+<p><img src="_images/day.png" width="740" height="34"></p>
+<p>When you open the CERA website and there is no active storm present, the <span class="purple">Select by Day</span> menu is pre-selected. This menu allows you to view data for the current <span class="purple">Day</span> or one that you choose from the calendar icon. Days with at least one model run are highlighted in light grey in the calendar. The  selected day has a blue border. If a day has at least one storm run, the date field is marked in red. Use the <span class="purple">Start Time</span> select box to select a time. This time marks the beginning of the model run.</p>
+<p class="nowrap"><img src="_images/calendar_day.png" width="350" height="216"><span class="left30"><img src="_images/calendar_storm.png" width="350" height="216"></span></p>
+<p>The &quot;Best For&quot; select box is only available for the CERA <span class="purple">PRO</span> website (see <a href="#bestfor">4.3 &quot;Best For&quot; Selection</a>)</p>
+<div class="subheader" id="stormmenu">4.2 Select by Storm</div>
+<p><img src="_images/storm.png" width="843" height="34"></p>
+<p>The &quot;Select by Storm&quot; menu allows you to choose storms that impacted the Northern Gulf or Atlantic Coast. When there is an active storm present when you open the CERA website, the <span class="purple">Select by Storm</span> menu is pre-selected. You will see the model run for the current <span class="purple">Year/Storm</span> and the latest <span class="purple">Advisory/Track</span> from the National Hurricane Center (NHC). For each advisory there might be several track variations available, although the default for each advisory is the NHC forecast track. You can select a track variation by choosing it from the &quot;Advisory/Track&quot; select box. Hover over the current advisory number to see the track variations.</p>
+<p><img src="_images/trackvar.png" width="430" height="200"></p> 
+<p>Variations can include an x% increase in the maximum wind speed, veer to the left and the right of the NHC forecast track by x%, and an x% increase in the maximum radius of the storm (see also <a href="#cyclone">6.3 Tropical Cyclone Activity</a>). </p>
+<p>If there is no active storm present and you switch from the &quot;Select by Day&quot; menu to &quot;Select by Storm&quot;, no select box is pre-filled. Select first the <span class="purple">Year/Storm</span> that you are interested in and then the <span class="purple">Advisory/Track</span> to see a particular model run.</p>
+<p>The &quot;Best For&quot; select box is only available for the CERA <span class="purple">PRO</span> website (see <a href="#bestfor">4.3 &quot;Best For&quot; Selection</a>)</p>
+
+<div class="subheader" id="bestfor">4.3 &quot;Best For&quot; Selection <span class="purple">(PRO)</span></div>
+<p>The ADCIRC storm surge model utilizes triangle-based meshes that provide geographical information, such as the land surface elevation or the land cover type. This allows the model to be applied in different locations and at different resolutions (i.e., using smaller or larger sized triangles). Resolution has a significant impact on the accuracy of the model results because it ultimately controls the model&#39;s ability to represent land features that direct the movement of water.</p>
+<p><img src="_images/adcirc_mesh.png" width="200" height="204"></p>
+<p>The CERA PRO website allows users to display model runs on several meshes that are tailored to specific geographic regions. The <span class="purple">Best For</span> (geographic region) information field indicates the geographic area for which the displayed model run shows its highest resolution for floodplains and inland water bodies.</p>
+<p><img src="_images/bestfor.png" width="207" height="98"></p>
+
+<p class="header" id="maptools">5. Map Tools</p>
+<p>The <span class="purple">Map Tools</span> buttons on the left side of the map allow you to interact with the map and change features in several ways. You can hover over each button to get a tooltip information.</p>
+<p><div class="floatleft right10"><img src="_images/maptools.png" width="45" height="215"></div>
+<div style="line-height:38px"><div>Search location or address</div><div>Zoom to a map region</div><div>Time series</div><div>View map in full screen</div><div style="line-height:64px">Zoom in/out</div></div></p>
+
+<div class="subheader" id="search">5.1 Search Location or Address</div>
+<p><img src="_images/geolocation1.png" width="194" height="33"></p>
+<p>The <span class="purple">Search location or address</span> button allows you to search for a specific coordinate, an address, town or any other location and let the map zoom in to this place.<br>Click on the &quot;Search location&quot; icon and enter the coordinate (in the format lat, lon) or the name of the place you are looking for. Hit the &quot;Enter&quot; button or select an entry from the select box to let the map zoom in to the desired place. If you want to close the address field, click on the &quot;search&quot; icon again or anywhere on the map.</p>
+
+<!--<div class="subheader" id="findme">5.2 Find my Location</div>
+<p><img src="_images/findme1.png" width="146" height="33"></p>
+<p>The <span class="purple">Find my location</span> button allows you to find your physical location. If the geolocation functionality is enabled in your browser, the map will automatically pan and zoom in to your location.</p>
+<p><img src="_images/findme2.png" width="138" height="56"></p>
+<p>If you get an error message that your browser does not support geolocation, make an Internet search for &quot;How do I set location sharing on my browser?&quot; and enable this functionality.</p>-->
+
+<div class="subheader" id="zoomregion">5.2 Zoom to a Map Region</div>
+<p><img src="_images/mapregion1.png" width="169" height="33"></p>
+<p>The <span class="purple">Zoom to a map region</span> button opens a select box with pre-defined zoom-in views that allow you to quickly zoom in to a region without using the zoom in/out functionality.<br>Click on the &quot;Zoom to a map region&quot; icon to open the select box and then click on a region. The map will automatically pan and zoom in to show you the selected view. If you want to close the select box without making a selection, click on the &quot; map region&quot; icon again or anywhere on the map.</p>
+<p><img src="_images/mapregion2.png" width="166" height="337"></p>
+
+<div class="subheader" id="query">5.3 Time Series</div>
+<p><img src="_images/query1.png" width="310" height="43"></p>
+<p>Enabling the <span class="purple">Time series</span> button allows you to click on a point of interest on the map to display a graph showing how the map layer you choose changes over time at this location (figures below).<br>The default setting for this tool is &quot;Off&quot;. If you click on the &quot;Time series&quot; icon, the functionality will get enabled and the icon turns blue (&quot;On&quot;). Your mouse cursor will change from a hand (&quot;pan the map&quot;) to a cross (indicating that you can click on the map). Clicking on the &quot;Time series&quot; icon again will disable the functionality and the mouse cursor and the icon color change back to the default settings.</p>
+
+<p><img src="_images/query2.png" width="33" height="33"></p>
+<p>Once you have enabled the &quot;Time series&quot; button (turning it into a blue icon), you can click on any map point of interest within the model area. For regional models other than the entire coast, the model area is marked by the wavy black line that you can see inland (see <a href="#map_settings">6.1 Model Boundary</a>). Beyond this line no model results are available.</br>Clicking on the map will open a chart window with a time series plot that shows you the values over time as forecast by the storm surge model. The <span class="purple">Map Settings</span> dialog at the top right of the website allows you to choose what time zone (Central/Eastern Time/UTC) and units (U.S. units/Metric) you want to see in the charts (see <a href="#map_settings">8.2 Map Settings</a>).</p>
+<p class="top18"><img src="_images/query3.png" width="550" height="395"></p>
+<p>Hovering on the line on the graph will result in an information box that shows additional information at any selected time.</p>
+<p><img src="_images/query4.png" width="382" height="195"></p>
+<ul>
+<li>The <b>maximum value</b> is denoted as a red dot on the graph as well as in text above the graph.</li> 
+<li>You can <b>zoom in</b> on the graph by clicking and dragging on the time interval you want to zoom in on.</li>
+<li>For water levels or wave heights the values are given either relative to <b>NAVD88</b> or to <b>Mean Sea Level</b>. The information is denoted in the header line.</li>
+<li>Each point on the map is set to either <b>dry</b> or <b>wet</b>, which tells you whether the elevation or bathymetry value of this point is initially above or below Mean Sea Level when the model starts to run. This is denoted at the bottom line of the chart. Here you can also find the elevation information of this point.</li>
+<li>If you look at a chart for the wind speed map for an active storm, you can also find information about the onset time of tropical storm force winds (see <a href="#wvel">6.8 Wind Speed</a>).</li>
+</ul>
+<p><b><u>Find a time series chart by coordinate</u></b></p>
+<p>If you use the time series functionality, a chart will open at the point that you have clicked on the map. The clicked point represents a geographic location with a particular coordinate (lat, lon) that will be displayed in the header section of the chart. If you change a map layer, the chart will stay open and update the information accordingly to the selected layer.</p>
+<p>If you would like to open a chart for a known coordinate, you can use the <span class="purple">Search location or address</span> map tool (see <a href="#search">5.1 Search location or address</a>). Activate the <span class="purple">Time series</span> button so that it turns blue and then click on the <span class="purple">Search location or address</span> button to open the select box. With an already open chart, the coordinate for the point is pre-selected in the search box. For another location, enter the coordinate in the format "latitude, longitude" (without quotes). Once you hit Enter, the map will be centered to the searched location and the chart opens automatically.</p>
+<p><img src="_images/query5.png" width="476" height="269"></p>
+<p><b><u>Download time series for a specific location on the map</u></b></p>
+<p>With an open time series chart, you can download the selected time series in the JSON file format. The &quot;Download&quot; link is at the top right of the time series chart. The download will be provided as a ZIP file that contains the JSON file with hourly time series values and a format description.</p>
+
+<div class="subheader" id="fullscreen">5.4 View Map in Full Screen</div>
+<p><img src="_images/fullscreen1.png" width="173" height="33"></p>
+<p>Use the <span class="purple">View map in full screen</span> button to make the map full screen and with that hide all elements other than the map itself.<br>
+Click the &quot;Exit full screen&quot; button at the top left of the full screen map or hit &quot;Esc&quot; to get back to the default map view.</p>
+
+<div class="subheader" id="zoom">5.5 Zoom In/Out</div>
+<p><img src="_images/zoom.png" width="98" height="63"></p>
+<p>Using the zooming features you can zoom in and out to see more detailed information of the maps or get a better overview. The <span class="purple">Zoom in / Zoom out</span> buttons change the zoom level of the maps as pre-defined by Google Maps. You can also double-click with your left mouse button to zoom in and the right mouse button to go back to the previous zoom level. Using the mouse wheel allows you a quicker zoom in/out.</p>
+
+<p class="header" id="legend">6. Map Layers (Legend)</p>
+<p>The <span class="purple">Map Layers</span> panel on the right hand side of the website allows you to choose what model results you would like to see and to customize your map with additional data layers.</p>
+<p>The map layers are grouped in sections that can be opened and closed (accordion). When you open the website, all map layers that are currently displayed on the map are open in the &quot;Map Layers&quot; panel; all others are closed. Click on the &quot;Map Layers&quot; header title or the little triangles to open/close map layer sections in the panel.<p><img src="_images/legend_open.png" width="229" height="124"></p>
+<p>The &quot;Water Height&quot;, &quot;Inundation Depth above Ground&quot;, and the &quot;Wind Speed&quot; are forecast results from the <a href="http://adcirc.org/" target="_blank">ADCIRC</a> Storm Surge Model. The &quot;Significant Wave Height&quot; and the &quot;Peak Wave Period&quot; are results from the Simulating Waves Nearshore (<a href="https://www.tudelft.nl/en/ceg/about-faculty/departments/hydraulic-engineering/sections/environmental-fluid-mechanics/research/swan/" target="_blank">SWAN</a>) Model which might not be available for all CERA displays. All model layers are selectable by radio buttons and with that one of those layers is always displayed. Map layers that are selectable via a check box can be overlaid on the displayed model map. Depending on the model run and data availability some map layers are not always present.</p>
+<p>The &quot;Map Layers&quot; panel can be closed to show more of the map by clicking on the close button at the top left of the panel. To reopen the &quot;Map Layers&quot;, click on the <span class="purple">Open the Map Layers Panel</span> icon at the top right of the map.</p>
+<p><img src="_images/legend1.png" width="198" height="31"><img class="left30" src="_images/legend2.png" width="203" height="31"></p>
+
+<div class="subheader" id="boundary">6.1 Model Boundary</div>
+<p>The <a href="http://adcirc.org/" target="_blank">ADCIRC</a> model works with several different model meshes to represent a target region in high resolution (see <a href="#bestfor">4.3 &quot;Best For&quot; Selection</a>). The boundary represents the cut-off of where the model stops inland. It is drawn as thin black line on the map. Beyond this line no model results are available. The model boundary is turned on by default for regional high resolution model runs to highlight the geographic region that the model represents best.</p>
+<p><img src="_images/modelinfo.png" width="221" height="33"></p>
+
+<div class="subheader" id="background">6.2 Background Maps</div>
+<p>Choose which Google Map you prefer as the background map: road, satellite, hybrid, or terrain. Your selection stays active for the current CERA session but will be set back to the default map (Road Map) when you reopen the CERA website.</p>
+<p><img src="_images/background.png" width="219" height="139"></p>
+
+<div class="subheader" id="cyclone">6.3 Tropical Cyclone Activity</div>
+<p>This map layer section is only present when the model run represents an active storm.</p>
+<p><img src="_images/track1.png" width="222" height="177"></p>
+<p>Hover over the &quot;i&quot; icons to see tooltips with more information.</p>
+<p><img src="_images/track2.png" width="252" height="178"></p>
+<div class="subsubheader">Track Display</div>
+<p>The figure below shows the track and intensity forecast as displayed on the CERA website. The dark red line is the forecasted track at the center of the cone of uncertainty, while the black lines to the left and right of the track show the edges of the cone. A grey line indicates that the track line is outside the model forecast time range. The track shows track points every 3 hours. Six hour time stamps, which is when the NHC releases new advisories, are displayed on the map along with a larger color-coded dot and a time label indicating intensity from tropical depression (blue dot) to category 5 (red dot). In lower map resolutions these dots are displayed every 12 hours. If you want to see the track information without the time labels, you can hide them from being displayed in the <span class="purple">Map Settings</span> dialog (see <a href="#map_settings">8.2 Map Settings</a>).</p>
+<p class="top18"><img src="_images/track%20explanation1.png" width="648" height="340"></p>
+<div class="subsubheader">Show Track Information</div>
+<p>Move your mouse over any colored (labeled) track point to get a tooltip with track information from the National Hurricane Center. The tooltip has the same color as the track point category (from tropical depression (blue dot) to category 5 (red dot)).</p>
+<p><img src="_images/track3.png" width="315" height="175"></p>
+<div class="subsubheader">Switch to Time Series Map</div>
+<p>Click on any dot along the track and the display will change to the map layer showing the selected date/time (e.g., water height) you want to view. The time you chose will be displayed in the select box in the <span class="purple">Map Layers</span> panel (see also 6.4.-6.8 Time Series Maps). The selected track point is marked in a bright red color.</p>
+<p><img src="_images/track4.png" width="481" height="214"></p>
+<div class="subsubheader">Veer Left/Right Track</div>
+<p>These track variations are x% of the way between the NHC official forecast track and the left or right edge of the cone of uncertainty. When viewing a left and right veer, the official NHC forecast track (at the center of the cone of uncertainty) is always denoted on the display by a bright red line. When you hover over the &quot;i&quot; icon in the Map Layers panel you can see a tooltip with more information about the track variation.<br>
+For some storms additional track variations are provided like an x% increase in the maximum wind speed or and an x% increase in the maximum radius of the storm. If available, you can select those track variations from the <span class="purple">Select by Storm</span> menu (see <a href="#stormmenu">4.2 Select by Storm</a>).</p>
+<p><img src="_images/track5.png" width="490" height="238"></p>
+<p><img src="_images/track6.png" width="270" height="170"></p>
+<div class="subsubheader">Storm Map Title</div>
+<p>see <a href="#stormtitle">7.2 Storm Map Title</a></p>
+<div class="subsubheader">Areas of Investigation</div>
+<p>The National Hurricane Center (NHC) designates areas of disturbed weather that are being monitored for tropical cyclone development. CERA displays those &quot;areas of investigation&quot; for the particular time that the model run is valid for (see the information in the Map Title (<a href="#maptitle">7. Map Title</a>). If you move the mouse over an area of investigation, a tooltip is displayed with the NHC Tropical Weather Outlook information.</p>
+<p><img src="_images/track7.png" width="415" height="253"></p>
+<p>You can turn off the areas of investigation by unchecking the select box in the map legend section &quot;Tropical Cyclone Activity&quot;.</p>
+<div class="subsubheader">Other Active Storm Tracks</div>
+<p>If more than one storm is active, the CERA website shows one storm as model run and the other storm as inactive track line (thin grey line without track points). The inactive storm track just shows the hurricane symbol with the name of the storm and the color-coded symbol which indicates the storm category (tropical depression to category 5).You can hover over the hurricane symbol to see the current advisory number and the storm information from the National Hurricane Center.</p>
+<p><img src="_images/track8.png" width="421" height="244"></p>
+<p>If the secondary storm is available as a separate model run on the CERA website, the storm name becomes an active link (underlined storm name). If you click on the link, the map will change to show this storm as the active model run.</p>
+<p><img src="_images/track9.png" width="337" height="196"></p>
+
+<div class="subsubheader" style="font-size:15px;margin-top:30px">Model Map Layers (6.4 - 6.8)</div>
+<p>Sections 6.4-6.8 describe map layers that represent model outputs from the <a href="http://adcirc.org/" target="_blank">ADCIRC</a> storm surge model and the Simulating Waves Nearshore (<a href="https://www.tudelft.nl/en/ceg/about-faculty/departments/hydraulic-engineering/sections/environmental-fluid-mechanics/research/swan/" target="_blank">SWAN</a>) model. Depending on the model run and data availability some map layers are not always present. The data are normally represented in two ways: a maximum layer and time series maps every 3hrs <span class="purple">(PRO)</span>.</p>
+<div><span class="subsubheader">Animated Time Series</span> <span class="purple">(PRO)</span></div>
+<p>For the forecast layers Inundation above Ground, Significant Wave Height, Peak Wave Period, and Wind Speed animated time series are available that can be turned on by clicking the &quot;Animation&quot; button in the map legend panel sections.</p>
+
+<div class="subheader" id="elev">6.4 Water Height above NAVD88 or Mean Sea Level (MSL)</div>
+<p>There are two common ways for representing surge model results. One is water height relative to the vertical datum as used by the storm surge model (NAVD88 or Mean Sea Level (MSL)); the other is inundation depth above ground, which is discussed in section <a href="#inun">6.5 Inundation above Ground</a>.</p>
+<p>You can view the water height above NAVD88/MSL that is calculated by the storm surge model in two ways:<br>
+<ul>
+<li>Maximum forecasted water height: The highest water level - or worst case scenario - over the forecast period. The highest water level is not at a certain time; instead the maximum value is shown for each point on the map regardless of what time it occurs.</li> 
+<li>Water height time series <span class="purple">(PRO)</span>: pick the time (from three hour intervals) at which you want to view the water height.</li>
+</ul></p>
+<p><img src="_images/elev.png" width="222" height="414"></p>
+
+<div class="subheader" id="inun">6.5 Inundation above Ground</div>
+<p>Inundation is the depth of water above local land elevation. The local land elevation, or topography, used in the storm surge model is derived from the State&apos;s LIDAR coverage. To calculate the inundation depth, the topography is subtracted from the total water height calculated by the storm surge model. See the inundation illustrations below.</p>
+<p><i>Illustration of inundation depth above ground depending on tides. The red arrows indicate the inundation depth. It is calculated by subtracting the local land elevation from the water height above MSL (surge + waves + tides) that the storm surge model calculates.</i></p>
+<div><i>High Tide Inundation</i></div>
+<div><img src="_images/hightide.png" width="835" height="534"></div>
+<div><i>Low Tide Inundation</i></div>
+<div><img src="_images/lowtide.png" width="835" height="534"></div>
+<p>Similar to the water height above NAVD88/MSL map layer, you can choose to display:
+<ul>
+<li>Maximum forecasted inundation depth - or worst case scenario - over the forecast period. The highest inundation is not at a certain time; instead the maximum value is shown for each point on the map regardless of what time it occurs.</li>
+<li>Inundation time series <span class="purple">(PRO)</span>: pick the time (from three hour intervals) at which you want to view the inundation depth.</li>
+</ul></p>
+<p><img src="_images/inun.png" width="220" height="487"></p>
+
+<div class="subheader" id="hsign">6.6 Significant Wave Height above NAVD88 or Mean Sea Level (MSL)</div>
+<p>This layer allows you to display the forecasted significant wave height during a forecast period. The significant wave height is a term used in marine forecasts that is defined as the average height of the largest one-third of all the waves (with their different heights, frequencies, and direction of movement), measured from the trough to the crest. When you read &quot;Seas 4 to 6 ft&quot; in a NWS marine forecast, you are getting the significant wave height.  If you would like to learn more about significant wave height, see <a href="http://www.mxak.org/weather/pdfs/waves.pdf" target="_blank">this description</a> from NOAA&apos;s National Weather Service.</p>
+<p>You can choose to display:
+<ul>
+<li>Maximum forecasted significant wave height - or worst case scenario - over the forecast period. The highest significant wave height is not at a certain time; instead the maximum value is shown for each point on the map regardless of what time it occurs.</li>
+<li>Significant wave height time series <span class="purple">(PRO)</span>: pick the time (from three hour intervals) at which you want to view the significant wave height.</li>
+</ul></p>
+<p class="red">During a storm, no peak wave period time series is available, just a maximum layer.</p>
+<p><img src="_images/hsign.png" width="220" height="486"></p>
+
+<div class="subheader" id="tps">6.7 Peak Wave Period</div>
+<p class="red">The peak wave period time series is available as a maximum layer for storm runs until 2018.</p>
+<p>This map layer shows the peak wave period (or frequency) that is forecast over the model time period. Peak wave period can give you an idea of how often battering waves will impact dunes, buildings, etc. along the coast. </p>
+<p>You can display:
+<ul>
+<li>Maximum forecasted peak wave period - or worst case scenario - over the forecast period. The highest peak wave period is not at a certain time; instead the maximum value is shown for each point on the map regardless of what time it occurs.</li>
+</ul>
+<p><img src="_images/tps.png" width="220" height="388"></p>
+
+<div class="subheader" id="wvel">6.8 Wind Speed</div>
+<p>Depending on the model run, the wind speed layer is either provided relative to ground level or at 10m (33ft) height. Please look at the section title in the <span class="purple">Map Layers</span> panel to see what you are looking at. During a storm, the wind speed is calculated by taking input from a National Hurricane Center advisory and plugging it into a wind model that was developed for the storm surge model. The output from this wind model is not only used to produce the wind speed map layer but also to calculate the storm surge values (it is the wind that pushes the water). For non-storm model runs the wind input is taken from NOAA&apos;s <a href="https://www.ncdc.noaa.gov/data-access/model-data/model-datasets/north-american-mesoscale-forecast-system-nam" target="_blank">North American Mesoscale Forecast System (NAM)</a>.</p> 
+<p>You can choose to display:
+<ul>
+<li>Maximum forecasted wind speed - or worst case scenario - over the forecast period. The highest wind speed is not at a certain time; instead the maximum value is shown for each point on the map regardless of what time it occurs.</li>
+<li>Wind speed time series: pick the time (from three hour intervals) at which you want to view the wind speed.</li>
+</ul>
+<p class="nowrap"><i>no active storm</i><span style="margin-left:157px"><i>active storm (values correspond to the Saffir-Simpson scale)</i></span><br><img src="_images/wvel_daily.png" width="222" height="434"><img class="left30" src="_images/wvel_storm.png" width="222" height="434"></p>
+<p>If you use the <span class="purple">Time Series</span> map tool (see <a href="#query">5.3 Time series</a>) to see the wind speed at a specific geographic location, you will see the onset time of tropical storm force winds in the information chart (for a storm model run).</p>
+<p><img src="_images/wvel_chart.png" width="556" height="403"></p>
+
+<div class="subheader" id="gage">6.9 Observational Stations <span class="purple">(PRO)</span></div>
+<p>The CERA website provides observational stations that can be overlaid on selected map layers. In order to see those stations you must first select the appropriate map in the map legend. Once you have choosen the map display, the corresponding stations can be checked by opening the <span class="purple">Observations</span> section in the map legend.</p>
+<p>Please choose the following map layers:</p>
+<ul>
+<li><b>water level stations</b>: water height or inundation depth map layer</li> 
+<li><b>wind stations</b>: wind speed map layer</li>
+<li><b>wave stations</b>: significant wave height map layer</li> 
+</ul>
+<p><img src="_images/gage1.png" width="220" height="331"><img class="left30" src="_images/gage1a.png" width="220" height="258"><img class="left30" src="_images/gage1b.png" width="220" height="281"></p>
+<p>When you check the observational stations, various stations, represented by different colors of markers, will appear on the display. For water levels, these are real-time stations from the NOAA National Ocean Service (NOAA-NOS), the U.S. Geological Survey (USGS), the NOAA River Forecast Centers (NOAA-RFC) or the US Army Corps of Engineers (USACE). Wind speed stations get provided by the NOAA National Ocean Service (NOAA-NOS). Wave stations observations are retrieved from NOAA's National Data Buoy Center (NDBC) or the IOOS and partners. To limit the display to particular agencies, just select those select boxes.</p>
+
+<p>Each station on the map shows a tooltip when you hover over it. When you click on a station, a chart will be displayed with more information. The status of a station can change from one model run to another depending on data availability.</p>
+<p>Blue/orange/yellow stations: The charts for these stations will show both a graph for observed time series and a graph with the levels as forecast by the model.</p>
+<ul>
+<li>The <b>blue</b> line represents observed levels (every hour). You can view the station&apos;s real-time observation website by clicking on the link in the bottom left corner. Note, that for water level stations on the CERA website the vertical datum of the water levels has been converted to NAVD88 or Mean Sea Level (MSL) to match the results from the storm surge or flood model and can therefore show different values than the original station&apos;s website. The information about the vertical datum is displayed in the header section of the chart.</li>
+<li>The <b>yellow</b> line shows the levels as forecast by the model (every hour).</li>
+<li><b>orange</b> dashed line (water level stations only): If a previous advisory for a given storm run is available, this line shows the forecast water levels from that advisory for comparison purposes.</li>
+</ul>
+<div><i>Water Level Stations</i></div>
+<div><img src="_images/gage2.png" width="499" height="361"></div>
+<div><i>Wind Speed Stations</i></div>
+<div><img src="_images/gage2a.png" width="499" height="361"></div>
+<div><i>Wave Stations</i></div>
+<div><img src="_images/gage2b.png" width="499" height="361"></div>
+<p>Occasionally, real-time stations from several agencies go off-line during a storm so that the CERA website cannot display the observations for those stations (no blue line). You will see then only the yellow/green/orange line on these graphs representing the time series forecast by the model. These stations are denoted as a white map icon. You can still view the station&apos;s real-time observation website by clicking on the link in the bottom left corner. On the other hand, for some stations, represented by a grey map icon, there might be no forecast levels from the model (no yellow/green/orange line), e.g., because the geographic location of the station does not get flooded at that time. In that case you will only see the blue line with real-time observations.</p>
+<p><ul>
+<li>The <span class="purple">Map Settings</span> dialog at the top right of the website allows you to choose what time zone (Central/Eastern Time/UTC) and units (U.S. units or Metric) you want to see in the charts (see <a href="#map_settings">8.2 Map Settings</a>).
+<li>The header line shows the name and the station number of the real time station as given by the agency that hosts and maintains this station. If a station has a cross-reference to another agency, the station number and agency is given in brackets.</li>
+<li> The forecast maximum value is denoted as a red dot on the graph. The current advisory or the model run start time is displayed as a red line on the chart.</li>
+<li>You can zoom in on the graph by clicking and dragging on the time interval you want to zoom in on.</li>
+<li>For water level stations the values are given either relative to NAVD88 or to Mean Sea Level. If available, the information about the offset between NAVD88 and Mean Sea Level is displayed in the footer section of the chart.</li>
+<li>Hovering on the lines on the graph will result in an information box that shows additional information at any selected time.</li>
+</ul></p>
+<p><img src="_images/gage3.png" width="300" height="199"></p>
+<p>A <b>water level station</b> allows you to download the hydrographs for this particular station by using the &quot;Download&quot; link at the top right of the chart. The downloaded file is in the JSON file format and includes the station information and the observed and forecast water levels. If you would like to download the hydrographs for all water level stations for the displayed model run, use the <span class="purple">Download</span> button at the top right of the website (see <a href="#download">8.3 Download Data</a>). Note, that older model runs do not provide the hydrographs download capability. In that case you do not see a download link on the chart.</p>
+
+<div class="subheader" id="prec">6.10 Precipitation Data <span class="purple">(PRO)</span></div>
+<p>For the ADCIRC Surge Guidance System (ASGS), radar rainfall imagery can be overlaid on top of the storm surge model results. This might be useful to get a better understanding of the total amount of water, including surge and rainfall. The radar data is retrieved from <a href="https://nowcoast.noaa.gov/" target="_blank">NOAA nowCOAST</a> and is especially useful to see estimated values over a large area. The drop down menu allows you to view accumulated values from the last 6, 24, and 48 hours.</p>
+<p>The Compound Flood Inundation Guidance System (CFIGS) provides maps that show the combined impacts for surge and rainfall (see also <a href="#model">3. Select a model</a>)
+<p><img src="_images/prec.png" width="219" height="415"></p>
+
+<div class="subheader" id="topo">6.11 Topographical Features <span class="purple">(PRO)</span></div>
+<p>For maps from the ADCIRC Surge Guidance System (ASGS), this section allows you to turn on the <a href="https://shoreline.noaa.gov/" target="_blank">NOAA shoreline</a> map layer. The shoreline can help you to easily see where land ends and water begins on the map.</p> 
+<p>For some model runs this section also allows you to overlay the map with model barriers. Barriers are features like levees or roads which prevent the water in its natural flow. This can support the interpretation of model results in specific geographic areas like the levee protected area of Greater New Orleans.</p>
+<p><img src="_images/topo.png" width="221" height="92"></p>
+
+<p class="header" id="maptitle">7. Map Title</p>
+<p>For each displayed map a title bar above the map indicates which map layer you are viewing and the time the particular model run is valid for. The map title changes with each model layer that you select in the map panel (see <a href="#legend">6. Map Layers</a>). If a storm is present, you will see additional information in the map title section.</p>
+<p>For the map layers &quot;Water Height&quot; (see <a href="#elev">6.4 Water Height</a>) and &quot;Significant Wave Height&quot; (see <a href="#hsign">6.6 Significant Wave Height</a>) the vertical datum (NAVD88 or Mean Sea Level) is given so that you know the reference height that the model results are related to. The vertical datum can change with each displayed map depending on the storm surge model setup.</p>
+
+<div class="subheader" id="daytitle">7.1 Non-Storm Map Title</div>
+<p><img src="_images/daytitle.png" width="492" height="36"></p>
+<p>The map layer title for <span class="purple">non-storm</span> model runs shows the map layer that you are looking at and that corresponds with the selected layer in the <span class="purple">Map Layers</span> panel (see <a href="#legend">6. Map Layers</a>). It also shows the time the model run is valid for.</p>
+<div class="subheader" id="stormtitle">7.2 Storm Map Title</div>
+<p><img src="_images/stormtitle.png" width="514" height="46"></p>
+<p>For active storms additional storm information is displayed in the map title section. Besides the map layer and the time the model run is valid for, the <span class="purple">storm</span> title indicates the name of the storm, the advisory number from the National Hurricane Center, the track information and the source of the wind input for the model.</br>
+The track information shows whether the track is the official NHC forecast or a track variation. For each track a short description is provided in the <span class="purple">Tropical Cyclone Activity</span> section in the &quot;Map Layers&quot; panel (see <a href="#cyclone">6.3 Tropical Cyclone Activity</a>) - hover over the &quot;i&quot; icon to get a tooltip.</p>
+<p class="top18"><img src="_images/stormtitle2.png" width="514" height="46"></p>
+<p><img src="_images/track6.png" width="270" height="170"></p>
+
+<p class="header" id="mapbuttons">8. Map Buttons</p>
+<p><img src="_images/buttons.png" width="170" height="35"></p>
+<p><ul>
+<li>Help &amp; Info</li>
+<li>Map Settings</li>
+<li>Download Data <span class="purple">(PRO)</span></li>
+<li>Share this Map</li>
+</ul></p>
+
+<div class="subheader" id="help">8.1 Help &amp; Info</div>
+<p><img src="_images/help1.png" width="82" height="60"></p>
+<p>The <span class="purple">Help &amp; Info</span> button opens a dialog which gives you access to the <a href="http://coastalrisk.live/" target="_blank">CERA</a> homepage, the <a href="http://adcirc.org/" target="_blank">ADCIRC</a> storm surge model homepage, the <a href="../../cerarisk/accounts/contact/index.html" target="_blank">Contact Us</a> form and the CERA tutorial (this page). You may also want to follow us on Twitter by clicking the Twitter button for &quot;CERAStormSurge&quot;.</p>
+<p><img src="_images/help2.png" width="360" height="220"></p>
+
+<div class="subheader" id="map_settings">8.2 Map Settings </div>
+<p><img src="_images/settings1.png" width="92" height="61"></p>
+<p>The <span class="purple">Map Settings</span> allow you to customize your map. If you have allowed the use of cookies, your preferences will be saved for upcoming CERA sessions.</p>
+<p>You can make the following settings:</p>
+<p><img src="_images/settings2.png" width="358" height="339"></p>
+<ul>
+<li>Model (the model that will open by default when you log in - see also <a href="#model">3. Select a model</a>)</li>
+	<div>- ASGS</div>
+    <div>- CFIGS</div>
+	<div>- ESTOFS</div>
+<li>Time Zone</li>
+	<div>- Central Time (CST / CDT)</div>
+    <div>- Eastern Time (EST / EDT)</div>
+	<div>- Universal Time (UTC)</div>
+<li>Units</li>
+	<div>- U.S. Units (ft / mph)</div>
+    <div>- Metric (m / kmh)</div>
+</ul>
+<p>The &quot;Time Zone&quot; and &quot;Units&quot; settings influence all time-related features like the Day/Storm menus, the map title, the map layers select boxes and color bars, the information charts etc.</p>
+<ul><li>Show date/time labels for the storm track</li></ul>
+If you look at a storm model run, the storm track is displayed by default. Every 6 hours the track shows color-coded dots with time labels (see <a href="#cyclone">6.3 Tropical Cyclone Activity</a>). If you want to see the track information without the time labels you can permanently disable them by unchecking this option. The settings stay valid until you check them again or refresh your cookies.
+<p class="nowrap"><img src="_images/track_labels.png" width="260" height="231"><span class="left30"><img src="_images/track_nolabels.png" width="260" height="231"></span></p>
+
+<div class="subheader" id="download">8.3 Download Data <span class="purple">(PRO)</span></div>
+<p>The <span class="purple">Download</span> option allows you to save the displayed data layers in several data formats.</p>
+<p><img src="_images/download1.png" width="104" height="61"></p>
+<p><img src="_images/download2.png" width="359" height="313"></p>
+<p><ul>
+<li>Download Shapefile Polygons</li>
+<li>Download Shapefile Points</li>
+<li>Download GeoTIFF (for map layer &quot;Inundation above Ground&quot; only)</li>
+<li> Download CSV File (comma separated)</li>
+<li>Download NetCDF File</li>
+<li>Download Hydrographs</li>
+</ul></p>
+<p>The first 5 download options download the actual model layer that is currently displayed on the map. The information about the currently displayed map layer is shown in the header section of the dialog. Downloadable layers include the <span class="purple">Water Height</span>, the <span class="purple">Inundation above Ground</span>, the <span class="purple">Significant Wave Height</span>, the <span class="purple">Peak Wave Period</span>, and the <span class="purple">Wind Speed</span> but not any currently overlaid features (like the shore line or water level stations). The downloaded dataset neglects the selected zoom level and always provides the data for the entire model domain.</p>
+<p>The <b>Shapefile Polygons</b> provide the data in aggregated levels. The shapefile package includes an accompanying color file (lyr) that allows you to directly open the data in ArcGIS.</br>
+The <b>Shapefile Points</b> and the comma separated <b>CSV</b> file allow you to download the full dataset with every node (point) of the underlying ADCIRC model mesh.</br>
+The <b>NetCDF</b> option represents the raw model data and downloads the data in a binary format. </p>
+<p class="red">Note, that the &quot;Inundation above Ground&quot; layer is not available in the Polygons Shapefile or NetCDF file format. Instead, this layer is made available as a GeoTIFF file.</p>
+<p>The <b>Download Hydrographs</b> option allows you to download the hydrographs from the water level stations in the JSON file format. To see what water level stations are available for the currently displayed model run, you may select the <span class="purple">Water Level Observations</span> data layer in the map layers panel (see <a href="#gage">6.9 Observational Stations</a>). However, you do not need to select this layer to download the hydrographs. The downloaded hydrographs package includes a JSON file for each water level station with the full station information and the observed and forecast water levels. If you want to download the hydrographs for a single water level station, open the hydrographs chart for this station by clicking on the icon on the map and use the &quot;Download&quot; link in the upper right corner. Note, that older model runs do not provide this download capability.</p>
+
+<div class="subheader" id="share">8.4 Share this Map</div>
+<p><img src="_images/share1.png" width="102" height="61"></p>
+<p>If you want to share the current display of the CERA website (including the selected map layer, the active overlay features, and the selected zoom level), you can use the <span class="purple">Share this Map</span> button to retrieve the CERA link. Disable the &quot;Short URL&quot; select box if you want to get a full link instead of an abbreviated one.</p>
+<p class="top18"><img src="_images/share2.png" width="360" height="184"></p>
+
+<p class="header" id="banner">9. Header &amp; Footer Info</p>
+<div class="subsubheader">Website Header</div>
+<p>Click anywhere on the <span class="purple">CERA Coastal Emergency Risks Assessment</span> banner to get forwarded to the <a href="https://coastalrisk.live/" target="_blank">CERA homepage</a> that provides additional information about the CERA web interface and the fully automated workflow to run the ADCIRC model in real-time.</p>
+<div class="subsubheader">Website Footer</div>
+<p>The footer section shows you additional information about CERA, our collaborators and partners, disclaimer and data information, and how to <a href="../../cerarisk/accounts/contact/index.html" target="_blank">contact us</a>.
+
+<p class="header" id="ack">Acknowledgement</p>
+<p>The CERA maps are based upon work supported by Louisiana State University, Center for Computation and Technology, Louisiana Sea Grant and Louisiana's Coastal Protection and Restoration Authority (CPRA).</p>
+
+</body>
+
+<!-- Mirrored from cera.coastalrisk.live/cera_risk/_docs/CERA_tutorial.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 15:07:38 GMT -->
+</html> 

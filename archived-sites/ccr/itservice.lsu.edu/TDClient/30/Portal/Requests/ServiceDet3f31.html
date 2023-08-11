@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceDet?ID=310 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 May 2023 06:53:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link href="https://itservice.lsu.edu/TDPortal/Content/Styles/font-awesome.min.css?v=20230506021154" rel="stylesheet" type="text/css" id="lnkFontAwesome" /><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/jquery/2.2.4/jquery.min.js?v=20230506021154"></script><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/jquery-migrate/1.4.1/jquery-migrate.min.js?v=20230506021154"></script><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/jquery-ui/1.12.1/jquery-ui-1.12.1.custom.timepicker.min.js?v=20230506021154"></script><link href="https://itservice.lsu.edu/TDPortal/Content/Styles/jquery-ui/1.12.1/jquery-ui.compiled.min.css?v=20230506021154" rel="stylesheet" type="text/css"  /><link href="https://itservice.lsu.edu/TDPortal/Content/bootstrap/3.4.1/dist/css/bootstrap.min.css?v=20230506021154" rel="stylesheet" type="text/css" id="lnkBootstrapCSS" /><script src="https://itservice.lsu.edu/TDPortal/Content/bootstrap/3.4.1/dist/js/bootstrap.min.js?v=20230506021154"></script><link href="https://itservice.lsu.edu/TDClient/Styles/bootstrap_custom.min.css?v=20230506021150" rel="stylesheet" type="text/css"  /><link href="https://itservice.lsu.edu/TDClient/Styles/TDStyles.min.css?v=20230506021150" rel="stylesheet" type="text/css"  /><link href="https://itservice.lsu.edu/TDPortal/BE/Style/2/TDClient/30?v=20201103215708" rel="stylesheet" type="text/css" /><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/tdx/TDJSFramework.compiled.min.js?v=20230506021154"></script><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/underscore/1.12.1/underscore-min.js?v=20230506021154"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/clientOS.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/collapseMe.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/tdsearchfilter.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/SiteSearch.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/tdx/elasticsearchAutocomplete/elasticsearchAutocomplete.min.js?v=20230506021154"></script>
+<link id="ctl00_ctl00_lnkFavicon" rel="shortcut icon" href="https://itservice.lsu.edu/TDPortal/BE/Icon/2/30?v=20201103215708" />
+
+    
+    <script async src="../../../../../www.googletagmanager.com/gtag/jsc2fb?id=UA-6754317-16"></script>
+    <script>
+
+      $(function () {
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        // Be sure to set the proper cookie domain to the customer's full subdomain when sending the pageview hit.
+        gtag('config', 'UA-6754317-16', { 'cookie_domain': 'itservice.lsu.edu' });
+
+        });
+
+    </script>
+
+  
+
+  <script>
+
+      $(function () {
+        var masterUi = MasterUI({
+          isPostback: false,
+        baseUrl: '/TDClient/',
+        isTdGoogleAnalyticsEnabled: true,
+        isAuthenticated: false
+        });
+
+      $('#collapseMe').collapseMe({
+        toggleVisibilitySelector: '.navbar-toggle'
+      });
+
+    });
+
+      // The sub-nav menu uses padding-top to position itself below the header bar and main navigation sections. When the
+      // window is resized, there is a chance that the content of these header or nav sections wraps, causing the height
+      // to change, potentially covering the sub-nav menu, which is obviously a big usability problem. This function
+      // listens for when the window size or orientation is changing (and also when the window first loads), and adjusts
+      // the padding so that the sub-nav menu appears in the correct location.
+      $(window).bind('load ready resize orientationchange', function () {
+        var headerHeight = $('#divMstrHeader').height();
+        $('#navShim').css({
+          "padding-top": headerHeight
+        });
+
+        $('#content').css({
+          "padding-top": headerHeight,
+          "margin-top": headerHeight * -1
+        });
+      });
+  </script>
+
+  
+  
+
+  
+
+  <script src="https://itservice.lsu.edu/TDPortal/Content/select2/v3/select2.min.js?v=20230506022306"></script><link href="https://itservice.lsu.edu/TDPortal/Content/select2/v3/select2.compiled.min.css?v=20230506022306" rel="stylesheet" type="text/css" id="lnkSelect2" />
+  <script src="https://itservice.lsu.edu/TDClient/Scripts/Share.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/attachmentHandler.min.js?v=20230506021150"></script>
+
+
+  <script>
+
+    function ToggleFavorite() {
+      __doPostBack('ctl00$ctl00$cpContent$cpContent$btnToggleFavorite', '');
+    }
+
+    function checkRecipients() {
+      if ($('#ctl00_ctl00_cpContent_cpContent_shareRecipients').val().trim() === "") {
+        alert('You must first enter a valid email.');
+        $('#myModal').modal('toggle')
+      }
+    }
+
+    function showHideCommentInput(show) {
+      var commentEditor = CKEDITOR.instances['ctl00_ctl00_cpContent_cpContent_txtComments_txtEditor_txtBody'];
+
+      if (show) {
+        $('#ctl00_ctl00_cpContent_cpContent_btnSaveComment').progressButton().progressButton('reset');
+        $('#divComment').show();
+        commentEditor.focus();
+        $("#luFeedCommentNotification").select2("val", null, true);
+        $('#btnComment').hide();
+      } else {
+        $('#divComment').hide();
+        commentEditor.setData('');
+        $("#luFeedCommentNotification").select2("val", null, true);
+        $('#btnComment').show();
+      }
+    }
+
+    $(function () {
+
+      var attachmentHandler = new TeamDynamix.AttachmentHandler({
+        containerSelector: '.js-service-attachments',
+        resultLabelSelector: '#ctl00_ctl00_cpContent_cpContent_lblResults_lblResults-label',
+        baseControllerUrl: '/TDClient/30/Portal/Shared/Attachments',
+        antiForgeryToken: 'kvvpanEUs1VURA7-_1WQSqEHnvk4TO28bHGOgSI58aXmIQTFLq1rreypqOtoDnC3hNDlCJKqKquSP1jCU1r-2dIWvI01:s1b82wyZZGGQRW9Q7zrIhcPAU8b5kgUgtgTpEB_R1GxI9a3qxriPlUnBBSKXu4VHEcErPDu_R0lc8sE9KCcCo81ad8s1',
+        itemId: 310,
+        componentId: 47
+      });
+
+      // Don't try and update the table styles if the user wanted to opt out.
+      $('#ctl00_ctl00_cpContent_cpContent_divDescription table:not(.SkipTableFixup)').each(function (table) {
+        var padding = $(this).attr('cellpadding');
+        var spacing = $(this).attr('cellspacing');
+
+        $(this).css("border-collapse", "separate");
+
+        if (spacing) {
+          $(this).css("border-spacing", spacing + "px");
+        }
+
+        $(this).find('td').each(function (cell) { $(this).css('padding', padding + 'px') });
+      });
+
+      
+
+    });
+
+    
+
+  </script>
+
+
+
+<meta property="og:title" content="Article Creation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceDet?ID=310" />
+<meta property="og:image" content="https://itservice.lsu.edu/TDPortal/BE/Logo/2/30" />
+<meta property="og:description" content="Request for an article to be created in GROK" />
+  <meta property="og:site_name" content="Louisiana State University - Services" />
+  <meta property="article:section" content="GROK" />
+    <meta property="article:tag" content="grok" />
+    <meta property="article:tag" content="knowledge" />
+    <meta property="article:tag" content="knowledgebase" /><title>
+	Service - Article Creation
+</title></head>
+<body>
+<form method="post" action="https://itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceDet?ID=310" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="https://itservice.lsu.edu/TDClient/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZMSMQxVWLi4fik2rw1_u_hZsCNzwv5c621ov6_ZX_wzTt5vh-g2&amp;t=637814473746327080" type="text/javascript"></script>
+
+
+<script src="https://itservice.lsu.edu/TDClient/ScriptResource.axd?d=nv7asgRUU0tRmHNR2D6t1NXOAgTb3J37FC1L2PfbYYFmSPm-ANa7n6FP0x7BAsbHeL4jfY3ptd1q7zKKVI7DbuXZcwEoKOwj9WxCI1VrQlbWE1Trg1t1GmJDN43kQMJsB7X8tw2&amp;t=14d69f50" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvmVxW3-Ljsg_2Hna32smxrg-6ogyYAN3UTPsJQ8m1uwzn_kuf2Wpne6NSFmYui3h0wCQhJN3ZUiLTNkvhiIgZpq74-lKmofUPQGJ8own8RI2_mwAcmvlSj2WBnqwm5Wj4cyNvv81&amp;t=49337fe8" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OLdGoo5BVWQ_Eo60QZTEhEcHeiVfwgY9tLCgzdZ5TRwvrwYEnOvujbNccOVLUfWtUg4HivSIsewg6JABxkBGEqVVV64eiRyCAsPDqh6tUioISUQKB74sWMO4Er2mHrWEIWs_sBM1&amp;t=49337fe8" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/WebResource.axd?d=xtfVMqdF1exC2MBVkOJwMveStDR5kg3dbZWgIXMXZmB1xXom6CcIrWFgHa7jsp4qJuFW2L5XShudyzlBsIO3JhCfiU5HmL2BDz__mCv9dznmBlEMS7LvcYg6wTdPTrAXIXI2CvtjwlnpZd-j4Zpsx2wG_uA1&amp;t=638189217300000000" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/WebResource.axd?d=sp7vCoAo-SSYfpsQ1sYBBeEDnwCGxDYEwZCM0ler88yoVZIPDXMk1C3XF2L2L0xrbB8Rvhli51TswRlmPIOCZgaY58lKhPr-Pv1jTFJ1oUAu7x6RDtNFZUxbtxs3KYQGLK6FpPD5bKuB0e0NmS9HkAqRVks1&amp;t=638189217300000000" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/WebResource.axd?d=icMURy63hv40LPPfq4rTvmm-RfB_YkC6rEEF_2QOO68q3TseXYNBetRKKgBXJ8mn2e8UIgCPiV23HaQUZbjySMHqSgmYZgLcYltBqwD2_EK8aQ08zBuqc3ZBVZITQrbtn6w46dRxFLibMIQg0Aho73rn8Rpxrzg5YMG_JR0UOrUR0wlZ0&amp;t=638189217300000000" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/WebResource.axd?d=1HpFfNpwNihNfEP1lyJHvdPVqbv8KRoFH4-_ZORUgPOP-bqmmtIJRvFQc7828Vf59O_-fdBXcnwdv-hYp5RptPuHmMR0kGQM0_3rS4Z7sKfC7jy9Cc_8fyfcUWa8psszacEQlAXHPXmNwyRymbGSywEmhrE1&amp;t=638189217300000000" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+CKEditor_TextBoxEncode('ctl00_ctl00_cpContent_cpContent_shareBody_txtBody', 0); if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E24F3D79" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="vg55NG1ApBCA4jZHiFfSF+YqpI6XuqnJR+xchRBywhl+dxoiJ2VY3kMFIAZ4eAJEqy8SFeWSz0i9m+QEmA4gOYrGG7QmHko+XOrkS0+rK3oI5DXibjp6YOaPIdPQw5K6auKLiCFXH6he2SuZ0SONVROWcEjTogm9I0ALLOv+n9L0Aenk" />
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$smMain', 'aspnetForm', ['tctl00$ctl00$cpContent$cpContent$UpdatePanel2','','tctl00$ctl00$cpContent$cpContent$lblResults$ctl00',''], ['ctl00$ctl00$cpContent$cpContent$btnToggleFavorite',''], [], 90, 'ctl00$ctl00');
+//]]>
+</script>
+
+<div id="ctl00_ctl00_upMain" style="display:none;">
+	
+    <div id="ctl00_ctl00_pbMain" class="progress-box-container"><div class="progress-box-body"><div class="well shadow"><h2 class="h4 gutter-top-none">Updating...</h2><div class="progress" style="margin-bottom: 0;"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div></div></div></div>
+  
+</div>
+
+
+
+  <header role="banner">
+
+  <div id="divMstrHeader" class="master-header NoPrint" style="background-color: #fff;">
+
+  <nav class="navbar navbar-default" style="background-color: #5A5A5A; border: none">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".headerNavbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse headerNavbar" style="margin-top: 5px">
+            <ul class="nav navbar-nav" style="margin-left: 15%">
+                <li><a href="https://lsu.edu/index.php" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">LSU.edu</a></li>
+                <li><a href="https://mylsu.apps.lsu.edu/c/portal/login" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">myLSU</a></li>
+                <li><a href="https://lsu.edu/employeehub/index.php" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Employee Hub</a></li>
+                <li><a href="https://lsu.edu/a-z.php" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Directories</a></li>
+            </ul>
+            <ul class="nav navbar-nav main-calls" style="margin-left: 5%; margin-right: auto; text-align: center">
+                <li><a href="http://fierceforthefuturecampaign.org/" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Give</a></li>
+                <li><a href="https://lsu.edu/visit/index.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Visit</a></li>
+                <li><a href="https://lsu.edu/admission/apply.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Apply</a></li>
+                <li><a href="https://lsu.edu/hrm/job_seekers/index.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Employment</a></li>
+                <li><a href="https://lsu.edu/about/requestinfo.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+  
+
+  <div class="logo-header-full hidden-xs">
+
+    
+    <div class="pull-left">
+      <a href="#mainContent" class="sr-only sr-only-focusable">Skip to main content</a>
+    </div>
+
+
+    <div id="ctl00_ctl00_divPageHeader" class="container logo-header clearfix" style="padding: 5px;">
+
+      <div id="divLogo" class="pull-left logo-container">
+
+        <a href="https://itservice.lsu.edu/TDClient/30/Portal/Home/"
+           target="_blank">
+          <img src="https://itservice.lsu.edu/TDPortal/BE/Logo/2/0" alt="Louisiana State University Home Page" class="js-logo img-responsive" />
+        </a>
+
+      </div>
+
+      <div class="master-header-right pull-right padding-top padding-bottom">
+
+        
+
+          <div class="pull-left topLevelSearch input-group">
+            <div id="SiteSearch-43818e4edec44c2fa4947fe53ce772b1" class="gutter-bottom input-group site-search" style="max-width: 400px;">
+  <div id="SiteSearch-dropdown-43818e4edec44c2fa4947fe53ce772b1" class="input-group-btn">
+    <button type="button" id="SiteSearch-filter-43818e4edec44c2fa4947fe53ce772b1" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" title="Filter your search by categories" data-component="all">
+      <span class="fa fa-globe"></span><span class="fa fa-fw fa-nopad fa-caret-down" aria-hidden="true"></span>
+      <span class="sr-only">
+        Filter your search by category. Current category:
+        <span class="js-current-component">All</span>
+      </span>
+    </button>
+    <ul class="dropdown-menu" >
+      <li>
+        <a href="javascript:void(0);" data-component-text="All" data-component="all" data-component-icon="fa-globe" title="Search all areas">
+          <span class="fa fa-fw fa-nopad fa-globe" aria-hidden="true"></span>
+          All
+        </a>
+      </li>
+
+      <li role="separator" class="divider"></li>
+
+
+        <li role="presentation">
+          <a role="menuitem" href="javascript:void(0);" data-component-text="Service Catalog" data-component="sc" data-component-icon="fa-compass" title="Search Service Catalog">
+            <span class="fa fa-fw fa-nopad fa-compass" aria-hidden="true"></span>
+            Service Catalog
+          </a>
+        </li>
+
+    </ul>
+  </div>
+
+  <label class="sr-only" for="SiteSearch-text-43818e4edec44c2fa4947fe53ce772b1">Search the client portal</label>
+
+  <input id="SiteSearch-text-43818e4edec44c2fa4947fe53ce772b1" type="text" class="form-control" autocomplete="off" placeholder="Search the client portal" title="To search for items with a specific tag, enter the # symbol followed by the name of the tag.
+To search for items using exact match, place double quotes around your text."/>
+
+  <span class="input-group-btn">
+    <button id="SiteSearch-button-43818e4edec44c2fa4947fe53ce772b1" class="btn btn-default" type="button" title="Search">
+      <span class="fa fa-fw fa-nopad fa-search blue" aria-hidden="true"></span>
+      <span class="sr-only">Search</span>
+    </button>
+  </span>
+</div>
+
+<script>
+  $(function() {
+    var siteSearch = new TeamDynamix.SiteSearch({
+      searchUrl: "/TDClient/30/Portal/Shared/Search",
+      enableAutocompleteSearch: true,
+      autocompleteSearchUrl: '/TDClient/30/Portal/Shared/AutocompleteSearch',
+      autocompleteResultsPosition: 'fixed',
+      autocompleteResultsZIndex: 1000,
+      searchTextBoxSelector: '#SiteSearch-text-43818e4edec44c2fa4947fe53ce772b1',
+      searchComponentFilterButtonSelector: '#SiteSearch-filter-43818e4edec44c2fa4947fe53ce772b1',
+      searchButtonSelector: '#SiteSearch-button-43818e4edec44c2fa4947fe53ce772b1',
+      searchFilterDropdownSelector: '#SiteSearch-dropdown-43818e4edec44c2fa4947fe53ce772b1',
+      showKnowledgeBaseOption: false,
+      showServicesOption: true,
+      showForumsOption: false,
+      autoFocusSearch: false
+    });
+  });
+  </script>
+          </div>
+
+        
+          <div title="Sign In" class="pull-right gutter-top-sm">
+            <a href="https://itservice.lsu.edu/TDClient/30/Portal/Login.aspx?ReturnUrl=%2fTDClient%2f30%2fPortal%2fRequests%2fServiceDet%3fID%3d310">
+              Sign In
+            </a>
+          </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  <nav id="ctl00_ctl00_mainNav" class="navbar navbar-default themed tdbar" aria-label="Primary">
+    <div id="navContainer" class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="pull-left navbar-toggle collapsed themed tdbar-button-anchored tdbar-toggle gutter-left" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="tdbar-button-anchored icon-bar"></span>
+          <span class="tdbar-button-anchored icon-bar"></span>
+          <span class="tdbar-button-anchored icon-bar"></span>
+          <span class="sr-only">Show Applications Menu</span>
+        </button>
+        <a class="navbar-brand hidden-sm hidden-md hidden-lg themed tdbar-button-anchored truncate-be" href="#">
+
+          ITS Client Portal
+        </a>
+      </div>
+
+      <div id="td-navbar-collapse" class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav nav-collapsing" id="collapseMe">
+
+          
+            <li class="themed tdbar-button-anchored hidden-sm hidden-md hidden-lg">
+              <a href="https://itservice.lsu.edu/TDClient/30/Portal/Login.aspx?ReturnUrl=%2fTDClient%2f30%2fPortal%2fRequests%2fServiceDet%3fID%3d310">Sign In</a>
+            </li>
+          
+            <li id="divSearch" class="themed tdbar-button-anchored hidden-sm hidden-md hidden-lg">
+              <a href="https://itservice.lsu.edu/TDClient/30/Portal/Shared/Search" title="search">Search</a>
+            </li>
+          
+              <li id="divDesktop95de9451-b9b0-4ba8-a556-f01f7e4f8120" class="themed tdbar-button-anchored">
+                <a href="https://itservice.lsu.edu/TDClient/30/Portal/Home/">Home</a>
+              </li>
+            
+
+          
+            <li id="divTDRequests" class="themed tdbar-button-anchored sr-focusable">
+              <a href="ServiceCatalog.html">Services</a>
+            </li>
+          
+
+          <li class="themed tdbar-button-anchored hidden-xs more-items-button" id="moreMenu">
+            <a data-toggle="dropdown" title="More Applications" href="javascript:;">
+              <span class="sr-only">More Applications</span>
+              <span class="fa fa-ellipsis-h" aria-hidden="true"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right themed tdbar" id="collapsed"></ul>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+
+  </nav>
+
+  </div>
+
+  </header>
+
+
+
+<div id="navShim" class="hidden-xs hidden-sm"></div>
+<main role="main">
+  <div id="content">
+    <div id="mainContent" tabindex="-1"></div>
+    
+
+  
+    <nav id="divTabHeader" class="tdbar-sub NoPrint hidden-xs navbar-subnav" aria-label="Services">
+      <a href="#servicesContent" class="sr-only sr-only-focusable">Skip to Services content</a>
+      <div class="container clearfix">
+        <ul class="nav navbar-nav js-submenu" id="servicesSubMenu" style="margin-left: -15px;">
+
+          
+          <li>
+            <a href="https://itservice.lsu.edu/TDClient/30/Portal/Services/ServicesAtoZ">Services A-Z</a>
+          </li>
+          
+          <li>
+            <a href="ServiceCatalogSearch.html">Search <span class="sr-only">Services</span></a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+  
+
+  <div class="container gutter-top">
+    <div id="servicesContent" tabindex="-1" style="outline:none;">
+      
+
+<span id="ctl00_ctl00_cpContent_cpContent_lblResults_ctl00" aria-live="polite" aria-atomic="true"><span id="ctl00_ctl00_cpContent_cpContent_lblResults_lblResults-label" class="red"></span></span>
+
+<ol class="breadcrumb">
+  <li><a href="ServiceCatalog.html">Service Catalog</a></li><li><a href="ServiceCatalog910c.html?CategoryID=20">Teaching &amp; Learning</a></li><li class="active"><a href="ServiceCatalog6220.html?CategoryID=228">GROK</a></li><li class="active">Article Creation</li>
+</ol>
+
+
+
+<div class="row gutter-top">
+
+<div id="divMainContent" class="col-md-8">
+
+  <h1 class="wrap-text">
+    Article Creation
+  </h1>
+
+  <div id="ctl00_ctl00_cpContent_cpContent_divTags">
+    <span class="sr-only">Tags</span>
+    <span class="fa fa-tags gray gutter-right-sm" aria-hidden="true" title="Tags"></span>
+    
+        <a href="ServiceCatalogSearch51c5.html?SearchText=%23grok" id="ctl00_ctl00_cpContent_cpContent_rptTags_ctl00_ctl00_lnkDisplay" title="grok">grok</a>
+
+      
+        <span class="fa fa-circle gray gutter-right-sm font-xs vert-middle" aria-hidden="true"></span>
+      
+        <a href="ServiceCatalogSearch122e.html?SearchText=%23knowledge" id="ctl00_ctl00_cpContent_cpContent_rptTags_ctl02_ctl00_lnkDisplay" title="knowledge">knowledge</a>
+
+      
+        <span class="fa fa-circle gray gutter-right-sm font-xs vert-middle" aria-hidden="true"></span>
+      
+        <a href="ServiceCatalogSearchfa25.html?SearchText=%23knowledgebase" id="ctl00_ctl00_cpContent_cpContent_rptTags_ctl04_ctl00_lnkDisplay" title="knowledgebase">knowledgebase</a>
+
+      
+  </div>
+
+  
+
+  
+
+  <div id="ctl00_ctl00_cpContent_cpContent_divDescription" class="gutter-top ckeShim"><h3 style="background: #EEEEEE; border: 1px solid #CCCCCC; padding: 5px 10px"><strong><span style="color: #461D7C">What is it?</span></strong></h3>
+
+<p>Request for an article to be created in GROK</p>
+
+<p><span style="font-family: Helvetica"></span></p>
+
+<p><span style="font-family: Helvetica"></span></p>
+
+<h3 style="background: #EEEEEE; border: 1px solid #CCCCCC; padding: 5px 10px"><span style="color: #461D7C"><strong>Who is eligible?</strong></span></h3>
+
+<p>LSU Faculty, Staff, and Students&nbsp;</p>
+
+<h3 style="background: #EEEEEE; border: 1px solid #CCCCCC; padding: 5px 10px"><span style="color: #461D7C"><strong>How do I get it?</strong></span></h3>
+
+<p><span style="font-family: Helvetica">Click the "Request Service" button on this page.&nbsp;</span></p>
+
+<h3 style="background: #EEEEEE; border: 1px solid #CCCCCC; padding: 5px 10px"><span style="color: #461D7C"><strong>How do I use it?</strong></span></h3>
+
+<p>Once form is filled out, GROK team will review and communicate further.</p>
+
+<p>&nbsp;</p>
+
+<p><strong><span style="font-family: Helvetica"></span></strong></p>
+
+<p>&nbsp;</p>
+
+<h3><span style="font-size: 14px"></span></h3></div>
+
+  
+
+  &nbsp;
+
+</div>
+
+<div id="divSidebar" class="col-md-4">
+
+  <span id="ctl00_ctl00_cpContent_cpContent_lnkRequest">
+    <a class="DetailAction " href="https://itservice.lsu.edu/TDClient/30/Portal/Login.aspx?ReturnUrl=%2fTDClient%2f30%2fPortal%2fRequests%2fTicketRequests%2fNewForm%3fID%3dXZ7TcY7%257eErQ_%26RequestorType%3dService">  <span class="fa fa-arrow-circle-o-right fa-fw" aria-hidden="true"></span>
+Request Service</a>
+  </span>
+  
+
+  <a id="ctl00_ctl00_cpContent_cpContent_btnToggleFavorite" tabindex="-1" class="hidden" aria-hidden="true" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$cpContent$cpContent$btnToggleFavorite&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">Blank</a>
+
+  
+
+
+  <div id="divDetails" class="panel panel-default gutter-top">
+
+    <div class="panel-heading">
+      <h2 class="h3 panel-title">Details</h2>
+    </div>
+
+    <div class="panel-body">
+
+      <div id="divServiceID">
+        <span class="control-label">Service ID: </span>
+        310
+      </div>
+
+      
+
+      
+
+      <div id="divCreated" class="disp-group">
+        <span class="control-label gutter-bottom-xs">
+          Created
+        </span>
+        <div>
+          <span id="ctl00_ctl00_cpContent_cpContent_udtCreatedDate">Fri 11/6/20 11:41 AM</span><span id="ctl00_ctl00_cpContent_cpContent_lblCreatedBy"></span>
+        </div>
+      </div>
+
+      <div id="ctl00_ctl00_cpContent_cpContent_divModified" class="disp-group">
+        <span class="control-label gutter-bottom-xs">
+          Modified
+        </span>
+        <div>
+          <span id="ctl00_ctl00_cpContent_cpContent_udtModifiedDate">Mon 11/16/20 4:32 PM</span><span id="ctl00_ctl00_cpContent_cpContent_lblModifiedBy"></span>
+        </div>
+      </div>
+
+      <div class="js-custom-attributes-container">
+
+</div>
+
+    </div>
+
+  </div>
+
+  
+
+  <div id="divAttachments" class="js-service-attachments"></div>
+
+</div>
+
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title h4" id="myModalLabel">
+          <span class="fa fa-share-alt fa-fw" aria-hidden="true"></span>Share
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group required">
+          <label class="control-label" for="ctl00_ctl00_cpContent_cpContent_shareRecipients">Recipient(s) <small>- separate email addresses with a comma</small></label>
+          <input name="ctl00$ctl00$cpContent$cpContent$shareRecipients" type="text" id="ctl00_ctl00_cpContent_cpContent_shareRecipients" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="ctl00_ctl00_cpContent_cpContent_shareBody_txtBody">Message</label>
+          <script src="https://itservice.lsu.edu/TDPortal/Content/nanospell/autoload.js?v=20230506021154"></script>
+
+
+<script type="text/javascript">
+
+  (function () {
+    // The "CKEDITOR-config-loaded" event is thrown after the CKEDITOR global variable has been created, but before the instance of CKEditor is ready.
+    // At this point attach a listener to the global variable for the instanceReady event so we can perform our initialization logic.
+    window.addEventListener('CKEDITOR-config-loaded', function () {
+      if (window.CKEDITOR) {
+        setConfigs()
+        initialize();
+      }       
+    });
+  })();
+
+  function setConfigs() {
+    window.CKEDITOR.config['clientScripts'] = [{"scriptPath":["/TDPortal/Content/bootstrap/3.4.1/dist/js/bootstrap.min.js","https://itservice.lsu.edu/TDPortal/Content/Scripts/tdx/TDJSFramework.compiled.min.js"],"scriptDependencyPath":"/TDPortal/Content/Scripts/jquery/2.2.4/jquery.min.js"}];
+    window.CKEDITOR.config['clientStyles'] = ["/TDPortal/Content/bootstrap/3.4.1/dist/css/bootstrap.min.css","https://itservice.lsu.edu/TDClient/Styles/bootstrap_custom.min.css","https://itservice.lsu.edu/TDClient/Styles/TDStyles.min.css","https://itservice.lsu.edu/TDPortal/BE/Style/2/TDClient/30"];
+    window.CKEDITOR.config['itemTemplates'] = '';
+  }
+
+  function initialize() {
+
+    window.CKEDITOR.on('instanceReady', function (evt) {
+
+      if (evt.editor.element.$.id == 'ctl00_ctl00_cpContent_cpContent_shareBody_txtBody') {
+
+        
+
+          nanospell.ckeditor('ctl00_ctl00_cpContent_cpContent_shareBody_txtBody', {
+            dictionary: 'en',
+            server: 'asp.net'
+          });
+
+          setTimeout(function () { evt.editor.startNanospell(); }, 200);
+
+        
+
+        // Check if we should mark the editor as required
+        if ($(evt.editor.element.$).parents('div.required').length > 0) {
+          evt.editor.editable().setAttribute('aria-required', 'true');
+        }
+      }
+
+    });
+  }
+
+  
+
+</script>
+
+<span class="sr-only">Press Alt + 0 within the editor to access accessibility instructions, or press Alt + F10 to access the menu.</span>
+<textarea name="ctl00$ctl00$cpContent$cpContent$shareBody$txtBody" rows="2" cols="20" id="ctl00_ctl00_cpContent_cpContent_shareBody_txtBody" style="height:175px;">
+Check out this service I found in the ITS Client Portal service catalog.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceDet?ID=310&quot;&gt;https://itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceDet?ID=310&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;Article Creation&lt;br /&gt;&lt;br /&gt;Request for an article to be created in GROK</textarea>
+<span id="ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor" style="display:none;"></span>
+<span id="ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength" style="display:none;"></span>
+        </div>
+      </div>
+      <div class="modal-footer text-left">
+        <a onclick="checkRecipients();" id="ctl00_ctl00_cpContent_cpContent_btnSendShare" type="button" class="btn btn-primary" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$cpContent$cpContent$btnSendShare&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+          <span class="fa fa-paper-plane-o" aria-hidden="true"></span><span class="padding-left-xs">Send</span>
+        </a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+
+  </div>
+</main>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor"), document.getElementById("ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor = document.all ? document.all["ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor"] : document.getElementById("ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor");
+ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor.controltovalidate = "ctl00_ctl00_cpContent_cpContent_shareBody_txtBody";
+ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor.focusOnError = "t";
+ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor.display = "None";
+ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor.enabled = "False";
+ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor.initialvalue = "";
+var ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength = document.all ? document.all["ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength"] : document.getElementById("ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength");
+ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength.controltovalidate = "ctl00_ctl00_cpContent_cpContent_shareBody_txtBody";
+ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength.focusOnError = "t";
+ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength.errormessage = "Comments cannot be longer than 0 characters (including formatting characters).";
+ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength.display = "None";
+ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength.enabled = "False";
+ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength.clientvalidationfunction = "validateCommentLength";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+setNavPosition('TDRequests');window.CKEDITOR_BASEPATH = 'https://itservice.lsu.edu/TDPortal/Content/ckeditor/';
+//]]>
+</script>
+<script src="https://itservice.lsu.edu/TDPortal/Content/ckeditor/ckeditor.js?t=C6HH5UF" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var CKEditor_Controls=[],CKEditor_Init=[];function CKEditor_TextBoxEncode(d,e){var f;if(typeof CKEDITOR=='undefined'||typeof CKEDITOR.instances[d]=='undefined'){f=document.getElementById(d);if(f)f.value=f.value.replace(/</g,'&lt;').replace(/>/g,'&gt;');}else{var g=CKEDITOR.instances[d];if(e&&(typeof Page_BlockSubmit=='undefined'||!Page_BlockSubmit)){g.destroy();f=document.getElementById(d);if(f)f.style.visibility='hidden';}else g.updateElement();}};(function(){if(typeof CKEDITOR!='undefined'){var d=document.getElementById('ctl00_ctl00_cpContent_cpContent_shareBody_txtBody');if(d)d.style.visibility='hidden';}var e=function(){var f=CKEditor_Controls,g=CKEditor_Init,h=window.pageLoad,i=function(){for(var j=f.length;j--;){var k=document.getElementById(f[j]);if(k&&k.value&&(k.value.indexOf('<')==-1||k.value.indexOf('>')==-1))k.value=k.value.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');}if(typeof CKEDITOR!='undefined')for(var j=0;j<g.length;j++)g[j].call(this);};window.pageLoad=function(j,k){if(k.get_isPartialLoad())setTimeout(i,0);if(h&&typeof h=='function')h.call(this,j,k);};if(typeof Page_ClientValidate=='function'&&typeof CKEDITOR!='undefined')Page_ClientValidate=CKEDITOR.tools.override(Page_ClientValidate,function(j){return function(){for(var k in CKEDITOR.instances){if(document.getElementById(k))CKEDITOR.instances[k].updateElement();}return j.apply(this,arguments);};});setTimeout(i,0);};if(typeof Sys!='undefined'&&typeof Sys.Application!='undefined')Sys.Application.add_load(e);if(window.addEventListener)window.addEventListener('load',e,false);else if(window.attachEvent)window.attachEvent('onload',e);})();CKEditor_Controls.push('ctl00_ctl00_cpContent_cpContent_shareBody_txtBody');
+CKEditor_Init.push(function(){if(typeof CKEDITOR.instances['ctl00_ctl00_cpContent_cpContent_shareBody_txtBody']!='undefined' || !document.getElementById('ctl00_ctl00_cpContent_cpContent_shareBody_txtBody')) return;CKEDITOR.replace('ctl00_ctl00_cpContent_cpContent_shareBody_txtBody',{"autoGrow_maxHeight" : 175, "autoGrow_minHeight" : 175, "contentsCss" : ['https://itservice.lsu.edu/TDPortal/Content/ckeditor/contents.css', '/TDPortal/Content/Styles/font-awesome.min.css'], "height" : "175", "htmlEncodeOutput" : true, "image_previewText" : " ", "removePlugins" : "magicline,devtools,templates,elementspath,fontawesome,youtube,uploadimage,simpleimage,remoteimageblocker", "toolbar" : "TDSimple"}); });
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":null,"displayAfter":500,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_upMain"));
+});
+
+document.getElementById('ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ctl00_cpContent_cpContent_shareBody_rfvCkEditor'));
+}
+
+document.getElementById('ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ctl00_ctl00_cpContent_cpContent_shareBody_cvMaxLength'));
+}
+//]]>
+</script>
+</form>
+
+<footer role="contentinfo">
+  
+  
+  
+
+  
+    <div class="master-footer">
+
+      <footer style="color: #FFFFFF; border-top: 4px solid #444444">
+    <div class="container-fluid" style="background-color: #461D7C; padding: 10px; text-align: left">
+        <div class="row-fluid">
+            <div class="span12 text-center">
+                <img src="https://itservice.lsu.edu/TDPortal/Images/Viewer?fileName=0e8cd35a-9c1c-4774-816b-e582eead8b6c.png" style="width: 116px; height: 38px" alt="LSU">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #4F4F4F; padding: 10px; text-align: center">
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <address>
+                    <div>
+                        <span>Louisiana State University</span><br>
+                        <span>Baton Rouge, Louisiana</span>, <span>70803</span>
+                    </div>
+                    <div class="email"><a href="mailto:webmaster@lsu.edu" style="color: #FFFFFF; font-weight: bold">webmaster@lsu.edu</a></div>
+                    <div><a href="http://www.lsu.edu/feedback/index.php" style="color: #FFFFFF; font-weight: bold">Provide website feedback</a></div>
+					<div><a href="https://itservice.lsu.edu/TDClient/30/Portal/SiteMap/" style="color: #FFFFFF; font-weight: bold">Site Map</a></div>
+                </address>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <span>
+                    <a class="btn btn-social-icon btn-facebook" target="_blank" href="../../../../../www.facebook.com/LSUInfoTechServ.html" aria-label="ITS Facebook Page" style="color: #FFFFFF"><i class="fa fa-facebook"></i><div class="sr-only">ITS Facebook Page</div></a>&nbsp;&nbsp;
+                    <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/lsuits" aria-label="ITS Twitter Page" target="_blank" style="color: #FFFFFF"><i class="fa fa-twitter">
+                    <div class="sr-only">ITS Twitter Page</div></i></a>
+                </span>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <address>
+                    <a href="http://lsu.edu/its" style="color: #FFFFFF; font-weight: bold">Information Technology Services</a><br>
+                    200 Frey Computing Services<br>
+                    Baton Rouge, LA 70803<br>
+                    Telephone: 225-578-3375<br>
+                    Fax: 225-578-6400
+                </address>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #4F4F4F; padding: 10px; text-align: left">
+        <div class="row-fluid">
+            <div class="span12 text-center">
+                <p>
+                    <small>
+                        Copyright ©
+                        
+                        <span>
+                            <a href="http://lsu.edu/" style="color: #FFFFFF; font-weight: bold">Louisiana State University</a>
+                        </span>. All&nbsp;Rights&nbsp;Reserved.
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+      
+
+    </div>
+  
+</footer>
+
+
+
+
+<script>
+
+    
+    
+
+      // Inject the Google Analytics isogram. This must happen here because it
+      // cannot be injected through an external javascript library.
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+    
+
+      // Per Incident #6707155. Need to focus on img. pseudo-class :focus-within is not supported in IE
+      (function ($) {
+        var $anchor = $('#divLogo a');
+        var $beLogo = $('#divLogo a img');
+
+        $anchor.focus(function () {
+          $beLogo.addClass('accessibility-focus-on-logo');
+        })
+          .blur(function () {
+            $beLogo.removeClass('accessibility-focus-on-logo');
+          })
+
+    })(jQuery);
+
+  </script>
+
+</body>
+
+<!-- Mirrored from itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceDet?ID=310 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 May 2023 06:53:19 GMT -->
+</html>

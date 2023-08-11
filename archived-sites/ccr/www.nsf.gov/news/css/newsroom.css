@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+
+#pagewrap {
+	padding-bottom: 10px;
+}
+
+#pagewrap .row {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#pagewrap h1 {
+	font-size: 16pt;
+}
+
+#mainheaderimage {
+	margin: -46px -18px 0 -18px;
+}
+
+#contactbox {
+	background-color: #dce9ef;
+	border-radius: 3px;
+	padding: 20px;
+	margin-right: 30px;
+}
+
+#contactbox hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 1em 0;
+}
+
+#contactbox span {
+	font-size: 13pt;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+#contactbox .accordion {
+  background-color: #c7d2d9;
+  color: #444;
+  cursor: pointer;
+  padding: 20px;
+	width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+#contactbox .active, #contactbox .accordion:hover {
+  background-color: #bcc6cc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+#contactbox .panel {
+  	padding: 20px;
+	background-color: #bcc6cc;
+	display: none;
+	overflow: hidden;
+	border: none;
+	box-shadow: 0 0;
+}
+
+#glance {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+
+
+#glance img {
+	float: right; 
+	padding-left: 30px;
+	padding-bottom: 15px;
+}
+
+#glance p, #updates p {
+	font-size: 13pt;
+	line-height: 22px;
+}
+
+
+#updates {
+	margin: 0 -19px 0 -18px;
+	padding: 15px 0 10px;
+	background-color: #eaeaea;
+}
+
+#imagecredits p {
+	font-size: 8pt;
+}
+
+
+#galcontainer {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.gal-item {
+	overflow: hidden;
+	padding: 4px !important;
+}
+
+.gal-item .box {
+	height: 155px;
+	overflow: hidden;
+}
+
+.box img {
+	height: 100%;
+	width: 100%;
+	object-fit:cover;
+	-o-object-fit:cover;
+	border: 1px solid #efefef;
+}

@@ -1,0 +1,55 @@
+/*@import url(fonts.css);*/
+
+html,body {height:100%;/*this is the key to stretch the columns vertically,also to set height for IE*/max-height:100%;/*set height for other browsers*/padding:0;margin:0;border:none;z-index:0;min-width:420px}
+body{line-height:1.5em;font-size:14px;background: url("../_images/bg_login.png") repeat-x;font-family: Arial, Helvetica,  sans-serif;color:#111;font-weight:normal;}
+
+div,span,a,em,img,ul,li,form,fieldset,label,input,select,textarea,table,tr,td {margin:0;padding:0;border:none;outline:0;outline:none;}
+a, a:visited {color:#34AAE7}
+a:hover{text-decoration:none}
+section, footer, header, aside{display:block}
+ul, li {padding:0;margin:0;}
+.center {text-align: center}
+
+/* banner + content*/
+.container {width: 420px;min-width:420px;height:auto;margin:8px auto 0 auto;/*Safari does not except min-width in body,do not delete!*/}
+.container_support {max-width:900px;margin:8px auto 0 auto;padding:0 10px}
+.banner {width: 420px;height:32px;margin:0 auto}
+.cera_logo {width: 31px; height: 32px;background-image: url("../_images/logo_cera.svg");background-size: 31px 32px;float: left}
+.cera_name {margin-left:15px;font-weight:500;font-size:26px;line-height:32px;float:left;color:#fff; font-family:Roboto, Arial, Helvetica, sans-serif}
+.cera_fullname {margin-left:10px;font-size: 17px;line-height:32px;color:#fff;float:left;font-family:Roboto, Arial, Helvetica, sans-serif}
+
+.content {margin:25px auto; width:350px}
+.headline {font-size: 24px;line-height:33px;margin: 60px 0 20px 0;font-weight:500}
+.descr {font-size: 13px;line-height:normal;margin: 20px 0}
+.descr1 {font-size: 13px;line-height:normal;margin: 20px 0 0 0}
+.descr2 {font-size: 13px;line-height:normal;margin: 6px 0 20px 0}
+.descr3 {font-size: 13px;line-height:normal;margin: 6px 0 10px 0}
+.descr4 {font-size: 0.8em;line-height:normal;margin: 0 0 15px 0;color:#999}
+.descr5 {font-size: 11px;line-height:normal;margin: 30px 0 0 0;color:#999}
+.descr_support {font-size: 13px;margin: 30px 0}
+
+.helptext {color:#666;font-size:13px}
+label  {line-height:26px;display:block;color:#586069}
+p, .txt, table {font-size: 13px}
+input, select, textarea {font-size:14px;padding: 7px 6px 10px 6px;border: 1px solid #bbb;width:336px;color:#111;display:block;border-radius:3px}
+select {width:350px}
+input:focus,select:focus, textarea:focus {border:1px solid #2188ff}
+/*grey button*/
+button{border: 1px solid #bbb;margin-top:20px;font-size:13px;line-height:32px;padding: 0 18px;border-radius:3px}
+/*green button;move to the correct position*/
+.btn_login {background-color:#2DC350;float:right}
+/*.btn_pub {background-color:#60C9F5}*/
+
+/*django error msg*/
+li {list-style: none;font-size:13px}
+.errorlist {color:#c00; line-height:normal;margin-bottom:-8px}
+
+/*profile template*/
+td {line-height:2em}
+
+.red{color:#c00}
+
+/*support button on support.html*/
+.support a {width:250px;display:block;margin:0 auto;padding:11px 0px;background-color:#301456;color:#EFC326;font-size:18px;text-align:center;text-decoration:none;border:none;border-radius:5px;background-size:14px;/*background-image: url(/cera_risk/_images/support.svg);background-repeat:no-repeat;background-position:10px 5px*/}
+.support a:hover {color:#EFC326;text-decoration:underline}
+.support_disclaimer {margin:15px auto;font-size:12px;font-style:italic;line-height:normal}

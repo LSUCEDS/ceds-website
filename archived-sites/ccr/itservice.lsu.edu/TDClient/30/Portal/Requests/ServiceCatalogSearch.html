@@ -1,0 +1,1015 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceCatalogSearch by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 17:06:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link href="https://itservice.lsu.edu/TDPortal/Content/Styles/font-awesome.min.css?v=20230506021154" rel="stylesheet" type="text/css" id="lnkFontAwesome" /><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/jquery/2.2.4/jquery.min.js?v=20230506021154"></script><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/jquery-migrate/1.4.1/jquery-migrate.min.js?v=20230506021154"></script><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/jquery-ui/1.12.1/jquery-ui-1.12.1.custom.timepicker.min.js?v=20230506021154"></script><link href="https://itservice.lsu.edu/TDPortal/Content/Styles/jquery-ui/1.12.1/jquery-ui.compiled.min.css?v=20230506021154" rel="stylesheet" type="text/css"  /><link href="https://itservice.lsu.edu/TDPortal/Content/bootstrap/3.4.1/dist/css/bootstrap.min.css?v=20230506021154" rel="stylesheet" type="text/css" id="lnkBootstrapCSS" /><script src="https://itservice.lsu.edu/TDPortal/Content/bootstrap/3.4.1/dist/js/bootstrap.min.js?v=20230506021154"></script><link href="https://itservice.lsu.edu/TDClient/Styles/bootstrap_custom.min.css?v=20230506021150" rel="stylesheet" type="text/css"  /><link href="https://itservice.lsu.edu/TDClient/Styles/TDStyles.min.css?v=20230506021150" rel="stylesheet" type="text/css"  /><link href="https://itservice.lsu.edu/TDPortal/BE/Style/2/TDClient/30?v=20201103215708" rel="stylesheet" type="text/css" /><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/tdx/TDJSFramework.compiled.min.js?v=20230506021154"></script><script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/underscore/1.12.1/underscore-min.js?v=20230506021154"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/clientOS.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/collapseMe.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/tdsearchfilter.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDClient/Scripts/SiteSearch.min.js?v=20230506021150"></script>
+<script src="https://itservice.lsu.edu/TDPortal/Content/Scripts/tdx/elasticsearchAutocomplete/elasticsearchAutocomplete.min.js?v=20230506021154"></script>
+<link id="ctl00_ctl00_lnkFavicon" rel="shortcut icon" href="https://itservice.lsu.edu/TDPortal/BE/Icon/2/30?v=20201103215708" />
+
+    
+    <script async src="../../../../../www.googletagmanager.com/gtag/jsc2fb?id=UA-6754317-16"></script>
+    <script>
+
+      $(function () {
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        // Be sure to set the proper cookie domain to the customer's full subdomain when sending the pageview hit.
+        gtag('config', 'UA-6754317-16', { 'cookie_domain': 'itservice.lsu.edu' });
+
+        });
+
+    </script>
+
+  
+
+  <script>
+
+      $(function () {
+        var masterUi = MasterUI({
+          isPostback: false,
+        baseUrl: '/TDClient/',
+        isTdGoogleAnalyticsEnabled: true,
+        isAuthenticated: false
+        });
+
+      $('#collapseMe').collapseMe({
+        toggleVisibilitySelector: '.navbar-toggle'
+      });
+
+    });
+
+      // The sub-nav menu uses padding-top to position itself below the header bar and main navigation sections. When the
+      // window is resized, there is a chance that the content of these header or nav sections wraps, causing the height
+      // to change, potentially covering the sub-nav menu, which is obviously a big usability problem. This function
+      // listens for when the window size or orientation is changing (and also when the window first loads), and adjusts
+      // the padding so that the sub-nav menu appears in the correct location.
+      $(window).bind('load ready resize orientationchange', function () {
+        var headerHeight = $('#divMstrHeader').height();
+        $('#navShim').css({
+          "padding-top": headerHeight
+        });
+
+        $('#content').css({
+          "padding-top": headerHeight,
+          "margin-top": headerHeight * -1
+        });
+      });
+  </script>
+
+  
+  
+
+  
+
+  <meta name="robots" content="noindex"/>
+
+  <script type="text/ecmascript">
+
+    $(function () {
+      $('#ctl00_ctl00_cpContent_cpContent_txtSearch').select();
+
+      // Need to wait for images to load before the search bar position is calculated
+      $(window).bind('load', function () {
+        // initialize the tag lookup
+        var searchFilter = new TeamDynamix.SearchFilter({
+          searchFieldSelector: '#ctl00_ctl00_cpContent_cpContent_txtSearch',
+          wsUrl: '/TDClient/30/Portal/WebServices/JSON/TagLookupService.asmx/GetItems'
+        });
+      });
+
+      $("#ctl00_ctl00_cpContent_cpContent_txtSearch").keydown(function (e) {
+        if (e.keyCode === 13) {
+          $('#ctl00_ctl00_cpContent_cpContent_btnSearch').click();
+        }
+      });
+    });
+  </script>
+
+
+
+<title>
+	Service Search
+</title></head>
+<body>
+<form method="post" action="https://itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceCatalogSearch" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="https://itservice.lsu.edu/TDClient/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZMSMQxVWLi4fik2rw1_u_hZsCNzwv5c621ov6_ZX_wzTt5vh-g2&amp;t=637814473746327080" type="text/javascript"></script>
+
+
+<script src="https://itservice.lsu.edu/TDClient/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvmVxW3-Ljsg_2Hna32smxrg-6ogyYAN3UTPsJQ8m1uwzn_kuf2Wpne6NSFmYui3h0wCQhJN3ZUiLTNkvhiIgZpq74-lKmofUPQGJ8own8RI2_mwAcmvlSj2WBnqwm5Wj4cyNvv81&amp;t=49337fe8" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OLdGoo5BVWQ_Eo60QZTEhEcHeiVfwgY9tLCgzdZ5TRwvrwYEnOvujbNccOVLUfWtUg4HivSIsewg6JABxkBGEqVVV64eiRyCAsPDqh6tUioISUQKB74sWMO4Er2mHrWEIWs_sBM1&amp;t=49337fe8" type="text/javascript"></script>
+<script src="https://itservice.lsu.edu/TDClient/WebResource.axd?d=xtfVMqdF1exC2MBVkOJwMveStDR5kg3dbZWgIXMXZmB1xXom6CcIrWFgHa7jsp4qJuFW2L5XShudyzlBsIO3JhCfiU5HmL2BDz__mCv9dznmBlEMS7LvcYg6wTdPTrAXIXI2CvtjwlnpZd-j4Zpsx2wG_uA1&amp;t=638189217300000000" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4BCD839F" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="iE7lN7zUc6wUkeOV6rmp/bQEPXGhkpQ4Teh9+MZvWnnezeMcYc9HUj6bRO4IMPZalpss+yllZgoB4bjLd+M/Up1oxoEfXTjM/x8j9gFWA9wfbihOPT6W6v03ekTvXFnO7FZulPG7fjn9i9Wy3JyzSV3VEunkpPoGPhhsfOGhg4xSJ3H8fc3iG0ELNy3gQa6CQXbktDRVuLX8WbLk3Zv7oog0c8UUAP+vmQ9kjq049/1j1uM3S29NY/HS9uNN0l3v4IcOxypFZGar+qYvmchfDHrRjRfJMco+NasWMn6PEVkkXo486KlQua0m/FQ4OgQGujnijg==" />
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$smMain', 'aspnetForm', ['tctl00$ctl00$cpContent$cpContent$lblResults$ctl00',''], [], [], 90, 'ctl00$ctl00');
+//]]>
+</script>
+
+<div id="ctl00_ctl00_upMain" style="display:none;">
+	
+    <div id="ctl00_ctl00_pbMain" class="progress-box-container"><div class="progress-box-body"><div class="well shadow"><h2 class="h4 gutter-top-none">Updating...</h2><div class="progress" style="margin-bottom: 0;"><div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div></div></div></div></div>
+  
+</div>
+
+
+
+  <header role="banner">
+
+  <div id="divMstrHeader" class="master-header NoPrint" style="background-color: #fff;">
+
+  <nav class="navbar navbar-default" style="background-color: #5A5A5A; border: none">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".headerNavbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse headerNavbar" style="margin-top: 5px">
+            <ul class="nav navbar-nav" style="margin-left: 15%">
+                <li><a href="https://lsu.edu/index.php" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">LSU.edu</a></li>
+                <li><a href="https://mylsu.apps.lsu.edu/c/portal/login" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">myLSU</a></li>
+                <li><a href="https://lsu.edu/employeehub/index.php" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Employee Hub</a></li>
+                <li><a href="https://lsu.edu/a-z.php" style="color: #E1DEDA; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Directories</a></li>
+            </ul>
+            <ul class="nav navbar-nav main-calls" style="margin-left: 5%; margin-right: auto; text-align: center">
+                <li><a href="http://fierceforthefuturecampaign.org/" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Give</a></li>
+                <li><a href="https://lsu.edu/visit/index.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Visit</a></li>
+                <li><a href="https://lsu.edu/admission/apply.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Apply</a></li>
+                <li><a href="https://lsu.edu/hrm/job_seekers/index.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Employment</a></li>
+                <li><a href="https://lsu.edu/about/requestinfo.php" style="color: #FCCF22; font-weight: 600; font-family: Arial; font-size: 12px; line-height: 0.7em; background: none">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+  
+
+  <div class="logo-header-full hidden-xs">
+
+    
+    <div class="pull-left">
+      <a href="#mainContent" class="sr-only sr-only-focusable">Skip to main content</a>
+    </div>
+
+
+    <div id="ctl00_ctl00_divPageHeader" class="container logo-header clearfix" style="padding: 5px;">
+
+      <div id="divLogo" class="pull-left logo-container">
+
+        <a href="https://itservice.lsu.edu/TDClient/30/Portal/Home/"
+           target="_blank">
+          <img src="https://itservice.lsu.edu/TDPortal/BE/Logo/2/0" alt="Louisiana State University Home Page" class="js-logo img-responsive" />
+        </a>
+
+      </div>
+
+      <div class="master-header-right pull-right padding-top padding-bottom">
+
+        
+
+          <div class="pull-left topLevelSearch input-group">
+            <div id="SiteSearch-4854b988fb8b4960aaddbf91348d9520" class="gutter-bottom input-group site-search" style="max-width: 400px;">
+  <div id="SiteSearch-dropdown-4854b988fb8b4960aaddbf91348d9520" class="input-group-btn">
+    <button type="button" id="SiteSearch-filter-4854b988fb8b4960aaddbf91348d9520" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" title="Filter your search by categories" data-component="all">
+      <span class="fa fa-globe"></span><span class="fa fa-fw fa-nopad fa-caret-down" aria-hidden="true"></span>
+      <span class="sr-only">
+        Filter your search by category. Current category:
+        <span class="js-current-component">All</span>
+      </span>
+    </button>
+    <ul class="dropdown-menu" >
+      <li>
+        <a href="javascript:void(0);" data-component-text="All" data-component="all" data-component-icon="fa-globe" title="Search all areas">
+          <span class="fa fa-fw fa-nopad fa-globe" aria-hidden="true"></span>
+          All
+        </a>
+      </li>
+
+      <li role="separator" class="divider"></li>
+
+
+        <li role="presentation">
+          <a role="menuitem" href="javascript:void(0);" data-component-text="Service Catalog" data-component="sc" data-component-icon="fa-compass" title="Search Service Catalog">
+            <span class="fa fa-fw fa-nopad fa-compass" aria-hidden="true"></span>
+            Service Catalog
+          </a>
+        </li>
+
+    </ul>
+  </div>
+
+  <label class="sr-only" for="SiteSearch-text-4854b988fb8b4960aaddbf91348d9520">Search the client portal</label>
+
+  <input id="SiteSearch-text-4854b988fb8b4960aaddbf91348d9520" type="text" class="form-control" autocomplete="off" placeholder="Search the client portal" title="To search for items with a specific tag, enter the # symbol followed by the name of the tag.
+To search for items using exact match, place double quotes around your text."/>
+
+  <span class="input-group-btn">
+    <button id="SiteSearch-button-4854b988fb8b4960aaddbf91348d9520" class="btn btn-default" type="button" title="Search">
+      <span class="fa fa-fw fa-nopad fa-search blue" aria-hidden="true"></span>
+      <span class="sr-only">Search</span>
+    </button>
+  </span>
+</div>
+
+<script>
+  $(function() {
+    var siteSearch = new TeamDynamix.SiteSearch({
+      searchUrl: "/TDClient/30/Portal/Shared/Search",
+      enableAutocompleteSearch: true,
+      autocompleteSearchUrl: '/TDClient/30/Portal/Shared/AutocompleteSearch',
+      autocompleteResultsPosition: 'fixed',
+      autocompleteResultsZIndex: 1000,
+      searchTextBoxSelector: '#SiteSearch-text-4854b988fb8b4960aaddbf91348d9520',
+      searchComponentFilterButtonSelector: '#SiteSearch-filter-4854b988fb8b4960aaddbf91348d9520',
+      searchButtonSelector: '#SiteSearch-button-4854b988fb8b4960aaddbf91348d9520',
+      searchFilterDropdownSelector: '#SiteSearch-dropdown-4854b988fb8b4960aaddbf91348d9520',
+      showKnowledgeBaseOption: false,
+      showServicesOption: true,
+      showForumsOption: false,
+      autoFocusSearch: false
+    });
+  });
+  </script>
+          </div>
+
+        
+          <div title="Sign In" class="pull-right gutter-top-sm">
+            <a href="https://itservice.lsu.edu/TDClient/30/Portal/Login.aspx?ReturnUrl=%2fTDClient%2f30%2fPortal%2fRequests%2fServiceCatalogSearch">
+              Sign In
+            </a>
+          </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  <nav id="ctl00_ctl00_mainNav" class="navbar navbar-default themed tdbar" aria-label="Primary">
+    <div id="navContainer" class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="pull-left navbar-toggle collapsed themed tdbar-button-anchored tdbar-toggle gutter-left" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="tdbar-button-anchored icon-bar"></span>
+          <span class="tdbar-button-anchored icon-bar"></span>
+          <span class="tdbar-button-anchored icon-bar"></span>
+          <span class="sr-only">Show Applications Menu</span>
+        </button>
+        <a class="navbar-brand hidden-sm hidden-md hidden-lg themed tdbar-button-anchored truncate-be" href="#">
+
+          ITS Client Portal
+        </a>
+      </div>
+
+      <div id="td-navbar-collapse" class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav nav-collapsing" id="collapseMe">
+
+          
+            <li class="themed tdbar-button-anchored hidden-sm hidden-md hidden-lg">
+              <a href="https://itservice.lsu.edu/TDClient/30/Portal/Login.aspx?ReturnUrl=%2fTDClient%2f30%2fPortal%2fRequests%2fServiceCatalogSearch">Sign In</a>
+            </li>
+          
+            <li id="divSearch" class="themed tdbar-button-anchored hidden-sm hidden-md hidden-lg">
+              <a href="https://itservice.lsu.edu/TDClient/30/Portal/Shared/Search" title="search">Search</a>
+            </li>
+          
+              <li id="divDesktop95de9451-b9b0-4ba8-a556-f01f7e4f8120" class="themed tdbar-button-anchored">
+                <a href="https://itservice.lsu.edu/TDClient/30/Portal/Home/">Home</a>
+              </li>
+            
+
+          
+            <li id="divTDRequests" class="themed tdbar-button-anchored sr-focusable">
+              <a href="ServiceCatalog.html">Services</a>
+            </li>
+          
+
+          <li class="themed tdbar-button-anchored hidden-xs more-items-button" id="moreMenu">
+            <a data-toggle="dropdown" title="More Applications" href="javascript:;">
+              <span class="sr-only">More Applications</span>
+              <span class="fa fa-ellipsis-h" aria-hidden="true"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right themed tdbar" id="collapsed"></ul>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+
+  </nav>
+
+  </div>
+
+  </header>
+
+
+
+<div id="navShim" class="hidden-xs hidden-sm"></div>
+<main role="main">
+  <div id="content">
+    <div id="mainContent" tabindex="-1"></div>
+    
+
+  
+    <nav id="divTabHeader" class="tdbar-sub NoPrint hidden-xs navbar-subnav" aria-label="Services">
+      <a href="#servicesContent" class="sr-only sr-only-focusable">Skip to Services content</a>
+      <div class="container clearfix">
+        <ul class="nav navbar-nav js-submenu" id="servicesSubMenu" style="margin-left: -15px;">
+
+          
+          <li>
+            <a href="https://itservice.lsu.edu/TDClient/30/Portal/Services/ServicesAtoZ">Services A-Z</a>
+          </li>
+          
+          <li>
+            <a href="ServiceCatalogSearch.html">Search <span class="sr-only">Services</span></a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+  
+
+  <div class="container gutter-top">
+    <div id="servicesContent" tabindex="-1" style="outline:none;">
+      
+
+  <h1>Search<span id="ctl00_ctl00_cpContent_cpContent_spnCount" class="gutter-left font-xs">247 Results</span></h1>
+
+  <div id="divButtons" class="NoPrint">
+    <button onclick="__doPostBack('ctl00$ctl00$cpContent$cpContent$btnSearch','')" id="ctl00_ctl00_cpContent_cpContent_btnSearch" type="button" class="btn btn-primary">
+      <span class="fa fa-search" aria-hidden="true"></span>
+      <span class="padding-left-xs">Search</span>
+    </button>
+  </div>
+
+  <div id="divFilter" class="well gutter-top">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-horizontal">
+
+          <div class="form-group">
+            <label for="ctl00_ctl00_cpContent_cpContent_txtSearch" class="col-md-3 control-label">Search</label>
+            <div class="col-md-9">
+              <input name="ctl00$ctl00$cpContent$cpContent$txtSearch" type="text" id="ctl00_ctl00_cpContent_cpContent_txtSearch" maxlength="100" class="form-control" title="To search for items with a specific tag, enter the # symbol followed by the name of the tag." />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ctl00_ctl00_cpContent_cpContent_taluCategory_txtinput" class="col-md-3 control-label">Category</label>
+            <div class="col-md-9">
+              <div class="input-group"><input name="ctl00$ctl00$cpContent$cpContent$taluCategory$txttaluCategory" type="text" id="ctl00_ctl00_cpContent_cpContent_taluCategory_txttaluCategory" class="form-control" autocomplete="off" />
+<span class="input-group-btn talu_buttons"><a href="https://itservice.lsu.edu/TDClient/30/Portal/Shared/ServiceCategoryLookup?AC=acb_ctl00_ctl00_cpContent_cpContent_taluCategory" id="ctl00_ctl00_cpContent_cpContent_taluCategory_btnLookuptaluCategory" onclick="acb_ctl00_ctl00_cpContent_cpContent_taluCategory.lookupClick(this, &#39;ctl00_ctl00_cpContent_cpContent_taluCategory_hdntaluCategory&#39;, 992, 700, &#39;taluCategory&#39;, false);" class="btn btn-default btn-typeahead-lookup" title="Lookup Category" role="button"><span class="fa fa-fw fa-nopad fa-search blue" aria-hidden="true"></span><span class="sr-only">Lookup Category</span></a>
+<a href="javascript:acb_ctl00_ctl00_cpContent_cpContent_taluCategory.clearSelect(false);" id="ctl00_ctl00_cpContent_cpContent_taluCategory_btnCleartaluCategory" class="btn btn-default" title="Clear Category" role="button"><span class="fa fa-fw fa-nopad fa-times red" aria-hidden="true"></span><span class="sr-only">Clear Category</span></a>
+<input name="ctl00$ctl00$cpContent$cpContent$taluCategory$hdntaluCategory" type="hidden" id="ctl00_ctl00_cpContent_cpContent_taluCategory_hdntaluCategory" /><input name="ctl00$ctl00$cpContent$cpContent$taluCategory$hdnTextValuestaluCategory" type="hidden" id="ctl00_ctl00_cpContent_cpContent_taluCategory_hdnTextValuestaluCategory" /><a id="ctl00_ctl00_cpContent_cpContent_taluCategory_btnPostbacktaluCategory" class="aspNetDisabled"></a><div class="clearfix"></div></span></div>
+            </div>
+          </div>
+
+          <div class="col-md-9 col-md-offset-3">
+            <div class="form-group">
+              <fieldset>
+                <legend class="sr-only">Services or Offerings?</legend>
+                <label class="radio-inline" for="ctl00_ctl00_cpContent_cpContent_rbOnlyServices">
+                  <input value="rbOnlyServices" name="ctl00$ctl00$cpContent$cpContent$ServiceOrOffering" type="radio" id="ctl00_ctl00_cpContent_cpContent_rbOnlyServices" />
+                  Services
+                </label>
+                <label class="radio-inline" for="ctl00_ctl00_cpContent_cpContent_rbOnlyServiceOfferings">
+                  <input value="rbOnlyServiceOfferings" name="ctl00$ctl00$cpContent$cpContent$ServiceOrOffering" type="radio" id="ctl00_ctl00_cpContent_cpContent_rbOnlyServiceOfferings" />
+                  Service Offerings
+                </label>
+                <label class="radio-inline" for="ctl00_ctl00_cpContent_cpContent_rbServicesAndOfferings">
+                  <input value="rbServicesAndOfferings" name="ctl00$ctl00$cpContent$cpContent$ServiceOrOffering" type="radio" id="ctl00_ctl00_cpContent_cpContent_rbServicesAndOfferings" checked="checked" />
+                  Both
+                </label>
+              </fieldset>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-horizontal">
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span id="ctl00_ctl00_cpContent_cpContent_lblResults_ctl00" aria-live="polite" aria-atomic="true"><span id="ctl00_ctl00_cpContent_cpContent_lblResults_lblResults-label" class="red"></span></span>
+
+  
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet9721.html?ID=151">Academic Technology Training Request</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Professional Services</li><li class="active">Academic Technology Training</li>
+        </ol>
+
+        <div>
+          Request for training on a wide variety of technologies and software applications that can be used to enhance teaching, learning, and research at LSU.
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDete506.html?ID=372">Active Directory Permissions</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Account Management</li><li class="active">Identity Management/Account Administration</li>
+        </ol>
+
+        <div>
+          For requesting the granting and removal of active directory permissions for a particular user.
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet05d0.html?ID=653">ADA Accessibility Concerns Report</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">University Services</li><li class="active">ADA Accessibility Concerns</li>
+        </ol>
+
+        <div>
+          Please report all accessibility concerns, including physical and digital concerns, using this form. Do not use this form to submit discrimination complaints or grievances. Instead visit our website for discrimination complaints or grievances:&#160;<a href="https://www.lsu.edu/accessibility/index.php." target="_blank" rel="noopener noreferrer">https://www.lsu.edu/accessibility/index.php.</a> You may also submit ADA&#160;Accessibility concerns to accessibility@lsu.edu.
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDetf2a6.html?ID=25">Adobe Creative Cloud</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Software &amp; Administrative Apps</li><li class="active">Adobe</li>
+        </ol>
+
+        <div>
+          Request to inquire about Adobe Creative Cloud
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet8745.html?ID=375">Adobe Creative Cloud Ad-Hoc License</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Software &amp; Administrative Apps</li><li class="active">Adobe</li>
+        </ol>
+
+        <div>
+          Request to provision Adobe Creative Cloud (does not include Adobe Sign) to employees (including Graduate Teaching Assistants or Sponsored Guests) that are primary or secondary instructor of record for a specific course, or providing assistance for a course.
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet691c.html?ID=239">Adobe Sign</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Software &amp; Administrative Apps</li><li class="active">Adobe</li>
+        </ol>
+
+        <div>
+          Request assistance with Adobe Sign.
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDeted7b.html?ID=290">Adobe Troubleshooting</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Software &amp; Administrative Apps</li><li class="active">Adobe</li>
+        </ol>
+
+        <div>
+          Troubleshooting for Adobe products (Reader, Sign, etc).
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet3c1f.html?ID=320">ArcGIS Troubleshooting</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Software &amp; Administrative Apps</li><li class="active">ArcGIS</li>
+        </ol>
+
+        <div>
+          For requesting assistance with ArcGIS related incidents.
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet7e9b.html?ID=275">Architectural Plan Review Request</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Network &amp; Connectivity</li><li class="active">Architectural Plan Review</li>
+        </ol>
+
+        <div>
+          For requesting ITS participation in the Architectural Plan Review process for new construction or renovation projects being managed by LSU PDC or Facility Services
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet435c.html?ID=142">Archive Microsoft Teams</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Communication &amp; Collaboration</li><li class="active">Microsoft Teams</li>
+        </ol>
+
+        <div>
+          To archive a Team and make it read only.
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet3f31.html?ID=310">Article Creation</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Teaching &amp; Learning</li><li class="active">GROK</li>
+        </ol>
+
+        <div>
+          Request for an article to be created in GROK
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet27ce.html?ID=311">Article Feedback</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Teaching &amp; Learning</li><li class="active">GROK</li>
+        </ol>
+
+        <div>
+          For submitting GROK feedback
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet3ffd.html?ID=190">Backup General Inquiry</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Servers, Storage &amp; Backups</li><li class="active">Backups</li>
+        </ol>
+
+        <div>
+          Ask general questions about Backup &amp; Replication Services
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDet475b.html?ID=192">Backup Restoration Request</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Servers, Storage &amp; Backups</li><li class="active">Backups</li>
+        </ol>
+
+        <div>
+          Request restoration of virtual server data from backup. Restoration can be performed for a entire virtual server, individual disk, or file level
+        </div>
+
+      </div>
+
+      <hr/>
+    
+      <div class="gutter-top gutter-bottom">
+
+        <div class="font-lg">
+          
+
+          <a href="ServiceDetd211.html?ID=191">Backup Troubleshooting</a>
+
+          
+          
+        </div>
+
+        <ol class="breadcrumb">
+          <li class="active">Services</li><li class="active">Servers, Storage &amp; Backups</li><li class="active">Backups</li>
+        </ol>
+
+        <div>
+          Request troubleshooting assistance with existing Backup &amp; Replication Services
+        </div>
+
+      </div>
+
+      <hr/>
+    <nav><ul class="pager"><li class="gutter-right-sm"></li><li class="gutter-left-sm"><a id="ctl00_ctl00_cpContent_cpContent_rptServicesAndOfferings_rptServicesAndOfferingslnkNext" role="button" href="javascript:__doPostBack(&#39;ctl00$ctl00$cpContent$cpContent$rptServicesAndOfferings$rptServicesAndOfferingslnkNext&#39;,&#39;&#39;)">Next <span class="fa fa-arrow-right" aria-hidden="true"></span></a></li></ul></nav>
+
+
+    </div>
+  </div>
+
+
+  </div>
+</main>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+setNavPosition('TDRequests');//]]>
+</script>
+<script>
+if( acb_ctl00_ctl00_cpContent_cpContent_taluCategory == undefined ) {
+var acb_ctl00_ctl00_cpContent_cpContent_taluCategory;
+}
+if(!$('#ctl00_ctl00_cpContent_cpContent_taluCategory_txttaluCategory').data("tdx-auto")) {
+$(document).ready(function() {
+acb_ctl00_ctl00_cpContent_cpContent_taluCategory = $('#ctl00_ctl00_cpContent_cpContent_taluCategory_txttaluCategory').lu_autocomplete({
+webServiceUrl: '/TDClient/30/Portal/WebServices/JSON/ServicesLookupService.asmx/GetCategoryItems',
+webServiceMethod: 'POST',
+webServiceContentType: 'application/json; charset=utf-8',
+webServiceSearchParam: 'tag',
+hiddenfieldid: 'ctl00_ctl00_cpContent_cpContent_taluCategory_hdntaluCategory',
+hiddentextfieldid: 'ctl00_ctl00_cpContent_cpContent_taluCategory_hdnTextValuestaluCategory',
+textboxid: 'ctl00_ctl00_cpContent_cpContent_taluCategory_txtinput',
+postbackid: '',
+complete_text: 'Start typing...',
+listwidth: '450px',
+appIsFullBootstrap: true,
+selectionmode: 'single'
+}).get(0); 
+});
+}
+</script>
+<script>
+if( acb_ctl00_ctl00_cpContent_cpContent_taluManagingUser == undefined ) {
+var acb_ctl00_ctl00_cpContent_cpContent_taluManagingUser;
+}
+if(!$('#ctl00_ctl00_cpContent_cpContent_taluManagingUser_txttaluManagingUser').data("tdx-auto")) {
+$(document).ready(function() {
+acb_ctl00_ctl00_cpContent_cpContent_taluManagingUser = $('#ctl00_ctl00_cpContent_cpContent_taluManagingUser_txttaluManagingUser').lu_autocomplete({
+webServiceUrl: '/TDClient/30/Portal/WebServices/JSON/UsersLookupService.asmx/GetItems',
+webServiceMethod: 'POST',
+webServiceContentType: 'application/json; charset=utf-8',
+webServiceSearchParam: 'tag',
+hiddenfieldid: 'ctl00_ctl00_cpContent_cpContent_taluManagingUser_hdntaluManagingUser',
+hiddentextfieldid: 'ctl00_ctl00_cpContent_cpContent_taluManagingUser_hdnTextValuestaluManagingUser',
+textboxid: 'ctl00_ctl00_cpContent_cpContent_taluManagingUser_txtinput',
+postbackid: '',
+complete_text: 'Start typing...',
+url_params: {'instanceID':"30",'requireTDNext':"True"},
+listwidth: '450px',
+appIsFullBootstrap: true,
+selectionmode: 'single'
+}).get(0); 
+});
+}
+</script>
+<script>
+if( acb_ctl00_ctl00_cpContent_cpContent_taluManagingGroup == undefined ) {
+var acb_ctl00_ctl00_cpContent_cpContent_taluManagingGroup;
+}
+if(!$('#ctl00_ctl00_cpContent_cpContent_taluManagingGroup_txttaluManagingGroup').data("tdx-auto")) {
+$(document).ready(function() {
+acb_ctl00_ctl00_cpContent_cpContent_taluManagingGroup = $('#ctl00_ctl00_cpContent_cpContent_taluManagingGroup_txttaluManagingGroup').lu_autocomplete({
+webServiceUrl: '/TDClient/30/Portal/Shared/Groups/Autocomplete',
+webServiceMethod: 'GET',
+webServiceContentType: 'text/plain; charset=utf-8',
+webServiceSearchParam: 'text',
+hiddenfieldid: 'ctl00_ctl00_cpContent_cpContent_taluManagingGroup_hdntaluManagingGroup',
+hiddentextfieldid: 'ctl00_ctl00_cpContent_cpContent_taluManagingGroup_hdnTextValuestaluManagingGroup',
+textboxid: 'ctl00_ctl00_cpContent_cpContent_taluManagingGroup_txtinput',
+postbackid: '',
+complete_text: 'Start typing...',
+listwidth: '450px',
+appIsFullBootstrap: true,
+selectionmode: 'single'
+}).get(0); 
+});
+}
+</script>
+<script>
+if( acb_ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows == undefined ) {
+var acb_ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows;
+}
+if(!$('#ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows_txttaluMaintenanceWindows').data("tdx-auto")) {
+$(document).ready(function() {
+acb_ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows = $('#ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows_txttaluMaintenanceWindows').lu_autocomplete({
+webServiceUrl: '/TDClient/30/Portal/WebServices/JSON/RecurringScheduleLookupService.asmx/GetItems',
+webServiceMethod: 'POST',
+webServiceContentType: 'application/json; charset=utf-8',
+webServiceSearchParam: 'tag',
+hiddenfieldid: 'ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows_hdntaluMaintenanceWindows',
+hiddentextfieldid: 'ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows_hdnTextValuestaluMaintenanceWindows',
+textboxid: 'ctl00_ctl00_cpContent_cpContent_taluMaintenanceWindows_txtinput',
+postbackid: '',
+complete_text: 'Start typing...',
+url_params: {'typeId':"2"},
+listwidth: '450px',
+appIsFullBootstrap: true,
+selectionmode: 'multiple'
+}).get(0); 
+});
+}
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":null,"displayAfter":500,"dynamicLayout":true}, null, null, $get("ctl00_ctl00_upMain"));
+});
+//]]>
+</script>
+</form>
+
+<footer role="contentinfo">
+  
+  
+  
+
+  
+    <div class="master-footer">
+
+      <footer style="color: #FFFFFF; border-top: 4px solid #444444">
+    <div class="container-fluid" style="background-color: #461D7C; padding: 10px; text-align: left">
+        <div class="row-fluid">
+            <div class="span12 text-center">
+                <img src="https://itservice.lsu.edu/TDPortal/Images/Viewer?fileName=0e8cd35a-9c1c-4774-816b-e582eead8b6c.png" style="width: 116px; height: 38px" alt="LSU">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #4F4F4F; padding: 10px; text-align: center">
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <address>
+                    <div>
+                        <span>Louisiana State University</span><br>
+                        <span>Baton Rouge, Louisiana</span>, <span>70803</span>
+                    </div>
+                    <div class="email"><a href="mailto:webmaster@lsu.edu" style="color: #FFFFFF; font-weight: bold">webmaster@lsu.edu</a></div>
+                    <div><a href="http://www.lsu.edu/feedback/index.php" style="color: #FFFFFF; font-weight: bold">Provide website feedback</a></div>
+					<div><a href="https://itservice.lsu.edu/TDClient/30/Portal/SiteMap/" style="color: #FFFFFF; font-weight: bold">Site Map</a></div>
+                </address>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <span>
+                    <a class="btn btn-social-icon btn-facebook" target="_blank" href="../../../../../www.facebook.com/LSUInfoTechServ.html" aria-label="ITS Facebook Page" style="color: #FFFFFF"><i class="fa fa-facebook"></i><div class="sr-only">ITS Facebook Page</div></a>&nbsp;&nbsp;
+                    <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/lsuits" aria-label="ITS Twitter Page" target="_blank" style="color: #FFFFFF"><i class="fa fa-twitter">
+                    <div class="sr-only">ITS Twitter Page</div></i></a>
+                </span>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <address>
+                    <a href="http://lsu.edu/its" style="color: #FFFFFF; font-weight: bold">Information Technology Services</a><br>
+                    200 Frey Computing Services<br>
+                    Baton Rouge, LA 70803<br>
+                    Telephone: 225-578-3375<br>
+                    Fax: 225-578-6400
+                </address>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #4F4F4F; padding: 10px; text-align: left">
+        <div class="row-fluid">
+            <div class="span12 text-center">
+                <p>
+                    <small>
+                        Copyright ©
+                        
+                        <span>
+                            <a href="http://lsu.edu/" style="color: #FFFFFF; font-weight: bold">Louisiana State University</a>
+                        </span>. All&nbsp;Rights&nbsp;Reserved.
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+      
+
+    </div>
+  
+</footer>
+
+
+
+
+<script>
+
+    
+    
+
+      // Inject the Google Analytics isogram. This must happen here because it
+      // cannot be injected through an external javascript library.
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js', 'ga');
+    
+
+      // Per Incident #6707155. Need to focus on img. pseudo-class :focus-within is not supported in IE
+      (function ($) {
+        var $anchor = $('#divLogo a');
+        var $beLogo = $('#divLogo a img');
+
+        $anchor.focus(function () {
+          $beLogo.addClass('accessibility-focus-on-logo');
+        })
+          .blur(function () {
+            $beLogo.removeClass('accessibility-focus-on-logo');
+          })
+
+    })(jQuery);
+
+  </script>
+
+</body>
+
+<!-- Mirrored from itservice.lsu.edu/TDClient/30/Portal/Requests/ServiceCatalogSearch by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 17:06:26 GMT -->
+</html>

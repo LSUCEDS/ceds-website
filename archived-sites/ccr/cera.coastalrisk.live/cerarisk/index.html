@@ -1,0 +1,569 @@
+﻿<!DOCTYPE html>
+<html>
+<!--Coastal Emergency Risks Assessment (CERA)
+============================================================================
+	Copyright (c) 2006-2022 Carola Kaiser, Louisiana State University
+	Distributed under the Boost Software License, Version 1.0.
+	See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+	This is free software, but WITHOUT ANY WARRANTY.
+	Do not remove the copyright lines. -->
+
+
+<!-- Mirrored from cera.coastalrisk.live/cerarisk/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 17:07:49 GMT -->
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CERA - Coastal Emergency Risks Assessment</title>
+	<meta name="description" content="A real-time, event-triggered storm surge guidance system for the coastal regions of the U.S." />
+	<meta name="keywords" content="CERA, ADCIRC, Coastal Emergency Risks Assessment, web mapper, ADCIRC, SWAN, coastal risks, risks assessment, storm surge, hurricane surge, hurricane flood, storm flood, storm inundation, storm map, hurricane map,tropical cyclone,storm simulation,storm forecast,coastal map,storm modeling" />
+
+	<!--GoogleMaps scripts-->
+	<script type="text/javascript" language="JavaScript" src="https://maps.googleapis.com/maps/api/js?v=3&amp;key=AIzaSyADfBA05E4I5N2GCpEQqMvQwOngVbaKuxQ&amp;language=en&amp;libraries=places&amp;v=3"></script>
+	<script type="text/javascript" language="JavaScript" src="../../ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+	<!--script>$.uiBackCompat = false;</script-->
+	<script type="text/javascript" language="JavaScript" src="../../code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../cera_risk/_scripts/load-min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../cera_risk/_scripts/jquery.cookie.min.js"></script>
+	<script type="text/javascript" language="JavaScript" src="../cera_risk/_scripts/iframeResizer.min.js"></script>
+
+	<!-- 1. jquery.ui.css: datePicker required styles, load first!, 2. fg.menu.css: styles for topnav menu and select boxes in legend, 3. cera.css, 4. tooltips from jquery.qtip-->
+	<link rel="preconnect" href="../../fonts.gstatic.com/index.html">
+	<link rel="stylesheet" href="../../fonts.googleapis.com/cssed9c.css?family=Roboto:300,400,600,700&amp;lang=en" />
+	<link rel="stylesheet" href="../../fonts.googleapis.com/css9a60.css?family=Material+Icons|Material+Icons+Outlined">
+	<link rel="stylesheet" href="../cera_risk/_css/cera_combined.css" type="text/css" />
+
+	<!--favicon; favicon.ico is in root for old browsers-->
+	<meta name="theme-color" content="#ffffff">
+	<link rel="icon" href="../cera_risk/favicon.svg">
+	<link rel="mask-icon" href="../cera_risk/mask-icon.svg" color="#42BBF0">
+	<link rel="apple-touch-icon" href="../cera_risk/apple-touch-icon.png">
+	<link rel="manifest" href="../cera_risk/cera.html">
+</head>
+
+<!--id 'body' for loading bg.png after json file-->
+<body id="body" onLoad="loading();">
+<div class="disclaimer" style="visibility:hidden"></div>
+<!-- load templatetags check.py/access.py to handle layer_check functionality (look if key is on URL and if so return true)-->
+
+
+<!-- START OF FORM -->
+
+<form name="mapform" method="post" action="https://cera.coastalrisk.live/" onsubmit="return verify_layers();" style="height:100%; min-height:100%"><!--height MUST be set to save 100% stretch-->
+
+<input type='hidden' name='csrfmiddlewaretoken' value='AFeL8cF4FbwPb68RFovYBiIiuJda3Pb3d07kxDfjFJzGOVKugNYV2OeItu1bJVR3' />
+<input type="hidden" name="zoom" value="2" id="zoom" />
+<input type="hidden" name="ne" value="84.0,170" id="ne" />
+<input type="hidden" name="sw" value="-55.0,-170.0" id="sw" />
+<input type="hidden" name="anilayer" id="anilayer" />
+<input type="hidden" name="isdefault" value="1" id="isdefault" />
+<input type="hidden" name="is_storm" value="0" id="is_storm" />
+<input type="hidden" name="has_invest_or_subtrack" value="0" id="has_invest_or_subtrack" />
+<input type="hidden" name="day" id="day" />
+<input type="hidden" name="time" id="time" />
+<input type="hidden" name="com" id="com" />
+<input type="hidden" name="year" id="year" />
+<input type="hidden" name="storm" id="storm" />
+<input type="hidden" name="advisory" id="advisory" />
+<input type="hidden" name="track" id="track" />
+<input type="hidden" name="tz" value="!utc" id="tz" />
+<input type="hidden" name="panel" value="!1" id="panel" />
+<input type="hidden" name="accept" value="0" id="accept" />
+<input type="hidden" name="best_accept" value="0" id="best_accept" />
+<input type="hidden" name="unit" value="!ft" id="unit" />
+<input type="hidden" name="query_coord" id="query_coord" />
+<input type="hidden" name="queryonoff" value="0" id="queryonoff" />
+<input type="hidden" name="stationid" id="stationid" />
+<input type="hidden" name="track_labels" value="!1" id="track_labels" />
+<input type="hidden" name="cera" value="!pub" id="cera" />
+<input type="hidden" name="scrollpos" value="0" id="scrollpos" />
+<input type="hidden" name="griddomain" id="griddomain" />
+
+
+	<div class="banner">
+		<!--images are loaded delayed via load_images to save time-->
+		
+		<!--banner_left-->
+		<!--name="banner" is used to create hover effect, function 'loading' in cera.html-->
+		<div class="banner_left tooltip" title="Click on banner for CERA Homepage">
+			<a href="https://coastalrisk.live/" target="_blank">
+				<div class="cera_logo"></div>
+				<div class="cera_name" name="banner">CERA</div>
+				<div style="float:left">
+					<div class="cera_fullname_pro" name="banner">Coastal Emergency Risks Assessment</div>
+					
+					<div class="banner_subheader" name="banner">Storm Surge - Wave - Compound Flood Guidance</div>
+					
+				</div>
+			</a>
+		</div>
+		<div class="support tooltip" title="Please help us keep this site alive"><a href="../cera_risk/_controls/support.html" target="_blank">Support Us</a></div>
+
+		<!--select boxes-->
+		<div class="banner_tabs_models">
+			<div id="TabModels" class="displaynone">
+				
+					
+					<div>
+						<div class="modelmenu_info displaynone"><a class="tooltip material-icons light" id="btnTabInfo" title="Click here for information about the used models on CERA">contact_support</a></div>
+						<div class="modelmenu_label">Data Model</div>
+						<div class="modelmenu">
+							<select id="modelmenu">
+								
+								<option value="est">Global Water Levels (NOAA)</option>
+								
+								<option value="best">Best Tracks - Historical U.S. Storms</option>
+							</select>
+						</div>
+					</div>
+					
+				
+			</div>
+		</div>
+
+		
+	</div>
+
+	
+
+<div class="navigation_menu">
+	<div class="navmenu_sel">Select by</div>
+	<!-- ul gets the class 'ui-buttonset' which defines the borders: none for the buttons-->
+	<ul id="TabMenu" class="displaynone">
+		<li><input type="radio" id="selectmenu1" name="selectmenu" value="0"/><label for="selectmenu1" style="width:52px" class="tooltip" title="Displays the menu to select a map by day">Day</label></li>
+		<li><input type="radio" id="selectmenu2" name="selectmenu" value="1"/><label for="selectmenu2" style="width:53px" class="tooltip" title="Displays the menu to select a map by storm">Storm</label></li>
+	</ul>
+
+	<div class="TabContent displaynone">
+		<fieldset>
+			<ul class="topnav">
+				<li>
+					<label>Day</label>
+					<!--ui-button defines the button shape; ui-state-default: background and font-->
+					<input type="text" name="daymenu" id="daymenu" title="Click here to select another day (red entries indicate days with an active tropical storm)" class="tooltip ui-button ui-state-default ui-corner-all" />
+					<label for="daymenu"><a class="tooltip material-icons light" id="daymenubutton" title="Click here to select another day (red entries indicate days with an active tropical storm)">date_range</a></label>
+				</li>
+				<li>
+					<label>Start Time</label>
+					<!--fg_button sets the start button look; ui-button defines the button shape; ui-state-default: background and font-->
+					<a id="timemenu" href="#" title="Click here to select another time" class="tooltip fg-button ui-button ui-state-default"><span class="menutext">&nbsp;</span><span id="triangle" class="ui-icon ui-icon-triangle-1-s"></span></a>
+				</li>
+				
+			</ul>
+		</fieldset>
+	</div>
+
+	<div class="TabContent displaynone">
+		<fieldset>
+		<ul class="topnav">
+		<li>
+			<label>Year/Storm</label>
+			<!--ui-button defines the button shape; ui-state-default: background and font-->
+			<a id="yearmenu" href="#" title="Click here to select a year and storm" class="tooltip fg-button ui-button ui-state-default"><span class="menutext">-Select Year-</span><span id="triangle" class="ui-icon ui-icon-triangle-1-s"></span></a>
+		</li>
+		
+		<li>
+			<label>Advisory/Track</label>
+			<a id="advisorymenu" href="#" title="Please select a year and storm first" class="tooltip fg-button ui-button ui-state-default"><span class="menutext">-Select Advisory-</span><span id="triangle" class="ui-icon ui-icon-triangle-1-s"></span></a>
+		</li>
+		
+		
+		
+
+		</ul>
+		</fieldset>
+	</div>
+</div>
+
+	<!--outer = header, legend, google map, footer -->
+<div id="outer">
+	<!--height is received via JQuery script 'set_map_height' in cera.js -->
+
+	<div class="header-container">
+		
+		<div class="headerlogin">
+			
+			<div class="top5">
+				<button class="login_button tooltip" title="Log in to access more surge and flood models, several model run scenarios, and additional map layers" onclick="login_onclick()" type="button">Login</button>
+				<span class="signup"><a href="accounts/signup/index.html">Sign up</a></span>
+			</div>
+			
+		</div>
+		
+		<!--in cera.js-->
+		<div id="legendheader">
+			<ul id="print_buttons">
+				
+				<li><a class="tooltip material-icons dark" id="btnLink" title="Share this Map">link</a></li>
+				
+				<li><a class="tooltip material-icons dark rounded" id="btnSettings" title="Map Settings">settings</a></li>
+				<li><a class="tooltip material-icons dark" id="btnHelp" title="Help &amp; Info">help</a></li>
+			</ul>
+		</div>
+		<!-- when header buttons are clicked-->
+		<div id="dialogForm"></div>
+		<div class="header">
+			<div><span id="header_layer">&nbsp;</span><span id="header_time">&nbsp;</span></div>
+			<!--header_storm (daily - currently disabled in template)) is created via django (function in gmaps.js) and will get in here as separate div-->
+		</div>
+	</div><!--header-container-->
+	<!--main = legend, google map; stick the footer at the bottom-->
+	<div id="main">
+		<!--height is received via JQuery script 'set_map_height' in cera.js -->
+		<div id="legend" class="displaynone">
+			<div id="legendtree"></div><!--jquery:$.get-->
+		</div>
+		<!-- click event for show/hide legend, set initial conditions for panel = '0', change via init_legend in cera.js-->
+		<a href="#">
+			<div class="show_hide tooltip" title="Open panel">
+				<span class="show_hide_icon ui-icon ui-icon-triangle-1-w displaynone"></span>
+			</div>
+		</a>
+
+		<!--data_copyright is gmaps control and is loded via django (gmaps.js)-->
+		<div class="maplogo"></div> <!-- logos will be loaded via django and function in cera.js (initialize_map)-->
+		<div class="credits"></div> <!-- credits will be loaded via django and function in cera.js (initialize_map)-->
+
+		<div id="map"></div> <!--height is received via set_map_height (cera.js)-->
+		<noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b><br />However, it seems JavaScript is either disabled or not supported by your browser. To view Google Maps, enable JavaScript by changing your browser options, and then try again.</noscript>
+	</div> <!--main-->
+
+	<div class="footer">
+		<div class="footer_email"><a href="http://coastalrisk.live/" target="blank">CERA Homepage</a></div>
+		<div class="footer_email"><a href="accounts/contact/index.html" target="blank">Contact Us</a></div>
+		<div class="footer_email"><a href="../cera_risk/_docs/CERA_tutorial.html" target="blank">Tutorial</a></div>
+		<div class="footer_email"><a href="#" id="footer_credits">Credits</a></div>
+		<div class="footer_email"><a href="#" id="footer_disclaimer">Data Disclaimer</a></div>
+		<div class="footer_email"><a href="#" id="footer_data">Data Info </a></div>
+		<!---->
+	</div>
+
+</div> <!--close #outer-->
+</form>
+
+<script type="text/javascript" language="JavaScript">
+<!-- Begin hiding JavaScript
+
+// draw map layers; IMPORTANT - set the order to the layer drawing order
+// 1: active layer name, 2: name for legend treenode (if not given layer name will be used) 3: group name for query (if not given layer name will be used), 4: checked status, 5: layer number, 6: isdefault: will be used as displayed default layer, if layer is available (will be tested in the given order, first layer will be tested first)
+// 7: header text; layer_precached:true = layers that are comletely pre-cached (e.g. griddomain -> these layers will be retrieved from a specific data_host_cache as given in models.py)
+
+// use templatetags check.py/access.py to handle layer_check functionality
+// e.g. false means: use 'values' dict from views.py (contains all values that are on URL) and use check.py to see if 'maxelevshp' is in this list, if so return true (=checked)
+// e.g. false means: use 'urldata' from views.py (contains all key/value pairs that are on URL) and use access.py to see if key 'timestep_elevshp' is in this list, if so return true (=checked)
+
+//layer0: ADCIRC, layer1:track, layer2:gridnodes, layer3:barriers, layer4:griddomain ,layer5:hydro ,layer6:shoreline, layer7: wind (stations),layer8: wave (stations), layer9:precimg, 
+//layer10:watint, layer11:subtrack, layer12:parishes, layer13:, layer14:, layer15-20: planning, C-FIGS: layer21: rasbasins, layer22:rasparish
+
+function get_data_array(cfg) {
+
+	var minzoom = cfg.minzoom;
+	var data_array = {
+		data: [
+	// SHP max layers 0 gives the grid_datum (cera.js)
+	{ name: "maxelevshp", theme: "elev", query: "elev", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Water Height{0}", minzoomlimit: minzoom },
+	{ name: "maxinunshp", theme: "inun", query: "inun", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Inundation Depth" },
+	{ name: "maxwvelshp", theme: "wvel", query: "wvel", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wind Speed" },
+	{ name: "maxhsignshp", theme: "hsign", query: "hsign", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wave Height{0}" },
+	{ name: "maxtpsshp", theme: "tps", query: "tps", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Relative Peak Wave Period" },
+	// SHP max layers autoscale
+	{ name: "maxelevshp_auto", theme: "elev", query: "elev", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Water Height{0}" },
+	{ name: "maxinunshp_auto", theme: "inun", query: "inun", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Water Inundation Depth" },
+	{ name: "maxhsignshp_auto", theme: "hsign", query: "hsign", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wave Height{0}" },
+	{ name: "maxwvelshp_auto", theme: "wvel", query: "wvel", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wind Speed" },
+	// SHP timesteps layers
+	{ name: "elevshp", theme: "elev", query: "elev", checked: false, id: "layer0", isdefault: true,
+		header: "Water Height{0}", timestep: "[timestep_elevshp]" },
+	{ name: "inunshp", theme: "inun", query: "inun", checked: false, id: "layer0", isdefault: true,
+		header: "Inundation Depth", timestep: "[timestep_inunshp]" },
+	{ name: "wvelshp", theme: "wvel", query: "wvel", checked: false, id: "layer0", isdefault: true,
+		header: "Wind Speed", timestep: "[timestep_wvelshp]" },
+	{ name: "hsignshp", theme: "hsign", query: "hsign", checked: false, id: "layer0", isdefault: true,
+		header: "Wave Height{0}", timestep: "[timestep_hsignshp]" },
+	{ name: "tpsshp", theme: "tps", query: "tps", checked: false, id: "layer0", isdefault: true,
+		header: "Relative Peak Wave Period", timestep: "[timestep_tpsshp]" },
+	// TIF max layers
+	{ name: "maxelev", theme: "elev", query: "elev", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Water Height{0}" },
+	{ name: "maxinun", theme: "inun", query: "inun", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Water Inundation Depth" },
+	{ name: "maxhsign", theme: "hsign", query: "hsign", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wave Height{0}" },
+	{ name: "maxtps", theme: "tps", query: "tps", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Relative Peak Wave Period" },
+	{ name: "maxwvel", theme: "wvel", query: "wvel", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wind Speed" },
+	// TIF max layers autoscale
+	{ name: "maxelev_auto", theme: "elev", query: "elev", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Water Height{0}" },
+	{ name: "maxinun_auto", theme: "inun", query: "inun", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Water Inundation Depth" },
+	{ name: "maxhsign_auto", theme: "hsign", query: "hsign", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wave Height{0}" },
+	{ name: "maxtps_auto", theme: "tps", query: "tps", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Relative Peak Wave Period" },
+	{ name: "maxwvel_auto", theme: "wvel", query: "wvel", checked: false, id: "layer0", isdefault: true,
+		header: "Maximum Wind Speed" },
+	// TIF timeseries layers
+	{ name: "elev", theme: "elev", checked: false, query: "elev", id: "layer0", isdefault: true, ani_hide: true, zoomlimit: 13,
+		header: "Water Height{0}", timestep: "[timestep_elev]" },
+	{ name: "inun", theme: "inun", checked: false, query: "inun", id: "layer0", isdefault: true, ani_hide: true,
+		header: "Water Inundation Depth", timestep: "[timestep_inun]" },
+	{ name: "hsign", theme: "hsign", checked: false, query: "hsign", id: "layer0", isdefault: true, ani_hide: true, zoomlimit: 13,
+		header: "Significant Wave Height{0}", timestep: "[timestep_hsign]" },
+	{ name: "tps", theme: "tps", checked: false, query: "tps", id: "layer0", isdefault: true, ani_hide: true, zoomlimit: 13,
+		header: "Relative Peak Wave Period", timestep: "[timestep_tps]" },
+	{ name: "wvel", theme: "wvel", checked: false, query: "wvel", id: "layer0", isdefault: true, ani_hide: true, zoomlimit: 13,
+		header: "Wind Speed", timestep: "[timestep_wvel]" },
+	
+	//precipitation raster img from nowCoast
+	{ name: "precimg", theme: "prec", checked: false, id: "layer9", zoomlimit: 13, timestep: "[timestep_precimg]"},
+	// difference layers for hindcast comparisons
+	//{ name: "diffmaxwvelhist", theme: "wvel", query: "wvel", checked: false, id: "layer0", isdefault: true,
+	//	header: "Maximum Wind Speed - Comparison to Asymmetric Vortex" },
+	//planning website
+	
+	{ name: "griddomain", theme: "grid", checked: false, id: "layer4", layer_precached: true },
+	//other features
+	{ name: "barriers", theme: "topo", checked: false, id: "layer3", layer_precached: true },
+	{ name: "shoreline", theme: "topo", checked: false, id: "layer6", layer_precached: true },
+	//track
+	{ name: "trackline", theme: "trackline", checked: false, id: "layer1", nowms: true },
+	{ name: "invest_or_subtrack", theme: "trackline", checked: false, id: "layer11", nowms: true },
+	//stations
+	{ name: "hydro", theme: "hydro", checked: false, id: "layer5", nowms: true },
+	{ name: "wind", theme: "wind", checked: false, id: "layer7", nowms: true },
+	//{ name: "wave", theme: "wave", checked: false, id: "layer8", nowms: true },
+	{ name: "wave", theme: "wave", checked: true, id: "layer8", nowms: true }
+	//{ name: "gridnodes", theme: "grid", checked: false, id: "layer2", layer_precached: true }
+		]
+	};
+	return data_array.data;
+}
+
+function init_from_cookie(urlkey, cookiename, defaultval)
+{
+	if (urlkey.length === 0 || urlkey[0] === '!') {
+		var $cookie = $.cookie(cookiename);
+		if ($cookie && $cookie.length) {
+			urlkey = $cookie;
+		}
+		else if (urlkey.length === 0) {
+			urlkey = defaultval;
+		}
+		else {
+			urlkey = urlkey.substring(1, urlkey.length);
+		}
+	}
+	return urlkey;
+}
+
+// get pre-defined data from forms.py	(hidden input fields) or views.py; use templatetags check.py/access.py for layer_check functionality (see data_array above)
+function get_config_data() {
+	// init timezone from cookie, if available
+	
+	var asgs = 'pub';
+	var selectmodel = 'est';
+	
+	var timezone = init_from_cookie('!utc', 'cera-timezone-' + asgs, selectmodel === 'cpra' ? 'cdt' : 'utc');
+	var unit = init_from_cookie('!ft', 'cera-unit-' + asgs, 'ft');
+	var track_labels = init_from_cookie('!1', 'cera-track-labels', '1');
+	var panel = init_from_cookie('!1', 'cera-panel', '1');
+
+	var form = document.forms['mapform'];
+	form.cera.value = asgs;
+
+	var minzoom = 5;
+	if (selectmodel === 'est' || selectmodel === 'estdev') {
+		minzoom = 2;
+	}
+	else if (selectmodel === 'schismdev') {
+		minzoom = 3;
+	}
+
+	var config_data = {
+		accept: "0", //disclaimer accept button
+		best_accept: "0", //disclaimer accept button (hindcasts)
+		debug: "off",
+		isdefault: "1",
+		isauthenticated: false,
+		best_is_pub: true,
+		check: {
+			'trackline': 1 || false,
+			'invest_or_subtrack': false,
+			'hydro': false,
+			'agencies_hydro': {
+				'other': false,
+				'noaa_rfs': false,
+				'usace': false,
+				'usgs': false,
+				
+				'noaa_nos': false,
+				'ioc-unesco': false,
+				'stofs': false
+			},
+			'wind': false,
+			'agencies_wind': {
+				'noaa_nos': false
+			},
+			'wave': false,
+			'agencies_wave': {
+				'ndbc': false,
+				'ioos': false
+			},
+			
+//				'griddomain': false,
+//				'precimg': false
+			
+		},
+		queryonoff: "0",
+		query_coord: "",
+		stationid: "",
+		maptype: "roadmap",
+		sw: [ -55.0,-170.0 ],
+		ne: [ 84.0,170 ],
+		zoom: "2",
+		minzoom: minzoom,
+		anilayer: "",
+		timezone: timezone, //see function above
+		unit: unit, //see function above
+		track_labels: track_labels, //see function above
+		asgs: asgs, //see function above
+		selectmenu: 0,
+		griddomain: '',
+		selectmodel: selectmodel, // see above
+		panel: panel,
+		panel_scrollpos: '0',
+		mapextent: "_global",
+		mapextent_data: [
+		
+			{ value: "_global", text: "Global" },
+		
+			{ value: "atlantic", text: "Atlantic/Gulf" },
+		
+			{ value: "pac", text: "North Pacific" }
+		
+		],
+		googlekey: 'AIzaSyADfBA05E4I5N2GCpEQqMvQwOngVbaKuxQ',
+		dev_site: '0',
+		basepath: '/cera_risk',		//htdocs: cera_risk (on C:)
+		cgi_base: "/cgi-cera",
+		django_base: '/cerarisk',	//django: cera_data/cerarisk
+		baseurl: '/',			//website: /[cerarisk]
+		django_ceracgi: '/cerarisk',	//only important for ceradev website: path to ceracgi for *.py scripts on wms_hosts (use cera_data instead of ceradev because ceradev is not available on wms_hosts)
+		data_url: "/cerarisk/adcircrun/day=/time=/id=/yr=/stormnr=/adv=/tracknr=/tz="+timezone+"/asgs="+asgs,
+		perm: '',
+		ceracgi_wms_base_path: '/ceracgi/cera_wms_tiled?',
+		ceracgi_wfs_base_path: '/ceracgi/cera_wfs?',
+		ceracgi_ani_base_path: '/ceracgi/cera_ani_tiled?'
+	};
+	return config_data;
+}
+
+var json_data_promise = null;
+
+function loaded()
+{
+	enable_tooltips_controls($('.banner_left'));
+	var svg_data_promise = read_svg_icons(
+		'../cera_risk/_images/img.html',
+		{
+			// topic : id
+			'stations': 'station',
+			'stations_hover': 'stationhover',
+			'stations_trigger': 'stationtrigger',
+			'stations_trigger_hover': 'stationtriggerhover',
+			'track_points': 'track',
+			'track_points_hover': 'track_hover',
+			'subtrack_point': 'subtrack',
+			'track_points_out': 'track_out',
+			'track_timestep': 'track_timestep',
+			'track_timestep_hover': 'track_timestep_hover',
+			'hurr': 'hurr',
+			'hurr_south': 'hurr_south',
+			'hurr_remnants': 'hurr_remnants',
+			'hurr_estofs': 'hurr_estofs'
+		});
+
+	startup_cera(json_data_promise, svg_data_promise);
+
+	// load google.analytics
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-16277394-18', 'auto');	// Replace with your property ID.
+	ga('send', 'pageview');
+}
+
+function loaded_jquery()
+{
+	// load json data
+	var deferred = $.Deferred();
+
+	var cfg = get_config_data();
+	//dhs/crc logos only visible on 'asgs' tab
+	//if (cfg.selectmodel === 'asgs' || cfg.asgs === 'pub') {
+	//	$("[name=hidelogo]").show();
+	//}
+	$.getJSON(cfg.data_url + "/dev=0.json_redirect", function (json) {
+		deferred.resolve(json);
+	})
+	.fail(function(xhdr, textStatus, errorThrown) {
+		console.log( "error loading json file: " + textStatus + ', ' + errorThrown);
+	});
+
+	return deferred.promise();
+}
+
+function loading()
+{
+	json_data_promise = loaded_jquery();
+
+	$('#body').css('background-image', 'url(/cera_risk/_images/bg.png)'); //cannot be in sprite (repeat-x repeats the whole image, so the bg image would need to have the full width of the sprite)
+	/*$('.banner_footer').css('background-image', 'url(/cera_risk/_images/banner_footer.png)'); //footer logos
+	$('.buttons_sprite').css('background-image', 'url(/cera_risk/_images/buttons_sprite.png)');*/
+	$('.legend_sprite').css('background-image', 'url(/cera_risk/_images/legend_sprite.png)');
+
+	//cera_1.js: jquery.qtip.min.js,elabel.js,gmaps_controls.js,animation_overlay.js,progressbarcontrol.js,fg.menu.js,jsrender.js,gmaps.js
+	//cera_2.js: markers_stations.js,cera.js,jquery.ui.horizontalaccordion.js,jquery.ui.selectmenu.js,jquery.zclip.min.js
+
+	load('../cera_risk/_scripts/cera_1.js')
+		.thenLoad('../cera_risk/_scripts/cera_2.js')
+		//.thenLoad('https://platform.twitter.com/widgets.js')
+		.thenLoad('https://apis.google.com/js/client.js') //Google shortener
+		.thenRun(loaded)
+		.onError(function(args) { alert(args); });
+
+	// dynamic image load
+	$('.image').each(function() {
+		$(this).attr('src', '/cera_risk/_images/'+$(this).attr('name')).show();
+	});
+
+	var $banner = $('[name="banner"]');
+	$('.banner_left').hover(
+		function () {
+			$banner.addClass('banner_hover');
+		},
+		function () {
+			$banner.removeClass('banner_hover');
+		}
+	);
+
+}
+// End hiding JavaScript -->
+</script>
+
+</body>
+
+<!-- Mirrored from cera.coastalrisk.live/cerarisk/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 May 2023 17:07:49 GMT -->
+</html>

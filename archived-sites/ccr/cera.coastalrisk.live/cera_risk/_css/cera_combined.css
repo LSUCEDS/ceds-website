@@ -1,0 +1,1028 @@
+/*! jQuery UI - v1.11.0 - 2014-07-15
+* http://jqueryui.com
+* Includes:core.css, accordion.css, button.css, datepicker.css, menu.css, progressbar.css, selectmenu.css, slider.css, spinner.css, tabs.css, theme.css
+* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {display:none}
+.ui-helper-hidden-accessible {border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
+.ui-helper-reset {margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;font-size:100%;list-style:none}
+.ui-helper-clearfix:before,.ui-helper-clearfix:after {content:"";display:table;	border-collapse:collapse}
+.ui-helper-clearfix:after {clear:both}
+.ui-helper-clearfix {min-height:0; /* support:IE7 */}
+.ui-helper-zfix {width:100%;height:100%;top:0;left:0;position:absolute;opacity:0;filter:Alpha(Opacity=0)}
+.ui-front {z-index:100}
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {cursor:default !important}
+
+/* Icons
+----------------------------------*/
+/* states and images */
+.ui-icon {display:block;text-indent:-99999px;overflow:hidden;background-repeat:no-repeat}
+
+/* Misc visuals
+----------------------------------*/
+/* Overlays */
+.ui-widget-overlay {position:fixed;top:0;left:0;width:100%;height:100%}
+.ui-resizable {position:relative}
+.ui-resizable-handle {position:absolute;font-size:0.1px;display:block}
+.ui-resizable-disabled .ui-resizable-handle,.ui-resizable-autohide .ui-resizable-handle {display:none}
+.ui-resizable-n {cursor:n-resize;height:7px;width:100%;top:-5px;left:0}
+.ui-resizable-s {cursor:s-resize;height:7px;width:100%;bottom:-5px;left:0}
+.ui-resizable-e {cursor:e-resize;width:7px;right:-5px;top:0;height:100%}
+.ui-resizable-w {cursor:w-resize;width:7px;left:-5px;top:0;height:100%}
+.ui-resizable-se {cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}
+.ui-resizable-sw {cursor:sw-resize;width:9px;height:9px;left:-5px;bottom:-5px}
+.ui-resizable-nw {cursor:nw-resize;width:9px;height:9px;left:-5px;top:-5px}
+.ui-resizable-ne {cursor:ne-resize;width:9px;height:9px;right:-5px;top:-5px}
+
+.ui-selectable-helper {position:absolute;z-index:100;border:1px dotted black}
+
+.ui-accordion {width:240px} /*Opera bug, do not delete*/
+.ui-accordion .ui-accordion-header {display:block;cursor:pointer;position:relative;margin:-1px 0 0 0;min-height:0; /* support:IE7 */;line-height:32px;font-size:13px;font-weight:normal;border:1px solid #C0C0C0;border-left:none;border-radius:0;border-collapse:collapse}
+.ui-accordion .ui-accordion-header-active{border:1px solid #7E7884;background:#5C5665;color:#ffffff;border-left:none}
+.ui-accordion .ui-accordion-icons {padding-left:24px}
+.ui-accordion .ui-accordion-noicons {padding-left:.7em} /* important, do not delete */
+.ui-accordion .ui-accordion-icons .ui-accordion-icons {padding-left:24px}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {position:absolute;left:0;margin-top:4px}
+.ui-accordion .ui-accordion-content {padding:10px 23px 10px 10px;border-top:0;overflow:hidden;display:none;font-size:13px;border-left:none;}
+
+/* Day/Storm button */
+/*set line-height as inline style in html for correct button height and text position of Day/Storm button in all browsers*/
+.ui-button {display:inline-block;position:relative;cursor:pointer;text-align:center;overflow:visible;border:1px solid #bcb9be; /* removes extra width in IE */}
+.ui-buttonset .ui-button {margin-left:0;/*margin-right:-.3em;border:none;*/height:22px;line-height:21px/*plus inherited border*/}
+/*border set as ui-state-active*/
+.ui-button-text {font-size:14px;padding:0; }
+.ui-button,.ui-button:link,.ui-button:visited,.ui-button,.ui-button:active {text-decoration:none;}
+/* to make room for the icon, a width needs to be set here */
+.ui-button-icon-only {width:2.2em}
+/* button elements seem to need a little more width */
+button.ui-button-icon-only {width:2.4em}
+.ui-button-icons-only {width:3.4em}
+button.ui-button-icons-only {width:3.7em}
+/*.ui-button-icon-only .ui-button-text,.ui-button-icons-only .ui-button-text {padding:.4em;text-indent:-9999999px}
+.ui-button-text-icon-primary .ui-button-text,.ui-button-text-icons .ui-button-text {padding:0 1em 0 2.1em}
+.ui-button-text-icon-secondary .ui-button-text,.ui-button-text-icons .ui-button-text {padding:.3em 2.1em .3em 1em}
+.ui-button-text-icons .ui-button-text {padding-left:2.1em;padding-right:2.1em}*/
+
+
+/* button icon element(s) */
+.ui-button-icon-only .ui-icon,.ui-button-text-icon-primary .ui-icon,.ui-button-text-icon-secondary .ui-icon,.ui-button-text-icons .ui-icon,.ui-button-icons-only .ui-icon {position:absolute;top:4px}
+.ui-button-icon-only .ui-icon {left:50%;margin-left:-10px}
+.ui-button-text-icon-primary .ui-button-icon-primary,.ui-button-text-icons .ui-button-icon-primary,.ui-button-icons-only .ui-button-icon-primary {left:2px}
+.ui-button-text-icon-secondary .ui-button-icon-secondary,.ui-button-text-icons .ui-button-icon-secondary,.ui-button-icons-only .ui-button-icon-secondary {right:.5em}
+
+
+/* workarounds */
+/* reset extra padding in Firefox, see h5bp.com/l */
+input.ui-button::-moz-focus-inner,button.ui-button::-moz-focus-inner {border:0;padding:0}
+.ui-datepicker {width:15.1em;padding:.2em .2em 0;display:none}
+.ui-datepicker .ui-datepicker-header {position:relative;padding:.2em 0}
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next {	position:absolute;top:2px;width:1.8em;height:1.8em}
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next {top:1px}
+.ui-datepicker .ui-datepicker-prev {left:2px}
+.ui-datepicker .ui-datepicker-next {right:2px}
+.ui-datepicker .ui-datepicker-prev {left:1px}
+.ui-datepicker .ui-datepicker-next {right:1px}
+.ui-datepicker .ui-datepicker-prev span,.ui-datepicker .ui-datepicker-next span {display:block;position:absolute;margin-left:1px;margin-top:1px}
+.ui-datepicker .ui-datepicker-title {margin:0 2.3em;line-height:1.8em;text-align:center;font-size:0.95em}
+.ui-datepicker .ui-datepicker-title select {font-size:0.8em;margin:1px 0}
+.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year {width:49%}
+.ui-datepicker table {width:100%;font-size:12px;border-collapse:collapse;margin:0 0 .4em}
+.ui-datepicker th {padding:.7em .3em;text-align:center;font-weight:bold;border:0}
+.ui-datepicker td {border:0;padding:1px}
+.ui-datepicker td span,.ui-datepicker td a {display:block;padding:.2em;text-align:right;text-decoration:none;height:1.35em;line-height:1.45em;font-size:0.9em}
+.ui-datepicker .ui-datepicker-buttonpane {background-image:none;margin:.7em 0 0 0;padding:0 .2em;border-left:0;border-right:0;border-bottom:0}
+.ui-datepicker .ui-datepicker-buttonpane button {float:right;margin:.5em .2em .4em;cursor:pointer;padding:.2em .6em .3em .6em;width:auto;overflow:visible}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {float:left}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi {width:auto}
+.ui-datepicker-multi .ui-datepicker-group {float:left}
+.ui-datepicker-multi .ui-datepicker-group table {width:95%;margin:0 auto .4em}
+.ui-datepicker-multi-2 .ui-datepicker-group {width:50%}
+.ui-datepicker-multi-3 .ui-datepicker-group {width:33.3%}
+.ui-datepicker-multi-4 .ui-datepicker-group {width:25%}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {border-left-width:0}
+.ui-datepicker-multi .ui-datepicker-buttonpane {clear:left}
+.ui-datepicker-row-break {clear:both;width:100%;font-size:0}
+
+/* RTL support */
+.ui-datepicker-rtl {direction:rtl}
+.ui-datepicker-rtl .ui-datepicker-prev {right:2px;left:auto}
+.ui-datepicker-rtl .ui-datepicker-next {left:2px;right:auto}
+.ui-datepicker-rtl .ui-datepicker-prev {right:1px;left:auto}
+.ui-datepicker-rtl .ui-datepicker-next {left:1px;right:auto}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {clear:right}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {float:left}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,.ui-datepicker-rtl .ui-datepicker-group {float:right}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {border-right-width:0;border-left-width:1px}
+
+.ui-dialog {overflow:visible;/*important to not cut the selectmenu*/position:absolute;top:0;left:0;padding:.2em;outline:0}
+.ui-dialog .ui-dialog-titlebar {padding:5px 12px 6px 12px;position:relative}
+.ui-dialog .ui-dialog-title {float:left;/*margin:.1em 0;*/white-space:nowrap;width:90%;overflow:hidden;text-overflow:ellipsis;font-size:0.9em;color:#bcb9be}
+.ui-dialog .ui-dialog-titlebar-close {position:absolute;right:6px;width:16px;height:16px;border:none}/*will be overwritten with ui-widget-header .ui-icon but needs to be set to handle default close button which is still in the background*/
+.ui-dialog .ui-dialog-content {position:relative;border:0;padding:18px 12px;background:none;overflow:auto;font-size:13px}
+.ui-dialog .ui-dialog-buttonpane {text-align:left;border-width:1px 0 0 0;background-image:none;margin-top:.3em;padding:.2em 1em .5em .4em}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {float:right;outline:0}
+.ui-dialog .ui-dialog-buttonpane button {margin:.5em .8em .2em 0;cursor:pointer;line-height:24px;font-size:1em;outline:0}
+.ui-dialog .ui-resizable-se {width:12px;height:12px;right:-5px;bottom:-5px;background-position:16px 16px}
+.ui-draggable .ui-dialog-titlebar {cursor:move}
+
+.ui-menu {list-style:none;padding:0;margin:0;display:block;outline:none}
+.ui-menu .ui-menu {position:absolute}
+.ui-menu .ui-menu-item {font-size:13px;position:relative;margin:0;padding:3px 3px 3px 6px;cursor:pointer;min-height:0; /* support:IE7 *//* support:IE10, see #8844 */list-style-image:url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")}
+.ui-menu .ui-menu-divider {margin:5px 0;height:0;font-size:0;line-height:0;border-width:1px 0 0 0}
+.ui-menu .ui-state-focus,.ui-menu .ui-state-active {margin:-1px}
+
+/* icon support */
+.ui-menu-icons {position:relative}
+.ui-menu-icons .ui-menu-item {padding-left:2em}
+/* left-aligned */
+.ui-menu .ui-icon {position:absolute;top:0;bottom:0;left:.2em;margin:auto 0}
+/* right-aligned */
+.ui-menu .ui-menu-icon {left:auto;right:0}
+
+.ui-selectmenu-menu {padding:0;margin:0 0 0 2px;position:absolute;top:0;left:0;display:none}
+.ui-selectmenu-menu .ui-menu {overflow:auto;/* Support:IE7 */overflow-x:hidden;padding-bottom:1px}
+.ui-selectmenu-menu .ui-menu .ui-selectmenu-optgroup {font-size:0.84em;/*font-weight:bold*/line-height:1.5;padding:2px 0.4em;margin:0.5em 0 0 0;height:auto;border:0}
+.ui-selectmenu-open {display:block}
+/* selectboxlegend*/
+.ui-selectmenu-button {display:inline-block;overflow:hidden;position:relative;text-decoration:none;cursor:pointer;border:none;min-width:177px}
+.ui-selectmenu-button span.ui-icon {right:-1px;left:auto;position:absolute}
+.ui-selectmenu-button span.ui-selectmenu-text {text-align:left;line-height:24px!important;padding-left:5px;display: block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
+
+.ui-slider {position:relative;text-align:left}
+.ui-slider .ui-slider-handle {position:absolute;z-index:2;width:1.2em;height:1.2em;cursor:default;-ms-touch-action:none;touch-action:none}
+.ui-slider .ui-slider-range {position:absolute;z-index:1;font-size:.7em;display:block;border:0;background-position:0 0}
+/* For IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,.ui-slider.ui-state-disabled .ui-slider-range {filter:inherit}
+.ui-slider-horizontal {height:.8em}
+.ui-slider-horizontal .ui-slider-handle {top:-.3em;margin-left:-.6em}
+.ui-slider-horizontal .ui-slider-range {top:0;height:100%}
+.ui-slider-horizontal .ui-slider-range-min {left:0}
+.ui-slider-horizontal .ui-slider-range-max {right:0}
+.ui-slider-vertical {width:.8em;height:100px}
+.ui-slider-vertical .ui-slider-handle {left:-.3em;margin-left:0;margin-bottom:-.6em}
+.ui-slider-vertical .ui-slider-range {left:0;width:100%}
+.ui-slider-vertical .ui-slider-range-min {bottom:0}
+.ui-slider-vertical .ui-slider-range-max {top:0}
+
+.ui-spinner {position:relative;display:inline-block;overflow:hidden;padding:0;vertical-align:middle}
+.ui-spinner-input {border:none;background:none;color:inherit;padding:0;margin:.2em 0;vertical-align:middle;margin-left:.4em;margin-right:22px}
+.ui-spinner-button {width:16px;height:50%;font-size:.5em;padding:0;margin:0;text-align:center;position:absolute;cursor:default;display:block;overflow:hidden;right:0}
+/* more specificity required here to override default borders */
+.ui-spinner a.ui-spinner-button {border-top:none;border-bottom:none;border-right:none}
+/* vertically center icon */
+.ui-spinner .ui-icon {position:absolute;margin-top:-8px;top:50%;left:0}
+.ui-spinner-up {top:0}
+.ui-spinner-down {bottom:0}
+
+/* TR overrides */
+.ui-spinner .ui-icon-triangle-1-s {/* need to fix icons sprite */background-position:-65px -16px}
+
+.ui-tabs {position:relative;/* position:relative prevents IE scroll bug (element with position:relative inside container with overflow:auto appear as "fixed") */padding:.2em}
+.ui-tabs .ui-tabs-nav {margin:0;padding:.2em .2em 0}
+.ui-tabs .ui-tabs-nav li {list-style:none;float:left;position:relative;top:0;margin:1px .2em 0 0;border-bottom-width:0;padding:0;white-space:nowrap}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {float:left;padding:.5em 1em;text-decoration:none}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {margin-bottom:-1px;padding-bottom:1px}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {cursor:text}
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {cursor:pointer}
+.ui-tabs .ui-tabs-panel {display:block;border-width:0;padding:1em 1.4em;background:none}
+
+/* Component containers
+----------------------------------*/
+.ui-widget { font-family: Roboto, Arial, Helvetica,  sans-serif}
+/*.ui-widget .ui-widget {font-size:1em}*/
+.ui-widget input,.ui-widget select,.ui-widget textarea,.ui-widget button {border:none}
+.ui-widget-content {border:1px solid #8e8793;background:#202339;color:#ffffff}
+.ui-widget-content a {color:#ffffff}
+.ui-widget-header {border:1px solid #231d2b;background:#30273a;color:#ffffff;}
+.ui-widget-header a {color:#ffffff}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,.ui-widget-content .ui-state-default {border:1px solid #E9e6EA;background:#E9e6EA;color:#111}
+.ui-state-default a,.ui-state-default a:link,.ui-state-default a:visited {color:#111;text-decoration:none}
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus {border:1px solid transparent;background:#E9E6EA;color:#34A9E6}
+/*border:none - important for close button on LinkForms - do not delete*/
+.ui-widget-header .ui-state-default {border:none;background:#E9e6EA;color:#111}
+.ui-widget-header .ui-state-focus {border:none;background:#E9E6EA;color:#734d99}
+
+.ui-state-hover a,.ui-state-hover a:hover,.ui-state-hover a:link,.ui-state-hover a:visited,.ui-state-focus a,.ui-state-focus a:hover,.ui-state-focus a:link,.ui-state-focus a:visited {/*color:#734d99*/text-decoration:none}
+.ui-state-hover a,.ui-state-hover a:hover,.ui-state-focus a,.ui-state-focus a:hover {color:/*#734d99*/#2499D6}
+
+/*Day button*/
+.ui-state-active {border:1px solid /*#2499D6*/#24A1E3;background:/*#2499D6*/#24A1E3;color:#ffffff}
+
+.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active, {border:1px solid #7E7884;background:#5C5665;color:#ffffff}
+/*calendar selected day*/
+.ui-datepicker .ui-state-active {border:2px solid #2499D6;background:#E9E6EA;color:#111}
+.ui-state-active a,.ui-state-active a:link,.ui-state-active a:visited {color:#ffffff;text-decoration:none}
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight {border:1px solid /*#734d99*/#E9E6EA;background:#E9E6EA/*#fafafa url("images/ui-bg_flat_55_fafafa_40x100.png") 50% 50% repeat-x*/;color:#111}
+.ui-state-highlight a,.ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a {color:#111}
+.ui-state-error,.ui-widget-content .ui-state-error,.ui-widget-header .ui-state-error {border:1px solid #994d53;background:#994d53 url("images/ui-bg_flat_55_994d53_40x100.html") 50% 50% repeat-x;color:#ffffff}
+.ui-state-error a,.ui-widget-content .ui-state-error a,.ui-widget-header .ui-state-error a {color:#ffffff}
+.ui-state-error-text,.ui-widget-content .ui-state-error-text,.ui-widget-header .ui-state-error-text {color:#ffffff}
+/*.ui-priority-primary,.ui-widget-content .ui-priority-primary,.ui-widget-header .ui-priority-primary {font-weight:bold}*/
+.ui-priority-secondary,.ui-widget-content .ui-priority-secondary,.ui-widget-header .ui-priority-secondary {opacity:.7;filter:Alpha(Opacity=70);font-weight:normal}
+.ui-state-disabled,.ui-widget-content .ui-state-disabled,.ui-widget-header .ui-state-disabled {opacity:.35;filter:Alpha(Opacity=35);background-image:none}
+.ui-state-disabled .ui-icon {filter:Alpha(Opacity=35) /* For IE8 - See #6059 */}
+/*calendar current day*/
+.ui-datepicker-today .ui-state-hover {color: #34A9E6}
+
+/* Progressbar - put AFTER ui-widget to work correctly
+----------------------------------*/
+.ui-progressbar {height:21px;text-align:left;overflow:hidden}
+.ui-progressbar .ui-progressbar-value {margin:-1px;height:100%;background:url("images/pbar-ani.gif") repeat-x 50% 50%}
+.ui-progressbar .ui-progressbar-overlay {background:url("images/animated-overlay.html");height:100%;filter:alpha(opacity=25);opacity:0.25}
+.ui-progressbar-indeterminate .ui-progressbar-value {background-image:none}
+
+/* Icons
+----------------------------------*/
+
+.ui-icon-blank { background-position:16px 16px}
+.ui-icon-carat-1-n { background-position:0 0}
+.ui-icon-carat-1-ne { background-position:-16px 0}
+.ui-icon-carat-1-e { background-position:-32px 0}
+.ui-icon-carat-1-se { background-position:-48px 0}
+.ui-icon-carat-1-s { background-position:-64px 0}
+.ui-icon-carat-1-sw { background-position:-80px 0}
+.ui-icon-carat-1-w { background-position:-96px 0}
+.ui-icon-carat-1-nw { background-position:-112px 0}
+.ui-icon-carat-2-n-s { background-position:-128px 0}
+.ui-icon-carat-2-e-w { background-position:-144px 0}
+.ui-icon-triangle-1-n { background-position:0 -16px}
+.ui-icon-triangle-1-ne { background-position:-16px -16px}
+.ui-icon-triangle-1-e {width:24px;height:24px;background-size:24px;background-image: url(images/arrow_right.svg)}
+.ui-icon-triangle-1-se { background-position:-48px -16px}
+.ui-icon-triangle-1-s {width:24px;height:24px;background-size:24px;background-image: url(images/arrow_down.svg)}
+.ui-icon-triangle-1-sw { background-position:-80px -16px}
+.ui-icon-triangle-1-w { background-position:-96px -16px}
+.ui-icon-triangle-1-nw { background-position:-112px -16px}
+.ui-icon-triangle-2-n-s { background-position:-128px -16px}
+.ui-icon-triangle-2-e-w { background-position:-144px -16px}
+.ui-icon-arrow-1-n { background-position:0 -32px}
+.ui-icon-arrow-1-ne { background-position:-16px -32px}
+.ui-icon-arrow-1-e { background-position:-32px -32px}
+.ui-icon-arrow-1-se { background-position:-48px -32px}
+.ui-icon-arrow-1-s { background-position:-64px -32px}
+.ui-icon-arrow-1-sw { background-position:-80px -32px}
+.ui-icon-arrow-1-w { background-position:-96px -32px}
+.ui-icon-arrow-1-nw { background-position:-112px -32px}
+.ui-icon-arrow-2-n-s { background-position:-128px -32px}
+.ui-icon-arrow-2-ne-sw { background-position:-144px -32px}
+.ui-icon-arrow-2-e-w { background-position:-160px -32px}
+.ui-icon-arrow-2-se-nw { background-position:-176px -32px}
+.ui-icon-arrowstop-1-n { background-position:-192px -32px}
+.ui-icon-arrowstop-1-e { background-position:-208px -32px}
+.ui-icon-arrowstop-1-s { background-position:-224px -32px}
+.ui-icon-arrowstop-1-w { background-position:-240px -32px}
+.ui-icon-arrowthick-1-n { background-position:0 -48px}
+.ui-icon-arrowthick-1-ne { background-position:-16px -48px}
+.ui-icon-arrowthick-1-e { background-position:-32px -48px}
+.ui-icon-arrowthick-1-se { background-position:-48px -48px}
+.ui-icon-arrowthick-1-s { background-position:-64px -48px}
+.ui-icon-arrowthick-1-sw { background-position:-80px -48px}
+.ui-icon-arrowthick-1-w { background-position:-96px -48px}
+.ui-icon-arrowthick-1-nw { background-position:-112px -48px}
+.ui-icon-arrowthick-2-n-s { background-position:-128px -48px}
+.ui-icon-arrowthick-2-ne-sw { background-position:-144px -48px}
+.ui-icon-arrowthick-2-e-w { background-position:-160px -48px}
+.ui-icon-arrowthick-2-se-nw { background-position:-176px -48px}
+.ui-icon-arrowthickstop-1-n { background-position:-192px -48px}
+.ui-icon-arrowthickstop-1-e { background-position:-208px -48px}
+.ui-icon-arrowthickstop-1-s { background-position:-224px -48px}
+.ui-icon-arrowthickstop-1-w { background-position:-240px -48px}
+.ui-icon-arrowreturnthick-1-w { background-position:0 -64px}
+.ui-icon-arrowreturnthick-1-n { background-position:-16px -64px}
+.ui-icon-arrowreturnthick-1-e { background-position:-32px -64px}
+.ui-icon-arrowreturnthick-1-s { background-position:-48px -64px}
+.ui-icon-arrowreturn-1-w { background-position:-64px -64px}
+.ui-icon-arrowreturn-1-n { background-position:-80px -64px}
+.ui-icon-arrowreturn-1-e { background-position:-96px -64px}
+.ui-icon-arrowreturn-1-s { background-position:-112px -64px}
+.ui-icon-arrowrefresh-1-w { background-position:-128px -64px}
+.ui-icon-arrowrefresh-1-n { background-position:-144px -64px}
+.ui-icon-arrowrefresh-1-e { background-position:-160px -64px}
+.ui-icon-arrowrefresh-1-s { background-position:-176px -64px}
+.ui-icon-arrow-4 { background-position:0 -80px}
+.ui-icon-arrow-4-diag { background-position:-16px -80px}
+.ui-icon-extlink { background-position:-32px -80px}
+.ui-icon-newwin { background-position:-48px -80px}
+.ui-icon-refresh { background-position:-64px -80px}
+.ui-icon-shuffle { background-position:-80px -80px}
+.ui-icon-transfer-e-w { background-position:-96px -80px}
+.ui-icon-transferthick-e-w { background-position:-112px -80px}
+.ui-icon-folder-collapsed { background-position:0 -96px}
+.ui-icon-folder-open { background-position:-16px -96px}
+.ui-icon-document { background-position:-32px -96px}
+.ui-icon-document-b { background-position:-48px -96px}
+.ui-icon-note { background-position:-64px -96px}
+.ui-icon-mail-closed { background-position:-80px -96px}
+.ui-icon-mail-open { background-position:-96px -96px}
+.ui-icon-suitcase { background-position:-112px -96px}
+.ui-icon-comment { background-position:-128px -96px}
+.ui-icon-person { background-position:-144px -96px}
+.ui-icon-print { background-position:-160px -96px}
+.ui-icon-trash { background-position:-176px -96px}
+.ui-icon-locked { background-position:-192px -96px}
+.ui-icon-unlocked { background-position:-208px -96px}
+.ui-icon-bookmark { background-position:-224px -96px}
+.ui-icon-tag { background-position:-240px -96px}
+.ui-icon-home { background-position:0 -112px}
+.ui-icon-flag { background-position:-16px -112px}
+.ui-icon-calendar { background-position:-32px -112px}
+.ui-icon-cart { background-position:-48px -112px}
+.ui-icon-pencil { background-position:-64px -112px}
+.ui-icon-clock { background-position:-80px -112px}
+.ui-icon-disk { background-position:-96px -112px}
+.ui-icon-calculator { background-position:-112px -112px}
+.ui-icon-zoomin { background-position:-128px -112px}
+.ui-icon-zoomout { background-position:-144px -112px}
+.ui-icon-search { background-position:-160px -112px}
+.ui-icon-wrench { background-position:-176px -112px}
+.ui-icon-gear { background-position:-192px -112px}
+.ui-icon-heart { background-position:-208px -112px}
+.ui-icon-star { background-position:-224px -112px}
+.ui-icon-link { background-position:-240px -112px}
+.ui-icon-cancel { background-position:0 -128px}
+.ui-icon-plus { background-position:-16px -128px}
+.ui-icon-plusthick { background-position:-32px -128px}
+.ui-icon-minus { background-position:-48px -128px}
+.ui-icon-minusthick { background-position:-64px -128px}
+.ui-icon-close { background-position:-80px -128px}
+.ui-icon-closethick { background-position:-96px -128px} /*own close image*/ 
+.ui-icon-key { background-position:-112px -128px}
+.ui-icon-lightbulb { background-position:-128px -128px}
+.ui-icon-scissors { background-position:-144px -128px}
+.ui-icon-clipboard { background-position:-160px -128px}
+.ui-icon-copy { background-position:-176px -128px}
+.ui-icon-contact { background-position:-192px -128px}
+.ui-icon-image { background-position:-208px -128px}
+.ui-icon-video { background-position:-224px -128px}
+.ui-icon-script { background-position:-240px -128px}
+.ui-icon-alert { background-position:0 -144px}
+.ui-icon-info { background-position:-16px -144px}
+.ui-icon-notice { background-position:-32px -144px}
+.ui-icon-help { background-position:-48px -144px}
+.ui-icon-check { background-position:-64px -144px}
+.ui-icon-bullet { background-position:-80px -144px}
+.ui-icon-radio-on { background-position:-96px -144px}
+.ui-icon-radio-off { background-position:-112px -144px}
+.ui-icon-pin-w { background-position:-128px -144px}
+.ui-icon-pin-s { background-position:-144px -144px}
+/*.ui-icon-play { background-position:0 -160px}
+.ui-icon-stop { background-position:-96px -160px}*/
+.ui-icon-pause { background-position:-16px -160px}
+.ui-icon-play {width:16px;height:16px;background-size:16px;background-image: url(images/play.svg)}
+.ui-icon-stop {width:16px;height:16px;background-size:16px;background-image: url(images/stop.svg)}
+.ui-icon-seek-next { background-position:-32px -160px}
+.ui-icon-seek-prev { background-position:-48px -160px}
+.ui-icon-seek-end { background-position:-64px -160px}
+.ui-icon-seek-start { background-position:-80px -160px}
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.ui-icon-seek-first { background-position:-80px -160px}
+.ui-icon-eject { background-position:-112px -160px}
+.ui-icon-volume-off { background-position:-128px -160px}
+.ui-icon-volume-on { background-position:-144px -160px}
+.ui-icon-power { background-position:0 -176px}
+.ui-icon-signal-diag { background-position:-16px -176px}
+.ui-icon-signal { background-position:-32px -176px}
+.ui-icon-battery-0 { background-position:-48px -176px}
+.ui-icon-battery-1 { background-position:-64px -176px}
+.ui-icon-battery-2 { background-position:-80px -176px}
+.ui-icon-battery-3 { background-position:-96px -176px}
+.ui-icon-circle-plus { background-position:0 -192px}
+.ui-icon-circle-minus { background-position:-16px -192px}
+.ui-icon-circle-close { background-position:-32px -192px}
+/*.ui-icon-circle-triangle-e { background-position:-48px -192px}*/
+.ui-icon-circle-triangle-e {width: 24px;height: 24px;background-size: 24px;background-image: url(images/arrow_right.svg)}
+.ui-icon-circle-triangle-s { background-position:-64px -192px}
+/*.ui-icon-circle-triangle-w { background-position:-80px -192px}*/
+.ui-icon-circle-triangle-w {width: 24px;height: 24px;background-size: 24px;background-image: url(images/arrow_left.svg)}
+.ui-icon-circle-triangle-n { background-position:-96px -192px}
+.ui-icon-circle-arrow-e { background-position:-112px -192px}
+.ui-icon-circle-arrow-s { background-position:-128px -192px}
+.ui-icon-circle-arrow-w { background-position:-144px -192px}
+.ui-icon-circle-arrow-n { background-position:-160px -192px}
+.ui-icon-circle-zoomin { background-position:-176px -192px}
+.ui-icon-circle-zoomout { background-position:-192px -192px}
+.ui-icon-circle-check { background-position:-208px -192px}
+.ui-icon-circlesmall-plus { background-position:0 -208px}
+.ui-icon-circlesmall-minus { background-position:-16px -208px}
+.ui-icon-circlesmall-close { background-position:-32px -208px}
+.ui-icon-squaresmall-plus { background-position:-48px -208px}
+.ui-icon-squaresmall-minus { background-position:-64px -208px}
+.ui-icon-squaresmall-close { background-position:-80px -208px}
+.ui-icon-grip-dotted-vertical { background-position:0 -224px}
+.ui-icon-grip-dotted-horizontal { background-position:-16px -224px}
+.ui-icon-grip-solid-vertical { background-position:-32px -224px}
+.ui-icon-grip-solid-horizontal { background-position:-48px -224px}
+.ui-icon-gripsmall-diagonal-se { background-position:-64px -224px}
+.ui-icon-grip-diagonal-se { background-position:-80px -224px}
+
+/* Misc visuals
+----------------------------------*/
+/* Corner radius */
+.ui-corner-all,.ui-corner-top,.ui-corner-left,.ui-corner-tl {border-top-left-radius:3px}
+.ui-corner-all,.ui-corner-top,.ui-corner-right,.ui-corner-tr {border-top-right-radius:3px}
+.ui-corner-all,.ui-corner-bottom,.ui-corner-left,.ui-corner-bl {border-bottom-left-radius:3px}
+.ui-corner-all,.ui-corner-bottom,.ui-corner-right,.ui-corner-br {border-bottom-right-radius:3px}
+
+/* Overlays */
+/*.ui-widget-overlay {background:#eeeeee url("images/ui-bg_flat_0_eeeeee_40x100.png") 50% 50% repeat-x;opacity:.8;filter:Alpha(Opacity=80)}
+.ui-widget-shadow {margin:-4px 0 0 -4px;padding:4px;background:#aaaaaa url("images/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;opacity:.6;filter:Alpha(Opacity=60);border-radius:0px} */
+
+/* Styles for jQuery menu widget, Author: Maggie Wachs, maggie@filamentgroup.com, Date: September 2008 */
+
+.fg-menu-container {position: absolute; top:0; left:-999px; /*overflow: hidden;*/ z-index:1000}
+.fg-menu-container.fg-menu-flyout {overflow: visible}
+
+.fg-menu, .fg-menu ul {list-style-type:none; padding: 0; margin:0}
+
+.fg-menu {position:relative}
+.fg-menu-flyout .fg-menu {position:static}
+
+.fg-menu ul {position:absolute; top:-1px}
+/*.fg-menu ul ul {top:-1px}*/
+
+.fg-menu-container.fg-menu-ipod .fg-menu-content, 
+.fg-menu-container.fg-menu-ipod .fg-menu-content ul {background: none !important}
+
+.fg-menu.fg-menu-scroll,
+.fg-menu ul.fg-menu-scroll {overflow: scroll;  overflow-x: hidden}
+
+.fg-menu li {clear:both; float:left; width:100%; margin: 0; padding:0; border: 0; font-size:14px;display:inline-block;white-space:nowrap;line-height:18px }	
+.fg-menu li li {font-size: 14px;display:inline-block;white-space:nowrap } /* inner li font size must be reset so that they don't blow up */
+
+/*.fg-menu-flyout ul ul {padding: 1px 3px 1px 3px}*/
+.fg-menu-flyout li {position:relative}
+
+.fg-menu-scroll {overflow: scroll; overflow-x: hidden}
+
+/* REQUIRED LINK STYLES: links are "display:block" by default; if the menu options are split into 
+	selectable node links and 'next' links, the script floats the node links left and floats the 'next' links to the right	*/
+.fg-menu a:link,
+.fg-menu a:visited,
+.fg-menu a:hover,
+.fg-menu a:active{float:left; width:100%; text-indent:5px;text-decoration:none; outline: 0 !important; display:inline-block;white-space:nowrap;border:none;border-radius:0}
+.fg-menu a:first-child {border-top: 1px solid transparent;border-bottom: 1px solid transparent}
+
+.fg-menu a.ui-state-default:link,
+.fg-menu a.ui-state-default:visited,
+.fg-menu a.ui-state-default:hover,
+.fg-menu a.ui-state-default:active,
+.fg-menu a.ui-state-hover:link,
+.fg-menu a.ui-state-hover:visited,
+.fg-menu a.ui-state-hover:hover,
+.fg-menu a.ui-state-hover:active,
+ .fg-menu a.ui-state-active:link,
+ .fg-menu a.ui-state-active:visited,
+ .fg-menu a.ui-state-active:hover,
+.fg-menu a.ui-state-active:active {border-top:1px solid transparent;border-bottom:1px solid transparent;font-weight: normal}
+
+.fg-menu a span {display:block; cursor:pointer}
+
+ /* SUGGESTED STYLES - for use with jQuery UI Themeroller CSS */	
+.fg-menu-indicator span {float:left}
+.fg-menu-indicator span.ui-icon {float:right;width:18px;height:18px;background-size:18px;position:absolute;right:0}
+
+.fg-menu-content.ui-widget-content, 
+.fg-menu-content ul.ui-widget-content {border:0}
+
+/* ICONS AND DIVIDERS */
+.fg-menu.fg-menu-has-icons a:link,
+.fg-menu.fg-menu-has-icons a:visited,
+.fg-menu.fg-menu-has-icons a:hover,
+.fg-menu.fg-menu-has-icons a:active {padding-left:20px}
+
+.fg-menu .horizontal-divider hr, .fg-menu .horizontal-divider span {padding:0; margin:5px .6em}
+.fg-menu .horizontal-divider hr {border:0; height:1px}
+.fg-menu .horizontal-divider span {font-size:.9em; text-transform: uppercase; padding-left:.2em}
+
+.fg-button {border: none; background-color: #E9E6EA;color:#111;border-radius:3px} /*overwrites the jquery ui-state-active to prevent active buttons to be blue except Day/Storm*/
+.fg-button:hover {background-color: #E9E6EA; color: #2499D6}
+a.fg-button, .fg-button .ui-icon {float:left;  }
+button.fg-button {width:auto; overflow:visible} /* removes extra button width in IE *//* Coastal Emergency Risks Assessment (CERA)
+   Copyright (c) 2006-2022 Carola Kaiser,Louisiana State University
+   Distributed under the Boost Software License,Version 1.0.
+   See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+   This is free software,but WITHOUT ANY WARRANTY. Do not remove the copyright lines. */
+
+html,body {/*html is essential for the vertical stretch of the map;always zero out margin and padding on the body - apply any values on the specific div's */
+	height:100%;/*this is the key to stretch the columns vertically,also to set height for IE*/max-height:100%;/*set height for other browsers*/padding:0;margin:0;border:none;z-index:0;min-width:1024px;overflow:hidden;overflow-x:auto;background-color:#E9E6EA;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%}
+body {font-size:16px;/*set base font size for jquery*/background-repeat:repeat-x;font-family:Roboto,Arial,Helvetica,sans-serif;color:#111;font-weight:normal /*body background-image is set in html for dynamic loading (speed up page load)*/;text-transform:none}
+
+div,span,p,a,em,img,ul,li,form,fieldset,label,input,select,textarea,table,tr,td {margin:0;padding:0;border:none;border:0;outline:none;outline:0;border-radius:0}
+/*enable this for maintenance view*/
+/*html {height:100%;background:url(maintenance.jpg) no-repeat center 50%;margin:0}
+body {display:none}*/
+/*end maintenance*/
+*:focus {outline: none} /*get rid of outline for selected elements */
+input::-ms-clear {display: none} /*remove x from input field IE*/
+a {background-color:transparent;text-decoration:underline;color:#111}
+a:hover {color: #42BBE6}
+.block{display:inline-block} /*for empty spans with a class to show a sprite img*/
+.vertmiddle {vertical-align:middle}
+.linenormal {line-height:normal}
+.displaynone {display:none}
+.blue, a.blue, .blue a {color: #42BBE9}
+a.blue:hover {color: #52CBF9}
+
+/*move Google copyright above data_copyright*/
+/*.gmnoprint,.gm-style-cc {height:13px !important; line-height:13px !important;bottom:15px !important}*/
+.gm-style iframe div,.gm-style-iw iframe div {border: none !important}
+
+/*https://developers.google.com/fonts/docs/material_icons */
+.material-icons.dark {color: rgba(32,35,57,0.95)} /*#202339*/
+.material-icons.light {color: #EAE8EC}
+
+/*//////////////////////////////////////////////////////////////////////////////*/
+.banner {position:relative;height:36px;margin:7px 20px 0 12px;/*banner image is 36px high but banner section is 46px - set 7px margin top (margin-bottom is applied in .navigation_menu to avoid margin collapse*/min-width:994px}/*+padding; Safari does not except min-width in body,do not delete!*/
+/*left*/
+.banner_left {float:left;display:block;width:480px}
+.banner a {background-repeat:no-repeat;display:block;text-decoration:none}
+.cera_logo {width:34px;height:34px;background-image: url("../_images/logo_cera.svg");background-size:34px 34px;float:left}
+.cera_name {margin-left:19px;font-weight:500;font-size:29px;float:left;color:#fff;font-family:Arial,Helvetica}
+.cera_fullname_pub {margin-left:15px;font-size: 18px;line-height:33px;color:#fff;margin-right:5px;float:left}
+.cera_fullname_pro {margin-left:15px;margin-top:-3px;font-size:18px;color:#fff;margin-right:10px}
+.banner_subheader {float:left;margin-left:16px;margin-top:-2px;color:#ccccd0;font-size:13px;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif}
+.banner_subheader_dev {float:left;margin-left:16px;color:#fc0;font-size:11px;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;font-weight:bold}
+.banner_hover {color: #45BEF6}
+
+/*support button*/
+.support {width:100px;line-height:29px;float:left;margin-top:2px;text-align:center;border:none;font-size:0.85em}
+.support a {text-decoration:none;background-color:#301456;color:#F0C427;border-radius:3px/*;background-size:14px;background-image: url(/cera_risk/_images/support.svg);background-repeat:no-repeat;background-position:10px 6px*/}
+
+/*right*/
+.banner_right {float:right;color:#ccccd0;line-height:33px;font-size:0.93em}
+.banner_right a {color:#34AAE7}
+.banner_right a:hover {text-decoration:none}
+
+/*model tabs*/
+.banner_tabs_models {float:right;width:403px}
+.modelmenu_label {/*'Data model' label*/ 
+	float:left;/* make sure the select box and the label are in one single line */color:#DDD;margin:4px 8px 0 0;font-size:13px}
+.modelmenu /*div for selectbox*/ {margin-top:4px}
+.modelmenu_label_pub {/*'Data model' label*/ 
+	float:right;/* make sure the select box and the label are in one single line */color:#DDD;margin:4px 8px 0 0;font-size:13px}
+.modelmenu_pub {display:block;width:240px;float:right;background-color:#E9E6EA;border-radius:3px; white-space:nowrap;padding:0 7px;font-size:14px;text-decoration:none;height:24px;line-height:24px;border:none/*important-do not remove for correct height*/}
+#modelmenu /*selectbox*/ {width:295px}
+/*info button */
+.modelmenu_info {float: right;margin-left:8px}
+.modelmenu_info a:hover {cursor:pointer;color: #34AAE7}
+
+/*best track model*/
+.footer_best {padding-right:30px;color:#e00;padding-top:1px;font-weight:500}
+.banner_best {font-size:0.74em;padding-left:30px;color:#fff}
+.banner_best a {font-size:1em !important/*do not delete - based on topnav li a*/;text-decoration:underline !important}
+
+.wiki, .nhcrep {position:absolute;top:14px;font-size:12px}
+.wiki {right:20px}
+.nhcrep {right:92px}
+.wiki a, .nhcrep a {color: #fff; text-decoration:underline}
+.wiki a:hover, .nhcrep a:hover, .footer_best a:hover {color: #45BEF6; text-decoration:underline}
+
+/*//////////////////////////////////////////////////////////////////////////////*/
+.navigation_menu{/*create a div in the dark-grey nav area which allows the #TabMenu elements to get aligned to the top of this div (easier than vertical-middle);dark-grey nav area (38px) minus margin-top = top edge of buttons*/
+	width:1010px;/*page min-width minus margin-left - do not delete for Safari! */height:24px;/*set a basic height to keep everything in correct place */margin:10px 0 6px 14px /*6px top + 1px orange line +7px from banner-bottom*/}
+.navmenu_sel {/*'Select by' label*/
+	float:left;/* make sure the buttons and the .navmenu_sel are in one single line */margin-top:1px;color:#DDD;height:24px;line-height:23px;font-size:13px}
+/* http://www.hieu.co.uk/blog/index.php/2009/01/28/how-easy-to-create-a-slide-tabbed-box-using-jquery/*/
+#TabMenu {margin:0 5px;float:left;/* make sure the buttons and the .navmenu_sel will be in one single line */}
+#TabMenu li {display:inline-block;/* make sure all buttons will be in one single line */float:left}
+.TabContent {width:820px;height:24px;/* This is the size of each tab */float:left;/* make sure all tabs will be in one single line */overflow:hidden;border-left:1px solid #DDD;margin-left:15px}
+
+/*//////////////////////////////////////////////////////////////////////////////*/
+.topnav li{	/*use a seperate class to avoid issues with dropdown li elements */
+	float:left;/*keeps the list horizontal*/display:inline-block;/*no break between elements*/}
+.topnav li label {/*use a seperate class to avoid issues with dropdown label elements*/
+ float:left;/*keep the label on one line with the select element*/font-size:13px;height:24px;line-height:23px;color:#DDD;margin:1px 5px 0 15px/*distance between label and select box and to next label*/}
+.topnav li a {/* all text in topnav buttons except Day button; set explicitely for 'Day' (calendar)*/
+	white-space:nowrap;padding:0 7px;/*the ui-icon has some space on the right side*/font-size:14px;text-decoration:none;line-height:24px;border:none/*important-do not remove for correct height*/}
+#daymenu{white-space:nowrap;padding:0 1px;font-family:Roboto,Arial,Helvetica, sans-serif; /*do not delete - otherwise 'day' button has wrong font*/font-size:14px;height:24px;line-height:24px;border:none;/*important-do not remove for correct height*/box-shadow: none !important;/*for Safari*/}
+/* model info selectbox for cera_dev user on 'best' page*/
+.topnav li.modelinfo_ceradev {padding-left:22px;margin-right:-12px}
+
+/*calendar*/
+label[for=daymenu] {margin-left:0 !important;width: 24px}
+label[for=daymenu] a {font-size: 24px !important;line-height:23px}
+label[for=daymenu] a:hover{color: #42BBE6;cursor: pointer}
+
+/*additional inline styles for the topnav menu to overwrite the jquery Theme*/
+.topnav input.ui-button{/*Day select box*/
+	width:94px;float:left;/*keeps the calendar button on the same height as the input element*/}
+.topnav input.ui-button:hover{color:#2499D6}
+.topnav .menutext {float:left;/*keep the icon on the right side*/}
+.topnav .ui-icon {margin-right:-8px} /*same as padding for .topnav li a */
+
+/*important - sets the font size of the calendar control*/
+div.ui-datepicker {font-size:0.9em}
+/* style used in datepicker for days which have an associated storm */
+.date-picker-has-storm .ui-state-default {color:#C00;background:none;background-color:#FDD;border:1px solid #C00}
+.date-picker-has-storm .ui-state-active {color:#C00;background:none;background-color:#FDD;border:2px solid #2499D6}
+.ui-datepicker select.ui-datepicker-year {width:40%;padding:2px;font-size:0.92em;border-radius:2px;background-color:#FAFAFC}
+.ui-datepicker select.ui-datepicker-month {width:40%;padding:2px;font-size:0.92em;border-radius:2px;background-color:#FAFAFC;margin-right:10px}
+/* top menu select boxes with only one entry*/
+.menu_single_entry {cursor:default;/*background-color:#b9b5bd;*/color:#111}
+.menu_single_entry:hover {/*background-color:#b9b5bd!important;*/color:#111}
+
+/*////////////////////////////////////////////////////*/
+#outer {/*outer = to stick the footer at the bottom; initial height must be set to stretch the map (height will later be set via set_map_height in cera.js)*/
+	position:relative;/*This fixes the IE7 overflow hidden bug*/overflow:hidden/*This chops off any overhanging divs*/;height:100%}
+
+.disclaimerheader {max-width:450px;text-align:center;font-size:11px} /*do not apply the padding and margin to this wrapper*/
+.disclaimer_content{display: table;background-color:#6FAE90;color:#fff;padding:2px 5px;margin-left:auto;margin-right:auto;min-width:440px;border-bottom-left-radius:3px;border-bottom-right-radius:3px}
+/*content of disclaimerheader/remark via django*/
+.remark_content {display: table;background-color:#fff;border:1px solid #333;border-top:none;color:#333;padding:2px 5px;margin-left:auto;margin-right:auto;max-width:440px}
+.remark_content_pseudo {display: table;background-color:#D9CFB0;color:#333;padding:2px 5px;margin-left:auto;margin-right:auto;max-width:440px;font-size:12px}
+.header-container {border-bottom:1px solid #D0D0D0; height:37px}
+/*also edit .header*/
+.headerlogin {width:105px;height:37px;min-height:37px;z-index:2;float:left;margin-left:12px}
+/*login*/
+.login_button {padding:4px 6px 5px 6px;background-color:#af0f23;margin-right:4px;color:#FFF;font-size:0.9em;text-align:center;text-decoration:none;border:none;outline:0;cursor:pointer;border-radius:3px}
+/*.login a {color:#269f42;margin-left:12px;font-size:0.9em;font-weight:bold;line-height:24px;border:none}*/
+/*.login a:hover {background-color:#850000}*/
+.signup a {color:#111;font-size:0.8em}
+/*logout*/
+.welcome {color:#272;font-size:0.74em;margin-top:5px;font-weight:500}
+.profile {font-size:11px}
+
+.header {margin-left:105px/* same as width of .headerlogin*/;margin-right:240px;/* same as width of #legendheader*/z-index:2;text-align:center;display:none;}
+#legendheader {width:236px;min-height:37px;height:37px;float:right;margin-right:4px}
+#header_layer {display:inline-block;margin-right:3px;color:#2A2D93;font-weight:bold;font-size:0.82em}
+/*.header_layer_hypo {padding-top:13px !important} /*overwrite the padding from #header_layer*/
+#header_time {display:inline-block;font-size:0.81em}
+
+/*////////////////////////////////////////////////////////////////////*/
+.stormheader {font-size:0.82em}
+.red{color:#900;font-weight:bold;font-size:0.97em}
+
+.storm_td,.storm_sd {background-color:#3565FF}
+.storm_ts,.storm_ss {background-color:#5EBBFF}
+.storm_1 {background-color:#FFFFBA}
+.storm_2 {background-color:#FFEC78}
+.storm_3 {background-color:#FF9900}
+.storm_4 {background-color:#FF5000}
+.storm_5 {background-color:#CC0000}
+.storm_pt {background-color:#99CCCC}
+
+/*////////////////////////////////////////////////////////////////////*/
+#print_buttons {position:relative;padding:7px 16px 0 0; cursor:pointer}
+#print_buttons li {list-style-type:none;display:block;width:44px;height:24px;float:right}/* make sure all buttons will be in one single line */
+#print_buttons li a {display:block;float:right;text-decoration:none}
+#print_buttons li a:hover {color: #3499E6}
+
+#print_buttons .help,#print_buttons .pagelink,#print_buttons .download,#print_buttons .settings,#print_buttons .info {width:44px;height:24px}
+
+.form_blue a:hover {color:#34A9E6 !important} /*overwrite '.ui-widget-content a' for all download links (is set to #FFF)*/
+.form_grey {color:#aca9ae !important}
+.form_white {font-size:0.94em;color: #fff !important}
+.settingstxt,.settingstxt a {font-size:0.94em;color:#bcb9be}
+
+/* dialog checkboxes for disclaimer and link form*/
+/*checkboxes*/
+.dialog_checkbox {width:15px;height:15px;float:left;margin:-1px 8px 0 1px}
+/*label*/
+.shorten_checkbox_text {line-height:15px;float:left;font-size:0.95em}
+
+/* disclaimer*/
+.disclaimer {z-index:2000;line-height:1.4em;text-align:justify}
+.disclaimer_checkbox_text {line-height:15px;float:left;font-size:0.82em}
+.disclaimer_cookies_failed {line-height:15px;font-size:0.82em}
+
+/* INFO form*/
+.infotext {color:#34A9E6}
+
+/* LINK form*/
+#long-url {width:317px;height:26px;padding:2px 6px 0 6px;overflow:hidden;margin:5px 0 0 1px;white-space:nowrap;margin-bottom:15px}
+a#btnCopy,a#btnSave {line-height:23px;padding:1px 1em;display:inline-block;position:relative;text-decoration:none !important;cursor:pointer;text-align:center;overflow:visible;background:#E9E6EA;color:#1c94c4;margin-left:1px;border-radius:3px}
+a:hover#btnCopy,a:hover#btnSave {background:#E9E6EA;color:#734d99}
+.success_msg {display:none;font-size:12px;position:absolute;right:14px;margin-top:22px}
+.error_msg {display:none;color:#936db9;font-size:12px;position:absolute;right:14px;margin-top:22px}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*gmail controls*/
+/*.buttons_sprite {background:url(/cera_risk/_images/buttons_sprite.png)}*/
+
+.searchbox_container,.zoomregion_container,.query_container,.fullscreen_container,.zoomin_container,.zoomout_container{margin:10px 0 0 10px;height:31px}
+.searchicon,.regionicon,.queryicon,.queryicon_active,.fullscreenicon,.zoominicon,.zoomouticon,.exitfullscreenicon,.legendicon {width:31px;height:31px;background-color:#fff;border:1px solid #999}
+.searchicon,.regionicon,.queryicon,.queryicon_active,.fullscreenicon,.exitfullscreenicon,.legendicon {border-radius:3px}
+.zoominicon {border-top-left-radius:3px;border-top-right-radius:3px}
+.zoomouticon {border-bottom-left-radius:3px;border-bottom-right-radius:3px}
+
+.searchicon a,.regionicon a,.queryicon a,.fullscreenicon a,.exitfullscreenicon a,.zoominicon a,.zoomouticon a,.queryicon_active a,.legendicon a,
+.searchicon a:hover,.regionicon a:hover,.queryicon a:hover,.fullscreenicon a:hover,.exitfullscreenicon a:hover,.zoominicon a:hover,.zoomouticon a:hover,.legendicon a:hover
+	{display:block;text-decoration:none;text-align:center;line-height:31px}
+.searchicon a,.regionicon a,.queryicon a,.fullscreenicon a,.exitfullscreenicon a,.zoominicon a,.zoomouticon a,.legendicon a {color:#202339}
+.searchicon a:hover,.regionicon a:hover,.queryicon a:hover,.fullscreenicon a:hover,.exitfullscreenicon a:hover,.zoominicon a:hover,.zoomouticon a:hover,.legendicon a:hover {color:#26A3E5;cursor:pointer}
+.searchicon a,.searchicon a:hover,.regionicon a,.regionicon a:hover {font-size:22px}
+
+.searchicon {float: left}
+.searchbox {height:27px;padding:2px 0 2px 0;width:250px;text-align:center;font-size:14px;float:right;display:none;border:1px solid #999;border-left:none}
+.search_input_label {position:fixed;left:39px;height:32px;line-height:32px; font-size:13px;text-align:center;color:#666;width:249px;background-color:transparent}
+
+.zoomregionbox {height:31px;min-width:137px;/*selectbox width 133px (gmaps_controls.js))*/float:right;border:1px solid #999;border-left:none;background-color:#FFF;padding-left:9px;display:none;margin-left:-3px}
+.regionicon a,regionicon a:hover {-webkit-text-stroke: 0.3px white;} /*less heavy*/
+#mapextent-button {height:28px;margin-top:3px;background-color:#FFF!important/*overwrites the ui-selectmenu header*/;border:none}
+#mapextent-button .ui-icon {display:none}
+
+.queryicon,.queryicon_active,.fullscreenicon,.zoominicon,.zoomouticon {position:absolute/*for FF*/}
+.queryicon_active {background-color:#34B1F0}
+.queryicon_active a {color: #fff}
+
+#map.fullscreen {position:fixed!important;top:0;left:0;width:100%!important;height:100%!important;margin:0;padding:0;}
+.fullscreenicon a,.exitfullscreenicon a {font-size:27px}
+.exitfullscreenicon {position:fixed!important;top:10px;left:10px}
+
+.zoomout_container{margin-top:-1px}
+
+.legend_close_div{position:absolute;right:22px!important} /*for FF*/
+.legend_close {width:22px;height:22px;background-color:#fff;position:absolute;cursor:pointer}
+.legend_close a {text-decoration:none;color:#af0f23;position:absolute;top:-4px;left:-4px;font-size:30px}
+.legend_open_div{position:absolute;right:41px!important}
+.legendicon {margin:10px 10px 0 0;float:right;position:absolute/*for FF*/}
+.legendicon:hover {background-position:0 -23px}
+
+/* DOWNLOAD form*/
+.download_arrow {margin-right:8px;line-height:15px;color:#770000;float:left}
+.download_arrow_nodata {height:30px}
+
+.data_copyright {font-size:10px;position:absolute;bottom:0;right:0!important;z-index: 5;/*important*/background-color: #eef;padding:2px 2px 1px 2px;opacity: 0.75;white-space:nowrap;vertical-align:middle}
+
+/*logos for ESTOFS/CFIGS/ASGS runs*/
+.data_copyright a,.data_copyright a:hover {color:#000}
+.maplogo {position: absolute;left:6px;z-index:5;bottom:31px;}
+.map_logo_lsu {width:56px;height:25px;padding:4px 0 0 7px;background-color:#fff;border-radius:3px}
+.map_logo_noaa {margin-bottom:8px;margin-left:7px;width:50px;height: 50px}
+.map_logo_cfigs {margin-bottom:8px;width:63px;height:35px;background-color:#fff;border-radius:3px}
+.map_logo_uttexas {margin-bottom:8px;width:74px;height:24px;padding:5px 0 0 2px;background-color:#fff;border-radius:3px}
+.map_logo_seahorse {margin-bottom:8px;width:63px;height:29px;background-color:#fff;border-radius:3px}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*use the following classes in the django storm header template to avoid funny effects in different browsers*/
+#main {/*main = outer minus footer;used to stick the footer at the bottom; initial height must be set to stretch the map (height will later be set via set_map_height in cera.js)*/
+	position:relative;/*This fixes the IE7 overflow hidden bug*/overflow:hidden/*This chops off any overhanging divs*/;width:100%;height:100%}
+
+/* legend ////////////////////////////////////////////////////////////////////*/
+#legend {position:relative;width:240px;/*right column width with scrollbars and padding*/height:100%;/*relative to #main,to draw the border line of full height and stretch the scrollbars*/
+overflow:auto;overflow-x:hidden;/*autoflow-x and autoflow-y do not work in Mozilla*/margin:0;padding:0;float:right;position:relative;z-index:100;border-bottom:1px solid #D0D0D0;}
+
+/* .auto and .autoimg:position the autoscale img and values correctly otherwise the scrollbar interfers*/
+.auto {position:relative;width:200px;height:262px;margin:10px auto 3px auto} /*center the autoimg*/
+.autobathy {position:relative;width:200px;height:275px;margin:10px auto 3px auto} /*center the autoimg*/
+.autoimg {position:absolute;width:120px;left:50%;margin-left:-60px} /*center the autoimg*/
+.legendvalues_right {position:absolute;right:0;font-size:8pt;color:#FFF;width:64px}
+.legendvalues_left {position:absolute;font-size:8pt;color:#FFF;text-align:right;width:62px}
+.val1,.val2,.val3,.val4,.val5,.val6,.val7,.val8,.val9 {padding-top:12px}
+.val0 {padding-top:15px}
+.font11 {font-size:11px}
+.font12 {font-size:12px}
+
+/*legend - additional styles to jquery Theme Roller*/
+.legend_boundary {background-color:#202339;font-size:0.74em;color:#BCB7BF;padding:8px 5px 10px 10px}
+.legend_track_img {width:164px;height:12px;background-size:164px;background-image: url(../_images/legend_track.svg);margin-top:-2px}
+.legend_desc {color:#BCB7BF;margin-bottom:5px; font-size:11.8px}
+.legend_desc_link a {text-decoration:underline;color:#BCB7BF}
+.legend_desc_link a:hover {color:#34AAE7;text-decoration:none}
+.legend_desc2 {color:#BCB7BF;margin-left:21px;margin-top:-4px;font-size:11.8px}
+.legend_desc3 {color:#BCB7BF;margin:2px 0 4px 0;font-size:11.8px}
+.valid_desc {margin:3px 0 0 2px;color:#FFBB00;font-size:12px}
+.storm_descr {margin-left:22px;margin-top:-4px;color:#BCB7BF;font-size:11.8px}
+/*legend info button*/
+.legend_info {width:20px;height:20px;float:right;margin-top:2px;font-size:20px;color:#bcb9be;cursor:pointer}
+
+/*radio and checkbox buttons div*/
+.radio,.check {line-height:23px;/*font-size:13px*//*set in ui-accordion .content*/}
+.radio input,.check input {position:relative;top:1px}
+.radio label,.check label {margin-left:7px}
+.radio .label_disabled {color:#777;margin-left:22px}
+/*select boxes in legend*/
+.selbox_timestep label {line-height:20px;color:#FFF;margin-left:1px}
+#timesteps_elevshp,#timesteps_inunshp,#timesteps_hsignshp,#timesteps_tpsshp,#timesteps_wvelshp,#timesteps_elev,#timesteps_inun,#timesteps_hsign,#timesteps_tps,#timesteps_wvel,#timesteps_rasdepthdem{margin-top:5px;height:24px}
+#timestep_elevshp-button,#timestep_inunshp-button,#timestep_hsignshp-button,#timestep_tpsshp-button,#timestep_wvelshp-button,#timestep_elev-button,#timestep_inun-button,#timestep_hsign-button,#timestep_shp-button,#timestep_wvel-button,#timestep_prec{width:188px!important;height:24px;border:none/*important-do not remove for correct height*/}
+/*animation button in legend*/
+.animation {position:relative;margin-top:8px;line-height:24px;}
+.animation_text {margin:0;line-height:24px;padding:0 7px 0 22px;border:none!important}
+/*slider*/
+#sliders_elev,#sliders_inun,#sliders_hsign,#sliders_tps,#sliders_wvel,#sliders_elevshp,#sliders_inunshp,#sliders_hsignshp,#sliders_tpsshp,#sliders_wvelshp,#sliders_rasdepthdem {display:none}
+.timestep_sliderbar_text {color:#FFBB00;margin-left:1px;margin-top:3px;margin-bottom:2px}
+.hr {height:0px;width:100%;margin-top:8px;border-bottom:1px solid #BCB7BF;font-size:1px}
+
+/*stationslist for CPRA/CFIGS*/
+.stationlist {font-size:11.8px}
+.stlist_margin {margin:-2px 0 0 21px}
+.stationlist a {color: #42BBE6}
+.stationlist a:hover {color: #249AD7}
+
+/*///////////////////////////////////////////////////////////////////////////////*/
+#map {/*margin-right:225px;/* same as width of #legend*/height:100%;position:relative;z-index:1}
+.barriers {width:15px;height:13px;background-position:-115px -12px}
+.shoreline {width:15px;height:13px;background-position:-143px -28px;position:relative;top:1px}
+.boundary {width:15px;height:13px;background-position:-131px -14px}
+
+/*stations legend*/
+.gauge1,.gauge2,.gauge4,.gauge5,.gauge6,.gauge7,.cpra_symbol {width:13px;height:24px;background-size:13px 24px;margin:3px 8px 0 0;background-repeat:no-repeat;float:left}
+/*.gauge_span {height:35px}*/
+.gauge1 {background-image: url(../_images/station_cyan.svg)} /*cyan*/
+.gauge2 {background-image: url(../_images/station_yellow.svg)} /*yellow,wave stations*/
+.gauge4 {background-image: url(../_images/station_white.svg)} /*now grey*/
+.gauge5 {background-image: url(../_images/station_orange.svg)} /*orange,wind stations*/
+.gauge6 {background-image: url(../_images/station_grey.svg)} /*now blue*/
+.gauge7 {background-image: url(../_images/station_green.svg)} /*green,rapid*/
+.cpra_symbol {background-image: url(../_images/station_trigger_cpra.svg); width:12px;height:12px;background-size:12px 12px} /*red cap for trigger level CPRA*/
+
+/*.levee {width:15px;height:13px;background-position:-109px -35px}
+.nodes_dry {width:16px;height:13px;background-position:-144px 0}
+.nodes_land {width:16px;height:13px;background-position:-112px -26px}
+.nodes_water {width:16px;height:13px;background-position:-175px -27px}*/
+
+/*precimg legend*/
+.precip_coverage {width:16px;height:16px;background-position:0 -48px}
+/*track legend*/
+/*cyan*/
+.track_main {width:15px;height:2px;background-position:-126px -9px;margin-bottom:2px}
+.track_outside {width:24px;height:10px;background-position:-101px 0;margin:4px 5px 0 2px;float:left}
+.trackpt_green {width:24px;height:10px;background-position:-42px 0;margin:4px 5px 0 2px;float:left} /*legend estofs - DB, LOW, EX, REM etc. - green*/
+.trackline {width:162px;height:25px;background-position:-26px -42px}
+
+/*cfigs*/
+.low_risk {width:13px;height:13px;background-position:0 0}
+.medium_risk {width:13px;height:13px;background-position:-14px 0}
+.high_risk {width:13px;height:13px;background-position:-28px 0}
+.rasbasins {width:15px;height:11px;background-position:-115px -12px}
+.rasparish {width:16px;height:13px;background-position:-96px -26px}
+
+/*planning website*/
+.parishes {width:16px;height:13px;background-position:-96px -28px}
+.watint,.water,.transport,.health,.energy,.emergency,.telecom {width:8px;height:8px;margin:0 4px 2px 4px}
+.watint {background-position:-17px -57px}
+.water {background-position:-17px -48px}
+.transport {background-position:-87px -28px}
+.health {background-position:-175px -18px}
+.energy {background-position:-135px 0}
+.emergency {background-position:-126px 0}
+.telecom {background-position:-184px -18px}
+
+/*////////////////////////////////////////////////////////////////////*/
+.footer {width:100%;height:21px;font-size:11px}
+/*#footer {position:relative;padding:4px 0 0 0;max-width:650px;float:right}
+footer li {list-style-type:none;display:inline;/* make sure all buttons will be in one single line *//*}
+#footer li a {background-position:left center;background-repeat:no-repeat;/*display:block;*//*float:right}
+
+/*background-image (footer_header_<asgs>.png) is set in html for dynamic loading (speed up page load)*/
+/*#footer li a.unc,#footer_pub li a.unc {width:73px;height:25px;background-position:-360px -34px;margin:2px 17px 0 0}*/
+/*#footer li a.lsu {width:48px;height:24px;background-size:48px;background-image: url(/cera_risk/_images/logo_lsu.svg);margin:2px 0 0 20px}
+#footer li a.seagrant {width:42px;height:24px;background-size:42px;background-image: url(/cera_risk/_images/logo_seagrant.svg);margin:-2px 0 0 20px;padding-bottom:2px}
+#footer li a.renci {width:47px;height:23px;background-size:47px;background-image: url(/cera_risk/_images/logo_renci.svg);margin:-1px 0 0 18px}
+#footer li a.dhs {width:59px;height:25px;background-size:59px;background-image: url(/cera_risk/_images/logo_dhs.svg);margin:1px 0 0 18px}
+#footer li a.adcirc {width:50px;height:19px;background-size:50px;background-image: url(/cera_risk/_images/logo_adcirc.svg);margin:4px 0 0 17px}
+#footer li a.seahorse {width:60px;height:26px;background-size: 60px;background-image: url(/cera_risk/_images/logo_seahorse.svg);margin:0 0 0 16px}
+#footer li a.tacc {width:68px;height:18px;background-size: 68px;background-image: url(/cera_risk/_images/logo_tacc.svg);margin:4px 0 0 0}
+#footer li a.hpclsu {width:52px;height:22px;background-size: 52px;background-image: url(/cera_risk/_images/logo_hpclsu.svg);margin:2px 1px 0 0}
+#footer li a.loni {width:50px;height:23px;background-size: 50px;background-image: url(/cera_risk/_images/logo_loni.svg);margin:2px 0 0 0}
+#footer li a.erdc {width:45px;height:30px;background-size: 45px;background-image: url(/cera_risk/_images/logo_erdc.svg);margin:-1px -4px 0 0}
+#footer li a.noaa {width: 26px;height:25px;background-size: 26px;background-image: url(/cera_risk/_images/logo_noaa_small.svg);margin: 1px 0 0 0}
+	/*#footer li a.sdmi {width:26px;height:26px;background-position:-113px -33px;margin:-1px 17px 0 0}
+	#footer li a.nsf {width:25px;height: 25px;background-position:-228px -33px;margin: 1px 17px 0 0}*/
+/*#footer li a.cehydro {width:46px;height:26px;background-size: 46px;background-image: url(/cera_risk/_images/logo_cehydro.svg);margin: 1px 0 0 0}
+#footer li a.cpra {width:27px;height:26px;background-size: 27px;background-image: url(/cera_risk/_images/logo_cpra.svg);margin: -1px 0 0 18px}*/
+
+.footer_email {float:right;padding-right:18px;line-height:21px}
+.twitter_button {display:inline-block;width:80px;height:23px}
+.twitter_button a {display:inline-block;width:80px;height:23px;background-size:80px;background-image: url(../_images/logo_twitter.svg);text-decoration:none}
+.twitter_button a:hover {width:80px;height:23px;background-size:80px;background-image: url(../_images/logo_twitter_hover.svg)}
+.twitter_follow {color:#fff;font-size:11px;line-height:22px;margin-left:34px}
+
+/*//////////////////////////////////////////////////////////////////////////*/
+/*track labels*/
+.label5ts, .label5td, .label5h1, .label5h2, .label5h3, .label5h4, .label5h5, .label5rem, .label5nam, .label5namtimestep, .label5out,
+.label6ts, .label6td, .label6h1, .label6h2, .label6h3, .label6h4, .label6h5, .label6rem, .label6nam, .label6namtimestep, .label6out,
+.label8ts, .label8td, .label8h1, .label8h2, .label8h3, .label8h4, .label8h5, .label8rem, .label8nam, .label8namtimestep, .label8out,
+.label10ts, .label10td, .label10h1, .label10h2, .label10h3, .label10h4, .label10h5, .label10rem, .label10nam, .label10namtimestep, .label10out,
+.tooltip_timesteps, /* time tooltips for trackpoints_timesteps*/
+.label5tdcur, .label5tscur, .label5h1cur, .label5h2cur, .label5h3cur, .label5h4cur, .label5h5cur, .label5remcur,
+.label6tdcur, .label6tscur, .label6h1cur, .label6h2cur, .label6h3cur, .label6h4cur, .label6h5cur, .label6remcur,
+.label8tdcur, .label8tscur, .label8h1cur, .label8h2cur, .label8h3cur, .label8h4cur, .label8h5cur, .label8remcur,
+.label10tdcur, .label10tscur, .label10h1cur, .label10h2cur, .label10h3cur, .label10h4cur, .label10h5cur, .label10remcur,
+.label5namcur, .label6namcur, .label8namcur, .label10namcur /*hurr symbol fo NAM runs*/ {color:#111;white-space:nowrap;padding:1px 3px;border-radius:3px;border:1px solid #333}
+/*storm name ESTOFS (track label cur)*/
+.label3tdcurest,.label3tscurest,.label3h1curest,.label3h2curest,.label3h3curest,.label3h4curest,.label3h5curest,.label3remcurest,
+.label5tdcurest,.label5tscurest,.label5h1curest,.label5h2curest,.label5h3curest,.label5h4curest,.label5h5curest,.label5remcurest,
+.label6tdcurest,.label6tscurest,.label6h1curest,.label6h2curest,.label6h3curest,.label6h4curest,.label6h5curest,.label6remcurest,
+.label8tdcurest,.label8tscurest,.label8h1curest,.label8h2curest,.label8h3curest,.label8h4curest,.label8h5curest,.label8remcurest,
+.label10tdcurest,.label10tscurest,.label10h1curest,.label10h2curest,.label10h3curest,.label10h4curest,.label10h5curest,.label10remcurest
+{color: #111;white-space:nowrap;padding:1px 3px;border-radius:3px;border:1px solid #333;font-weight:600}
+
+.label5ts,.label5td,.label5h1,.label5h2,.label5h3,.label5h4,.label5h5,.label5pt,.label5rem,.label5nam,.label5namtimestep,.label5out,.label5tdcur,.label5tscur,.label5h1cur,.label5h2cur,.label5h3cur,.label5h4cur,.label5h5cur,.label5remcur,.label5namcur {font-size:11px}
+.label6ts,.label6td,.label6h1,.label6h2,.label6h3,.label6h4,.label6h5,.label6pt,.label6rem,.label6nam,.label6namtimestep,.label6out,.label6tdcur,.label6tscur,.label6h1cur,.label6h2cur,.label6h3cur,.label6h4cur,.label6h5cur,.label6remcur,.label6namcur {font-size:12px}
+.label8ts,.label8td,.label8h1,.label8h2,.label8h3,.label8h4,.label8h5,.label8pt,.label8rem,.label8nam,.label8namtimestep,.label8out,.label8tdcur,.label8tscur,.label8h1cur,.label8h2cur,.label8h3cur,.label8h4cur,.label8h5cur,.label8remcur,.label8namcur {font-size:13px}
+.label10ts,.label10td,.label10h1,.label10h2,.label10h3,.label10h4,.label10h5,.label10pt,.label10rem,.label10nam,.label10namtimestep,.label10out,.label10tdcur,.label10tscur,.label10h1cur,.label10h2cur,.label10h3cur,.label10h4cur,.label10h5cur,.label10remcur,.label10namcur {font-size:14px}
+.label3tdcurest,.label3tscurest,.label3h1curest,.label3h2curest,.label3h3curest,.label3h4curest,.label3h5curest,.label3remcurest {font-size:11px}
+.label5tdcurest,.label5tscurest,.label5h1curest,.label5h2curest,.label5h3curest,.label5h4curest,.label5h5curest,.label5remcurest {font-size:12px}
+.label6tdcurest,.label6tscurest,.label6h1curest,.label6h2curest,.label6h3curest,.label6h4curest,.label6h5curest,.label6remcurest {font-size:14px}
+.label8tdcurest,.label8tscurest,.label8h1curest,.label8h2curest,.label8h3curest,.label8h4curest,.label8h5curest,.label8remcurest {font-size:16px}
+.label10tdcurest,.label10tscurest,.label10h1curest,.label10h2curest,.label10h3curest,.label10h4curest,.label10h5curest,.label10remcurest {font-size:18px}
+
+.label3td,.label3tdcur,.label3tdcurest,.label5td,.label5tdcur,.label5tdcurest,.label6td,.label6tdcur,.label6tdcurest,.label8td,.label8tdcur,.label8tdcurest,.label10td,.label10tdcur,.label10tdcurest {background-color:#3565FF}
+.label3ts,.label3tscur,.label3tscurest,.label5ts,.label5tscur,.label5tscurest,.label6ts,.label6tscur,.label6tscurest,.label8ts,.label8tscur,.label8tscurest,.label10ts,.label10tscur,.label10tscurest {background-color:#5EBBFF}
+.label3h1,.label3h1cur,.label3h1curest,.label5h1,.label5h1cur,.label5h1curest,.label6h1,.label6h1cur,.label6h1curest,.label8h1,.label8h1cur,.label8h1curest,.label10h1,.label10h1cur,.label10h1curest {background-color:#FFFFBA}
+.label3h2,.label3h2cur,.label3h2curest,.label5h2,.label5h2cur,.label5h2curest,.label6h2,.label6h2cur,.label6h2curest,.label8h2,.label8h2cur,.label8h2curest,.label10h2,.label10h2cur,.label10h2curest {background-color:#FFDD00}
+.label3h3,.label3h3cur,.label3h3curest,.label5h3,.label5h3cur,.label5h3curest,.label6h3,.label6h3cur,.label6h3curest,.label8h3,.label8h3cur,.label8h3curest,.label10h3,.label10h3cur,.label10h3curest {background-color:#FF8800}
+.label3h4,.label3h4cur,.label3h4curest,.label5h4,.label5h4cur,.label5h4curest,.label6h4,.label6h4cur,.label6h4curest,.label8h4,.label8h4cur,.label8h4curest,.label10h4,.label10h4cur,.label10h4curest {background-color:#FF5000}
+.label3h5,.label3h5cur,.label3h5curest,.label5h5,.label5h5cur,.label5h5curest,.label6h5,.label6h5cur,.label6h5curest,.label8h5,.label8h5cur,.label8h5curest,.label10h5,.label10h5cur,.label10h5curest {background-color:#CC0000}
+.label3rem,.label3remcur,.label3remcurest,.label5rem,.label5remcur,.label5remcurest,.label6rem,.label6remcur,.label6remcurest,.label8rem,.label8remcur,.label8remcurest,.label10rem,.label10remcur,.label10remcurest {background-color:#99CCCC}
+/*NAM runs*/
+.label5nam,.label6nam,.label8nam,.label10nam,.label5namcur,.label6namcur,.label8namcur,.label10namcur,
+.label5out,.label6out,.label8out,.label10out {background-color:#FFF}
+.label5namtimestep,.label6namtimestep,.label8namtimestep,.label10namtimestep {background-color:#CCC}
+
+.tooltip_out {background-color: #FFF;color: #909090}
+.label5tdcur,.label5tscur,.label5h1cur,.label5h2cur,.label5h3cur,.label5h4cur,.label5h5cur,.label5remcur,.label5namcur,
+.label6tdcur,.label6tscur,.label6h1cur,.label6h2cur,.label6h3cur,.label6h4cur,.label6h5cur,.label6remcur,.label6namcur,
+.label8tdcur,.label8tscur,.label8h1cur,.label8h2cur,.label8h3cur,.label8h4cur,.label8h5cur,.label8remcur,.label8namcur,
+.label10tdcur,.label10tscur,.label10h1cur,.label10h2cur,.label10h3cur,.label10h4cur,.label10h5cur,.label10remcur,.label10namcur {font-weight:bold;border:2px solid #000}
+
+/*/////////////////////////*/
+/* tooltips for stations and timestep track points*/
+.marker_tooltip {width:auto;white-space:nowrap;border-radius:3px}
+.tooltip_stations {background-color:#FFF;padding:5px 7px 4px 7px;font-size:13px}
+/* trackpoint_toolips (track info); name classes differently for tooltip_invest and tooltip_track to avoid interferences*/
+.cat_track,.cat_invest {line-height:20px;padding-bottom:2px;font-size:14px;font-weight:bold}
+.info_track,.info_invest {height:auto;white-space:nowrap;border:3px solid}
+.content_tooltip {background-color:#FFF;padding:5px;font-size:13px;line-height:20px}
+.info_track {width:auto;line-height:16px}
+.info_invest {width:auto}
+
+/*/////////////////////////*/
+/*invests zoom*/
+.invest5 {font-size:12px;white-space:nowrap;margin-left:-15px}
+.invest6,.invest7 {font-size:16px;white-space:nowrap;margin-left:-20px}
+.invest8,.invest9 {font-size:24px;white-space:nowrap;margin-left:-25px}
+.invest10,.invest11,.invest12,.invest13 {font-size:30px;white-space:nowrap;margin-left:-30px}
+/*invests category*/
+.invest_Low,.invest_Medium,.invest_High{white-space:nowrap;margin-left:-20px;margin-top:-10px}
+.invest_Low {color:#FF0}
+.invest_Medium {color:#F90}
+.invest_High {color:#F00}
+.investBackground_Low {background-color:#FF0}
+.investBackground_Medium {background-color:#F90}
+.investBackground_High {background-color:#F00}
+.investBorder_Low {border-color:#FF0}
+.investBorder_Medium {border-color:#F90}
+.investBorder_High {border-color:#F00}
+
+/*/////////////////////////*/
+/*subtracks label*/
+.subtrack_label5,.subtrack_label6,.subtrack_label8,.subtrack_label10,.subtrack_label12 {line-height: 23px}
+.subtrack_label5 a,.subtrack_label6 a,.subtrack_label8 a,.subtrack_label10 a,.subtrack_label12 a {color:#9FF}
+.subtrack_label5 a:hover,.subtrack_label6 a:hover,.subtrack_label8 a:hover,.subtrack_label10 a:hover,.subtrack_label12 a:hover {color: #FFF;text-decoration: underline}
+.subtrack_label5 {font-size:10pt}
+.subtrack_label6 {font-size:11pt}
+.subtrack_label8 {font-size:12pt}
+.subtrack_label10 {font-size:14pt;line-height:25px}
+.subtrack_label12 {font-size:16pt;line-height:26px}
+
+/*//////////////////////////////////////////////////////////////////////*/
+ /*main fonts*/
+.small {color:#FFF;font-weight:normal}
+.top20 {padding-top:20px}.top15 {padding-top:15px}.top12 {padding-top:12px}.top11 {padding-top:11px}.top10 {padding-top:10px}.top9 {padding-top:9px}.top8 {padding-top:8px}.top7 {padding-top:7px}.top6 {padding-top:6px}.top5 {padding-top:5px}.top4 {padding-top:4px}.top3 {padding-top:3px}.top2 {padding-top:2px}.top1 {padding-top:1px}
+.left1 {padding-left:1px}.left2 {padding-left:2px}.left3 {padding-left:3px}.left4 {padding-left:4px}.left5 {padding-left:5px}.left6 {padding-left:6px}.left7 {padding-left:7px}.left8 {padding-left:8px}.left9 {padding-left:9px}.left10 {padding-left:10px}.left18 {padding-left:18px}.left20 {padding-left:20px}.left21 {padding-left:21px}.left22 {padding-left:22px}.left24 {padding-left:24px}.left26 {padding-left:26px}.left28 {padding-left:28px}
+.right4 {padding-right:4px}.right5 {padding-right:5px}.right6 {padding-right:6px}.right7 {padding-right:7px}.right8 {padding-right:8px}.right9 {padding-right:9px}.right10 {padding-right:10px}.right11 {padding-right:11px}.right13 {padding-right:13px}.right15 {padding-right:15px}.right18 {padding-right:18px}.right19 {padding-right:19px}.right20 {padding-right:20px}.right25 {padding-right:25px}.right26 {padding-right:26px}.right30 {padding-right:30px}
+.bottom2 {padding-bottom:2px}.bottom3 {padding-bottom:3px}.bottom4 {padding-bottom:4px}.bottom5 {padding-bottom:5px}.bottom6 {padding-bottom:6px}.bottom7 {padding-bottom:7px}.bottom8 {padding-bottom:8px}.bottom9 {padding-bottom:9px}.bottom10 {padding-bottom:10px}.bottom12 {padding-bottom:12px}.bottom14 {padding-bottom:14px}.bottom16 {padding-bottom:16px}.bottom18 {padding-bottom:18px}.bottom20 {padding-bottom:20px}
+.margintop0 {margin-top:0px}.margintop2 {margin-top:2px}.margintop4 {margin-top:4px}.margintop5 {margin-top:5px}.margintop6 {margin-top:6px}.margintop8 {margin-top:8px}
+.marginleft1 {margin-left:1px}.marginleft2 {margin-left:2px}.marginleft3 {margin-left:3px}.marginleft5 {margin-left:5px}.marginleft6 {margin-left:6px}.marginleft9 {margin-left:9px}.marginleft10 {margin-left:10px}.marginleft22 {margin-left:22px}
+
+/* qTip2 v2.2.0 basic css3 | qtip2.com | Licensed MIT,GPL | Thu Nov 21 2013 20:35:00 */
+.qtip{position:absolute;left:-28000px;top:-28000px;display:none;max-width:270px;min-width:50px;font-size:0.73em;font-weight:600;direction:ltr;box-shadow:none;padding:0;z-index:15000;}
+.qtip-content{position:relative;padding:7px 8px;overflow:hidden;text-align:left;word-wrap:break-word;line-height:1.3em}
+.qtip-default{border-width:0px;border-style:solid;border-color:transparent;border-radius:3px;background-color:#af0f23;color:#fff;font-weight:normal;font-family:Arial,Helvetica,sans-serif;font-size:0.72em}
+.qtip-disclaimer{border-width:1px;border-style:solid;border-color:#C0C0C0;background-color:#FFF;color:#444; min-width:250px; max-width:400px; font-weight:normal;font-size:0.80em; }
+.qtip:not(.ie9haxors) div.qtip-content,.qtip:not(.ie9haxors) div.qtip-titlebar{filter:none;-ms-filter:none}
+.qtip .qtip-tip{margin:0 auto;overflow:hidden;z-index:10}
+x:-o-prefocus,.qtip .qtip-tip{visibility:hidden}
+.qtip .qtip-tip,.qtip .qtip-tip .qtip-vml,.qtip .qtip-tip canvas{position:absolute;color:#123456;background:transparent;border:0 dashed transparent}
+.qtip .qtip-tip canvas{top:0;left:0}
+.qtip .qtip-tip .qtip-vml{behavior:url(#default#VML);display:inline-block;visibility:visible}
+#qtip-overlay{position:fixed;left:0;top:0;width:100%;height:100%}
+#qtip-overlay.blurs{cursor:pointer}
+#qtip-overlay div{position:absolute;left:0;top:0;width:100%;height:100%;background-color:#000;opacity:.7;filter:alpha(opacity=70);-ms-filter:"alpha(Opacity=70)"}
+.qtipmodal-ie6fix{position:absolute!important}
+
+/* replace jquery close button for dialogs (icon is also used for legend)*/
+.ui-icon.form_close {width:20px;height:20px;background-size:20px;background-image: url(../_images/form_close.svg);position:relative;top:-3px}
+.ui-dialog-titlebar-close .ui-button-text{display:none} /*hide the 'Close' text on the close button*/
+
+/*.ui-dialog .ui-dialog-titlebar-close {width:10px; height:10px} /*for Safari*/
+/*infowindows query/hydro*/
+.js-info-bubble-close {width:22px;height:22px;background-size:22px;background-color:#fff;background-image: url(../_images/form_close.svg);margin-top:6px;margin-right:6px}
+.arrowInner{border-right-width:10px!important;border-left-width:10px!important;margin-left:-10px!important}
+.arrowOuter{border-right-width:11px!important;border-left-width:11px!important;margin-left:-11px!important;border-top-color:#909090!important;z-index:-1}
+
+

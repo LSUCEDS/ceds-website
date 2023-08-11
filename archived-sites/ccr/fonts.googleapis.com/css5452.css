@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Rokkitt';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts.gstatic.com/s/rokkitt/v34/qFdb35qfgYFjGy5hukqqhw5XeRgdi1ryd6DMGbo.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rokkitt';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts.gstatic.com/s/rokkitt/v34/qFdb35qfgYFjGy5hukqqhw5XeRgdi1oVcKDMGbo.ttf) format('truetype');
+}

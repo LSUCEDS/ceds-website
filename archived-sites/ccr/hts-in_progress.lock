@@ -1,0 +1,7 @@
+Mirror in progress since Wed, 10 May 2023 09:54:55 .. please wait!
+winhttrack https://www.lsu.edu/ccr/ -O "/Users/austinfranklin/Desktop/ccr/ccr" -Y -%v 
+To pause the engine: create an empty file named 'hts-stop.lock'
+PID=58601
+UID=501
+GID=501
+START=1683730495
