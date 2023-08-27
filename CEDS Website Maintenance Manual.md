@@ -19,7 +19,7 @@ Other pages, such as the people page will need to be updated less frequently whe
 
 # Table of Contents
   - [Omni Overview](#omni-overview)
-    - [Navigating the Directoy](#navigating-the-directory)
+    - [Navigating the Directory](#navigating-the-directory)
     - [Navigating the Index File](#navigating-the-index-file)
     - [Checking In and Out Pages](#checking-in-and-out-pages)
   - [Editing Pages](#editing-pages)
